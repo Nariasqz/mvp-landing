@@ -1,0 +1,2037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MVP — Most Valuable Partner</title>
+<meta name="description" content="An iPhone app that helps men show up for their partners in a meaningful way. Phase-aware daily moves, every morning.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1B2A4A;
+  --navy-mid: #243358;
+  --gold: #C8A24B;
+  --gold-dark: #A88432;
+  --cream: #EAE6DE;
+  --cream-light: #F5F2EC;
+  --terra: #C4614A;
+  --blush: #E8A598;
+  --white: #FFFFFF;
+  --text: #1B2A4A;
+  --text-mid: #4A5A78;
+  --text-light: #8A96A8;
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text);
+  background: var(--cream-light);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 68px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.nav-logo svg { width: 36px; height: 42px; }
+
+.nav-logo-text { line-height: 1.1; }
+.nav-logo-text .logo-main { font-size: 18px; font-weight: 800; color: #fff; letter-spacing: 0.5px; }
+.nav-logo-text .logo-sub { font-size: 9px; font-weight: 500; color: rgba(255,255,255,0.5); letter-spacing: 1.5px; text-transform: uppercase; }
+
+.nav-btn {
+  background: var(--gold);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 22px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.nav-btn:hover { background: var(--gold-dark); }
+
+@media (max-width: 600px) {
+  nav { padding: 0 20px; }
+  .nav-logo-text .logo-sub { display: none; }
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--navy);
+  text-align: center;
+  padding: 80px 24px 0;
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-size: clamp(52px, 8vw, 88px);
+  font-weight: 900;
+  line-height: 1.0;
+  color: #fff;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+}
+
+.hero h1 .gold { color: var(--gold); }
+
+.hero-sub {
+  font-size: clamp(18px, 2.5vw, 22px);
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 16px;
+}
+
+.hero-body {
+  font-size: clamp(15px, 1.8vw, 17px);
+  color: rgba(255,255,255,0.65);
+  max-width: 560px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 16px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  margin-bottom: 48px;
+  transition: background 0.15s;
+}
+.hero-cta:hover { background: var(--gold-dark); }
+.hero-cta svg { width: 18px; height: 18px; }
+
+/* Phone toggle */
+.phone-toggle {
+  display: inline-flex;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50px;
+  padding: 4px;
+  margin-bottom: 48px;
+  gap: 4px;
+}
+
+.toggle-btn {
+  padding: 10px 24px;
+  border-radius: 50px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: transparent;
+  color: rgba(255,255,255,0.6);
+}
+
+.toggle-btn.active-his {
+  background: #fff;
+  color: var(--navy);
+}
+
+.toggle-btn.active-her {
+  background: var(--blush);
+  color: #fff;
+}
+
+/* Phone mockups */
+.phones-wrapper {
+  position: relative;
+  height: 520px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.phone {
+  position: absolute;
+  width: 240px;
+  border-radius: 36px;
+  background: #fff;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(.4,0,.2,1), z-index 0s 0.1s, opacity 0.35s;
+  border: 2px solid rgba(255,255,255,0.15);
+}
+
+.phone-notch {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 24px;
+  background: #000;
+  border-radius: 12px;
+  z-index: 10;
+}
+
+.phone-time {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 14px 18px 4px;
+  text-align: left;
+}
+
+.phone-dots {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  display: flex;
+  gap: 3px;
+}
+.phone-dots span { width: 4px; height: 4px; background: var(--text-light); border-radius: 50%; }
+
+/* HIS phone */
+.phone-his {
+  transform: translateX(-80px) translateY(40px) rotate(-3deg);
+  z-index: 1;
+}
+
+.phone-his.active {
+  transform: translateX(-40px) translateY(0px) rotate(-1deg);
+  z-index: 3;
+}
+
+/* HER phone */
+.phone-her {
+  transform: translateX(80px) translateY(40px) rotate(3deg);
+  z-index: 1;
+}
+
+.phone-her.active {
+  transform: translateX(40px) translateY(0px) rotate(1deg);
+  z-index: 3;
+}
+
+.phone-screen-inner {
+  padding: 0;
+  height: 480px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HIS screen */
+.his-screen {
+  background: #F8F8FA;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.his-header {
+  padding: 48px 18px 12px;
+  text-align: center;
+}
+
+.his-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.his-greeting {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.move-card-phone {
+  margin: 8px 12px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 2px 12px rgba(27,42,74,0.08);
+  flex: 1;
+}
+
+.move-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.phase-badge-small {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--text-light);
+  text-transform: uppercase;
+}
+
+.day-badge-small {
+  font-size: 9px;
+  color: var(--text-light);
+}
+
+.what-label {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.what-text {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.what-sub {
+  font-size: 10px;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+
+.why-label {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.why-text {
+  font-size: 10px;
+  color: var(--text-mid);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.tier-row { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; }
+.tier-label { font-size: 8px; font-weight: 600; color: var(--text-light); }
+.tier-pill {
+  font-size: 9px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: #FDDEE0;
+  color: #C4614A;
+}
+.tier-pill.low { background: #E8F5E9; color: #2E7D32; }
+
+.mark-done-btn {
+  width: 100%;
+  background: var(--gold);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.streak-row {
+  text-align: center;
+  padding: 10px 12px 6px;
+}
+
+.streak-icon {
+  width: 28px;
+  height: 28px;
+  margin: 0 auto 2px;
+}
+
+.streak-label {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.streak-text {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.phone-tab-bar {
+  border-top: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  padding: 8px 0 12px;
+  background: #fff;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  font-size: 9px;
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.tab-item.active { color: var(--gold); }
+
+.tab-icon { width: 16px; height: 16px; }
+
+/* HER screen */
+.her-screen {
+  background: #FAF7F5;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.her-header {
+  background: #FAF7F5;
+  padding: 48px 18px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.her-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.her-greeting {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.her-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--blush);
+  opacity: 0.4;
+}
+
+.fc-card {
+  margin: 0 12px 8px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.fc-label {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.fc-state {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+
+.fc-tap { font-size: 9px; color: var(--text-light); margin-bottom: 8px; }
+
+.fc-weather-row {
+  display: flex;
+  gap: 6px;
+}
+
+.fc-weather-item {
+  flex: 1;
+  text-align: center;
+  padding: 6px 4px;
+  border-radius: 8px;
+  font-size: 8px;
+  color: var(--text-light);
+  border: 1.5px solid transparent;
+}
+
+.fc-weather-item.selected {
+  border-color: var(--navy);
+  background: rgba(27,42,74,0.05);
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.fc-weather-emoji { font-size: 14px; display: block; margin-bottom: 2px; }
+
+.phase-card-her {
+  margin: 0 12px 8px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.you-are-in {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.phase-name-her {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.phase-day-her {
+  font-size: 9px;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+
+.phase-ring {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 8px;
+  position: relative;
+}
+
+.phase-ring svg { width: 100%; height: 100%; }
+
+.ring-pct {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.her-insight-card {
+  margin: 0 12px 8px;
+  background: #FDF0EE;
+  border-radius: 14px;
+  padding: 10px 14px;
+}
+
+.insight-label {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--terra);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.insight-text {
+  font-size: 10px;
+  color: var(--navy);
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.insight-link {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--terra);
+  text-decoration: none;
+}
+
+/* ── SECTIONS ── */
+section { position: relative; }
+
+.section-cream { background: var(--cream-light); }
+.section-cream-alt { background: var(--cream); }
+.section-navy { background: var(--navy); }
+
+/* ── PROBLEM ── */
+.problem {
+  background: var(--cream-light);
+  padding: 100px 40px;
+}
+
+.problem h2 {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.1;
+  max-width: 640px;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.problem-body {
+  font-size: 17px;
+  color: var(--text-mid);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 72px;
+}
+
+.gaps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  max-width: 960px;
+}
+
+@media (max-width: 768px) {
+  .gaps { grid-template-columns: 1fr; gap: 32px; }
+  .problem { padding: 60px 24px; }
+}
+
+.gap-num {
+  font-size: 72px;
+  font-weight: 900;
+  color: rgba(27,42,74,0.08);
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -3px;
+}
+
+.gap-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.gap-body {
+  font-size: 15px;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+
+/* ── HOW IT WORKS ── */
+.how {
+  background: var(--navy);
+  padding: 100px 40px;
+}
+
+.how h2 {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  color: #fff;
+  text-align: center;
+  letter-spacing: -1px;
+  margin-bottom: 72px;
+}
+
+.how-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .how-layout { grid-template-columns: 1fr; }
+  .how { padding: 60px 24px; }
+}
+
+.steps { display: flex; flex-direction: column; gap: 0; }
+
+.step {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 36px;
+  position: relative;
+}
+
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 44px;
+  bottom: 0;
+  width: 2px;
+  background: rgba(200,162,75,0.25);
+}
+
+.step-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid rgba(200,162,75,0.5);
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.step-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--gold);
+  margin-bottom: 6px;
+  margin-top: 8px;
+}
+
+.step-body {
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+}
+
+.move-card-demo {
+  background: #f0f2f5;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+}
+
+.demo-phase-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.demo-phase {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--text-light);
+  text-transform: uppercase;
+}
+
+.demo-day {
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+.demo-what-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.demo-what {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.demo-what-sub {
+  font-size: 13px;
+  color: var(--text-mid);
+  margin-bottom: 16px;
+}
+
+.demo-why-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.demo-why {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.demo-tier-row { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+.demo-tier-label { font-size: 11px; font-weight: 600; color: var(--text-light); }
+.demo-tier-pill {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 12px;
+  border-radius: 20px;
+  background: #FDDEE0;
+  color: #C4614A;
+}
+.demo-tier-pill.low { background: #E8F5E9; color: #2E7D32; }
+
+.demo-btn {
+  width: 100%;
+  background: var(--gold);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 14px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* ── FEATURES ── */
+.feature-block {
+  padding: 80px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.feature-block.reverse { direction: rtl; }
+.feature-block.reverse > * { direction: ltr; }
+
+@media (max-width: 768px) {
+  .feature-block { grid-template-columns: 1fr; gap: 40px; direction: ltr; padding: 60px 24px; }
+  .feature-block.reverse { direction: ltr; }
+}
+
+.feature-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin-bottom: 12px;
+}
+
+.feature-block.navy-bg .feature-section-label { color: var(--gold); }
+
+.feature-title {
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.feature-body {
+  font-size: 16px;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+
+/* Feature card mockups */
+.feature-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 8px 40px rgba(27,42,74,0.1);
+}
+
+.fc-demo-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+
+.fc-demo-state {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.fc-demo-sub { font-size: 12px; color: var(--text-light); margin-bottom: 16px; }
+
+.fc-demo-row {
+  display: flex;
+  gap: 10px;
+}
+
+.fc-demo-item {
+  flex: 1;
+  text-align: center;
+  padding: 12px 8px;
+  border-radius: 12px;
+  border: 1.5px solid transparent;
+  background: #F7F8FA;
+  cursor: default;
+  transition: all 0.15s;
+}
+
+.fc-demo-item.selected {
+  border-color: var(--navy);
+  background: rgba(27,42,74,0.05);
+}
+
+.fc-demo-emoji { font-size: 22px; margin-bottom: 4px; }
+.fc-demo-name { font-size: 11px; font-weight: 600; color: var(--text-mid); }
+.fc-demo-item.selected .fc-demo-name { color: var(--navy); }
+
+.move-demo-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 8px 40px rgba(27,42,74,0.1);
+}
+
+.her-demo-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 8px 40px rgba(27,42,74,0.1);
+}
+
+.her-demo-greeting {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+
+.her-demo-row {
+  background: #F7F8FA;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+
+.her-demo-you-in {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 4px;
+}
+
+.her-demo-phase {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.her-demo-day { font-size: 11px; color: var(--text-light); }
+
+.her-demo-fc-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 4px;
+}
+
+.her-demo-fc-val {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* ── PHASES ── */
+.phases {
+  background: var(--navy);
+  padding: 100px 40px;
+  text-align: center;
+}
+
+.phases h2 {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -1px;
+  margin-bottom: 48px;
+}
+
+.phase-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.phase-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 1.5px solid rgba(255,255,255,0.15);
+  background: transparent;
+  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+
+.phase-tab:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); }
+
+.phase-tab.active {
+  background: #fff;
+  border-color: #fff;
+  color: var(--navy);
+}
+
+.phase-content {
+  display: none;
+  background: rgba(255,255,255,0.06);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.phase-content.active { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+
+@media (max-width: 640px) {
+  .phase-content.active { grid-template-columns: 1fr; }
+  .phases { padding: 60px 20px; }
+}
+
+.phase-content-emoji {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.phase-content-name {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.phase-content-days {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 16px;
+}
+
+.phase-content-tagline {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+.phase-for-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 6px;
+}
+
+.phase-for-text {
+  font-size: 15px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.moves-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.move-pill {
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.move-pill::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.phases-footnote {
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+  margin-top: 32px;
+  text-align: center;
+}
+
+/* ── PRICING ── */
+.pricing {
+  background: var(--cream-light);
+  padding: 100px 40px;
+  text-align: center;
+}
+
+.pricing h2 {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  color: var(--navy);
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+
+.pricing-sub {
+  font-size: 17px;
+  color: var(--text-mid);
+  margin-bottom: 64px;
+}
+
+.pricing-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .pricing-cards { grid-template-columns: 1fr; }
+  .pricing { padding: 60px 24px; }
+}
+
+.price-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px;
+  text-align: left;
+  box-shadow: 0 4px 24px rgba(27,42,74,0.08);
+}
+
+.price-card.featured {
+  background: var(--navy);
+}
+
+.price-tier {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+
+.price-card.featured .price-tier { color: var(--gold); }
+
+.price-amount {
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--navy);
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.price-card.featured .price-amount { color: #fff; }
+
+.price-amount span {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.price-couples {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.price-couples-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 20px;
+}
+
+.price-desc {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 24px;
+}
+
+.price-divider {
+  height: 1px;
+  background: rgba(0,0,0,0.06);
+  margin-bottom: 20px;
+}
+
+.price-card.featured .price-divider { background: rgba(255,255,255,0.1); }
+
+.price-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-mid);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.price-card.featured .price-feature { color: rgba(255,255,255,0.8); }
+
+.check {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.price-btn {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: 24px;
+  transition: all 0.15s;
+}
+
+.price-btn-outline {
+  border: 2px solid var(--navy);
+  color: var(--navy);
+  background: transparent;
+}
+.price-btn-outline:hover { background: var(--navy); color: #fff; }
+
+.price-btn-gold {
+  background: var(--gold);
+  color: #fff;
+}
+.price-btn-gold:hover { background: var(--gold-dark); }
+
+.pricing-footnote {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* ── FAQ ── */
+.faq {
+  background: var(--cream-light);
+  padding: 100px 40px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) { .faq { padding: 60px 24px; } }
+
+.faq-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.faq h2 {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  color: var(--navy);
+  text-align: center;
+  letter-spacing: -1px;
+  margin-bottom: 56px;
+}
+
+.faq-item {
+  border-top: 1px solid rgba(27,42,74,0.1);
+  padding: 20px 0;
+}
+
+.faq-item:last-child { border-bottom: 1px solid rgba(27,42,74,0.1); }
+
+.faq-q {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.faq-plus {
+  color: var(--gold);
+  font-size: 22px;
+  font-weight: 300;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+  line-height: 1;
+}
+
+.faq-item.open .faq-plus { transform: rotate(45deg); }
+
+.faq-a {
+  display: none;
+  font-size: 15px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  padding-top: 14px;
+}
+
+.faq-item.open .faq-a { display: block; }
+
+/* ── FINAL CTA ── */
+.final-cta {
+  background: var(--navy);
+  text-align: center;
+  padding: 100px 40px;
+}
+
+.final-cta h2 {
+  font-size: clamp(48px, 8vw, 88px);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -3px;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.final-cta h2 .gold { color: var(--gold); }
+
+.final-cta p {
+  font-size: 18px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 36px;
+}
+
+.final-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 16px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: background 0.15s;
+}
+.final-cta-btn:hover { background: var(--gold-dark); }
+
+.final-cta-footnote {
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 28px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 640px) { footer { padding: 24px 20px; } }
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.footer-logo svg { width: 24px; height: 28px; }
+
+.footer-logo-text {
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.7);
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  text-align: center;
+  flex: 1;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+/* ── UTILITIES ── */
+.container { max-width: 1100px; margin: 0 auto; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M60 6 C 78 12, 98 14, 112 14 L112 60 C112 96, 92 122, 60 134 C28 122, 8 96, 8 60 L8 14 C 22 14, 42 12, 60 6 Z" fill="#0E2348"/>
+      <path d="M60 14 C 76 19, 92 21, 104 21 L104 60 C104 92, 87 115, 60 126 C33 115, 16 92, 16 60 L16 21 C 28 21, 44 19, 60 14 Z" fill="none" stroke="#C8A24B" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M60 92 C 38 78, 28 62, 32 50 C 36 40, 50 40, 60 54 C 70 40, 84 40, 88 50 C 92 62, 82 78, 60 92 Z" fill="#C8A24B"/>
+    </svg>
+    <div class="nav-logo-text">
+      <div class="logo-main">MVP</div>
+      <div class="logo-sub">Most Valuable Partner</div>
+    </div>
+  </a>
+  <a href="#download" class="nav-btn">Download Free</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Both in.<br>Both <span class="gold">better.</span></h1>
+  <p class="hero-sub">She's not a mystery. You're just missing context.</p>
+  <p class="hero-body">If things feel off — less connection, less intimacy, your partner not quite seeming like herself — there's usually a reason. MVP gives you the context and tells you what to do about it. Today.</p>
+  <a href="#download" class="hero-cta">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    Download on the App Store
+  </a>
+
+  <div>
+    <div class="phone-toggle">
+      <button class="toggle-btn active-his" id="btn-his" onclick="setActive('his')">His side</button>
+      <button class="toggle-btn" id="btn-her" onclick="setActive('her')">Her side</button>
+    </div>
+  </div>
+
+  <div class="phones-wrapper">
+    <!-- HIS phone -->
+    <div class="phone phone-his active" id="phone-his" onclick="setActive('his')">
+      <div class="phone-notch"></div>
+      <div class="phone-screen-inner">
+        <div class="his-screen">
+          <div class="phone-time">9:41</div>
+          <div class="his-header">
+            <div class="his-label">HIS</div>
+            <div class="his-greeting">Good morning, Doug.</div>
+          </div>
+          <div class="move-card-phone">
+            <div class="move-card-top">
+              <span class="phase-badge-small">LATE LUTEAL</span>
+              <span class="day-badge-small">Day 24</span>
+            </div>
+            <div class="what-label">WHAT</div>
+            <div class="what-text">Clean the kitchen. Tidy the common areas. Take out the trash.</div>
+            <div class="what-sub">Don't announce it expecting credit. Just do it.</div>
+            <div class="why-label">WHY</div>
+            <div class="why-text">Environmental disorder feels more irritating in luteal. A clean space helps her regulate — it's not aesthetics, it's nervous system input.</div>
+            <div class="tier-row">
+              <span class="tier-label">TIER</span>
+              <span class="tier-pill">Free</span>
+            </div>
+            <div class="mark-done-btn">Mark as done</div>
+          </div>
+          <div class="streak-row">
+            <div class="streak-label">3 DAY STREAK</div>
+            <div class="streak-text">You're the MVP!</div>
+          </div>
+        </div>
+        <div class="phone-tab-bar">
+          <div class="tab-item active">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+            Today
+          </div>
+          <div class="tab-item">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            Learn
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HER phone -->
+    <div class="phone phone-her" id="phone-her" onclick="setActive('her')">
+      <div class="phone-notch"></div>
+      <div class="phone-screen-inner">
+        <div class="her-screen">
+          <div class="phone-time">9:41</div>
+          <div class="her-header">
+            <div>
+              <div class="her-label">HER</div>
+              <div class="her-greeting">Good morning, Sarah</div>
+            </div>
+            <div class="her-dot"></div>
+          </div>
+          <div class="fc-card">
+            <div class="fc-label">TODAY'S FIELD CONDITION</div>
+            <div class="fc-state">Partly Cloudy</div>
+            <div class="fc-tap">Tap to update</div>
+            <div class="fc-weather-row">
+              <div class="fc-weather-item">
+                <span class="fc-weather-emoji">☀️</span>Sunny
+              </div>
+              <div class="fc-weather-item selected">
+                <span class="fc-weather-emoji">⛅</span>Partly
+              </div>
+              <div class="fc-weather-item">
+                <span class="fc-weather-emoji">⛈️</span>Stormy
+              </div>
+            </div>
+          </div>
+          <div class="phase-card-her">
+            <div class="you-are-in">YOU'RE IN</div>
+            <div class="phase-name-her">Luteal Phase</div>
+            <div class="phase-day-her">Day 21 of 28</div>
+            <div class="phase-ring">
+              <svg viewBox="0 0 56 56">
+                <circle cx="28" cy="28" r="22" fill="none" stroke="#EAE6DE" stroke-width="5"/>
+                <circle cx="28" cy="28" r="22" fill="none" stroke="#C4614A" stroke-width="5" stroke-dasharray="138 42" stroke-dashoffset="34.5" stroke-linecap="round" transform="rotate(-90 28 28)"/>
+              </svg>
+              <div class="ring-pct">75%</div>
+            </div>
+          </div>
+          <div class="her-insight-card">
+            <div class="insight-label">WHAT THIS MEANS FOR YOU</div>
+            <div class="insight-text">Your progesterone is dropping this week. Emotional load can feel heavier than usual. That's not you — that's biology.</div>
+            <a href="#" class="insight-link">Learn more →</a>
+          </div>
+        </div>
+        <div class="phone-tab-bar">
+          <div class="tab-item active">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"/></svg>
+            Today
+          </div>
+          <div class="tab-item">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Cycle
+          </div>
+          <div class="tab-item">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Profile
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <h2>She's not the problem.<br>You just don't have<br>the information.</h2>
+  <p class="problem-body">Most partners want to show up well, but they're navigating in the dark. We blame our relationships or ourselves for shifts in mood, energy, and intimacy when the real driver is entirely biological.</p>
+  <div class="gaps">
+    <div>
+      <div class="gap-num">1</div>
+      <div class="gap-title">The Biology Gap</div>
+      <div class="gap-body">Her mood, energy, and needs shift across her cycle and across her life. That's not a personality — it's a pattern. You can learn it.</div>
+    </div>
+    <div>
+      <div class="gap-num">2</div>
+      <div class="gap-title">The Timing Gap</div>
+      <div class="gap-body">What works in week two bombs in week four. Generic relationship advice ignores where she actually is right now.</div>
+    </div>
+    <div>
+      <div class="gap-num">3</div>
+      <div class="gap-title">The Delivery Gap</div>
+      <div class="gap-body">Knowing isn't enough. You need a specific action, the right timing, and the reason it matters. That's what MVP gives you.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <h2>From guesswork to guidance<br>in three steps.</h2>
+  <div class="how-layout">
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div>
+          <div class="step-title">He gets a move every morning.</div>
+          <div class="step-body">A push notification delivers one specific action: what to do, why it works right now, and what it costs. He picks the tier that fits.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div>
+          <div class="step-title">She logs once. He benefits every day.</div>
+          <div class="step-body">One period start date gives him a full cycle of phase-aware guidance. She can also set Field Conditions — one tap, no explanation needed.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div>
+          <div class="step-title">The loop closes.</div>
+          <div class="step-body">A simple yes/no from her. Over time, MVP learns what actually lands for their relationship.</div>
+        </div>
+      </div>
+    </div>
+    <div class="move-card-demo">
+      <div class="demo-phase-row">
+        <span class="demo-phase">LATE LUTEAL</span>
+        <span class="demo-day">Day 24</span>
+      </div>
+      <div class="demo-what-label">WHAT</div>
+      <div class="demo-what">Pick up dinner on the way home.</div>
+      <div class="demo-what-sub">Don't ask what she wants — just bring her favorite.</div>
+      <div class="demo-why-label">WHY</div>
+      <div class="demo-why">Decision fatigue is real in late luteal. One less thing to figure out is a genuine gift right now.</div>
+      <div class="demo-tier-row">
+        <span class="demo-tier-label">TIER</span>
+        <span class="demo-tier-pill low">Low-cost</span>
+      </div>
+      <div class="demo-btn">Mark as done</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<div style="background: var(--cream-light);">
+
+  <!-- Field Conditions -->
+  <div style="padding: 80px 40px; max-width: 1100px; margin: 0 auto;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+      <div>
+        <div class="feature-section-label">A. Field Conditions</div>
+        <h3 class="feature-title">She sets the weather.<br>He reads the forecast.</h3>
+        <p class="feature-body">One tap: Sunny, Partly Cloudy, or Stormy. No explanation needed. No emotional labor for her. He just knows.</p>
+      </div>
+      <div class="feature-card">
+        <div class="fc-demo-label">TODAY'S FIELD CONDITION</div>
+        <div class="fc-demo-state">Partly Cloudy</div>
+        <div class="fc-demo-sub">Tap to update</div>
+        <div class="fc-demo-row">
+          <div class="fc-demo-item">
+            <div class="fc-demo-emoji">☀️</div>
+            <div class="fc-demo-name">Sunny</div>
+          </div>
+          <div class="fc-demo-item selected">
+            <div class="fc-demo-emoji">⛅</div>
+            <div class="fc-demo-name">Partly</div>
+          </div>
+          <div class="fc-demo-item">
+            <div class="fc-demo-emoji">⛈️</div>
+            <div class="fc-demo-name">Stormy</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Daily Moves -->
+  <div style="background: rgba(27,42,74,0.04); padding: 80px 40px;">
+    <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+      <div class="move-demo-card">
+        <div style="display:flex; justify-content:space-between; margin-bottom:12px;">
+          <span style="font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-light);">FOLLICULAR</span>
+          <span style="font-size:11px; color:var(--text-light);">Day 8</span>
+        </div>
+        <div style="font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); margin-bottom:6px;">WHAT</div>
+        <div style="font-size:20px; font-weight:800; color:var(--navy); margin-bottom:6px;">Kiss her neck tonight.</div>
+        <div style="font-size:14px; color:var(--text-mid); margin-bottom:16px;">Not as a lead-in. Just because.</div>
+        <div style="font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); margin-bottom:6px;">WHY</div>
+        <div style="font-size:14px; color:var(--text-mid); line-height:1.6; margin-bottom:16px;">Estrogen is rising. She's coming back online. Small physical moments land bigger than you think right now.</div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:11px; font-weight:600; color:var(--text-light);">TIER</span>
+          <span style="font-size:11px; font-weight:600; padding:3px 12px; border-radius:20px; background:#E8F5E9; color:#2E7D32;">Free</span>
+        </div>
+      </div>
+      <div>
+        <div class="feature-section-label">B. Daily Moves</div>
+        <h3 class="feature-title">The right move, at the right time, with the reason why.</h3>
+        <p class="feature-body">WHAT to do. WHY it works right now, given where she is in her cycle or her life. TIER so he picks what fits his budget and energy.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Her Side -->
+  <div style="padding: 80px 40px; max-width: 1100px; margin: 0 auto;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+      <div>
+        <div class="feature-section-label">C. Her Side</div>
+        <h3 class="feature-title">She logs once.<br>That's it.</h3>
+        <p class="feature-body">Manual period entry, Field Conditions tap, phase visibility. No tracking app she has to maintain for someone else's benefit.</p>
+      </div>
+      <div class="her-demo-card">
+        <div class="her-demo-greeting">Good morning, Sarah</div>
+        <div class="her-demo-row">
+          <div class="her-demo-you-in">YOU'RE IN</div>
+          <div class="her-demo-phase">Follicular Phase</div>
+          <div class="her-demo-day">Day 6 of 28</div>
+        </div>
+        <div class="her-demo-row" style="margin-bottom:0;">
+          <div class="her-demo-fc-label">TODAY'S FIELD CONDITION</div>
+          <div class="her-demo-fc-val">☀️ Sunny</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- PHASES -->
+<section class="phases">
+  <h2>Understand the rhythm.<br>Support every phase.</h2>
+
+  <div class="phase-tabs">
+    <button class="phase-tab active" onclick="setPhase('menstrual')">🩸 Menstrual</button>
+    <button class="phase-tab" onclick="setPhase('follicular')">🌱 Follicular</button>
+    <button class="phase-tab" onclick="setPhase('ovulatory')">✨ Ovulatory</button>
+    <button class="phase-tab" onclick="setPhase('luteal')">🌙 Luteal</button>
+  </div>
+
+  <div class="phase-content active" id="phase-menstrual">
+    <div>
+      <div class="phase-content-emoji">🩸</div>
+      <div class="phase-content-name" style="color:#D94F3D;">Menstrual</div>
+      <div class="phase-content-days">Days 1–5</div>
+      <div class="phase-content-tagline">Rest. Recover. Witness.</div>
+      <div class="phase-for-label">FOR HER</div>
+      <div class="phase-for-text">Estrogen and progesterone are at their lowest. Energy is depleted. Her body is working hard without her permission.</div>
+      <div class="phase-for-label">FOR HIM</div>
+      <div class="phase-for-text">This is your moment to be steady. Not to fix anything. Just to show up and hold space.</div>
+    </div>
+    <div>
+      <div class="moves-label">MOVES THAT WORK RIGHT NOW</div>
+      <div class="move-pill">Bring her something warm without being asked.</div>
+      <div class="move-pill">Handle dinner tonight — no questions.</div>
+      <div class="move-pill">Let her rest. Don't make it weird.</div>
+    </div>
+  </div>
+
+  <div class="phase-content" id="phase-follicular">
+    <div>
+      <div class="phase-content-emoji">🌱</div>
+      <div class="phase-content-name" style="color:#4CAF50;">Follicular</div>
+      <div class="phase-content-days">Days 6–13</div>
+      <div class="phase-content-tagline">Energy rises. Motivation builds.</div>
+      <div class="phase-for-label">FOR HER</div>
+      <div class="phase-for-text">Estrogen is climbing. She feels more like herself. Ideas flow easily.</div>
+      <div class="phase-for-label">FOR HIM</div>
+      <div class="phase-for-text">Great time for new plans, adventures, and quality time. She's open and engaged.</div>
+    </div>
+    <div>
+      <div class="moves-label">MOVES THAT WORK RIGHT NOW</div>
+      <div class="move-pill">Plan something she'll look forward to.</div>
+      <div class="move-pill">Tell her what you actually noticed.</div>
+      <div class="move-pill">Ask her about what she's been thinking about.</div>
+    </div>
+  </div>
+
+  <div class="phase-content" id="phase-ovulatory">
+    <div>
+      <div class="phase-content-emoji">✨</div>
+      <div class="phase-content-name" style="color:#C8A24B;">Ovulatory</div>
+      <div class="phase-content-days">Days 14–17</div>
+      <div class="phase-content-tagline">Peak energy. High connection.</div>
+      <div class="phase-for-label">FOR HER</div>
+      <div class="phase-for-text">Estrogen peaks. She feels confident, communicative, and magnetic. She's at her most social and open.</div>
+      <div class="phase-for-label">FOR HIM</div>
+      <div class="phase-for-text">She wants connection and depth right now. Be present. Be engaged. This window is shorter than it looks.</div>
+    </div>
+    <div>
+      <div class="moves-label">MOVES THAT WORK RIGHT NOW</div>
+      <div class="move-pill">Plan a real date — not dinner and a couch.</div>
+      <div class="move-pill">Tell her exactly what you find attractive about her.</div>
+      <div class="move-pill">Be fully present tonight. Phone down, eyes on her.</div>
+    </div>
+  </div>
+
+  <div class="phase-content" id="phase-luteal">
+    <div>
+      <div class="phase-content-emoji">🌙</div>
+      <div class="phase-content-name" style="color:#7986CB;">Luteal</div>
+      <div class="phase-content-days">Days 18–28</div>
+      <div class="phase-content-tagline">Support before she has to ask.</div>
+      <div class="phase-for-label">FOR HER</div>
+      <div class="phase-for-text">Progesterone rises then drops. Emotional load gets heavier. Small irritants feel bigger than they actually are.</div>
+      <div class="phase-for-label">FOR HIM</div>
+      <div class="phase-for-text">This is when small acts carry the most weight. Reduce her decision load. Handle the things she shouldn't have to ask about.</div>
+    </div>
+    <div>
+      <div class="moves-label">MOVES THAT WORK RIGHT NOW</div>
+      <div class="move-pill">Handle dinner without asking.</div>
+      <div class="move-pill">Take something off her list before she knows it needs doing.</div>
+      <div class="move-pill">Give her space to feel what she's feeling. Don't try to fix it.</div>
+    </div>
+  </div>
+
+  <div class="phases-footnote">Cycle length may vary. Phases adjust automatically based on her period entry.</div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="download">
+  <h2>Simple pricing.<br>More connection.</h2>
+  <p class="pricing-sub">Free to start. No credit card required.</p>
+
+  <div class="pricing-cards">
+    <div class="price-card">
+      <div class="price-tier">FREE</div>
+      <div class="price-amount">$0</div>
+      <p class="price-desc">Free to start. No credit card required.</p>
+      <div class="price-divider"></div>
+      <div class="price-feature">
+        <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Period logging + cycle tracking
+      </div>
+      <div class="price-feature">
+        <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Field Conditions (Sunny / Partly Cloudy / Stormy)
+      </div>
+      <div class="price-feature">
+        <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Sample daily moves — one per cycle context
+      </div>
+      <div class="price-feature">
+        <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Preview of tomorrow's move
+      </div>
+      <a href="#" class="price-btn price-btn-outline">Download Free</a>
+    </div>
+
+    <div class="price-card featured">
+      <div class="price-tier">PREMIUM</div>
+      <div class="price-amount">$5.99<span>/month solo</span></div>
+      <div class="price-couples">$4.99/month with couples plan — she joins free.</div>
+      <div class="price-couples-sub">He pays. She gets full access at no cost.</div>
+      <div class="price-divider"></div>
+      <div class="price-feature">
+        <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Unlimited daily moves, every morning
+      </div>
+      <div class="price-feature">
+        <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        All tiers — Free, Low-cost, and Splurge
+      </div>
+      <div class="price-feature">
+        <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Side Quests — date nights, challenges, seasonal missions
+      </div>
+      <div class="price-feature">
+        <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Field Conditions for her, forecast for him
+      </div>
+      <div class="price-feature">
+        <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        She joins free when he subscribes
+      </div>
+      <a href="#" class="price-btn price-btn-gold">Get Premium</a>
+    </div>
+  </div>
+
+  <div class="pricing-footnote">
+    <span>iOS only</span>
+    <span>·</span>
+    <span>No tracking</span>
+    <span>·</span>
+    <span>No ads</span>
+    <span>·</span>
+    <span>Cancel anytime</span>
+  </div>
+</section>
+
+<!-- FAQ -->
+<div style="background: var(--cream-light);">
+<div class="faq">
+  <div class="faq-eyebrow">FAQ</div>
+  <h2>Questions you probably have.</h2>
+
+  <div class="faq-item open">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Do I need to know anything about hormones?
+      <span class="faq-plus">+</span>
+    </button>
+    <div class="faq-a">No. MVP translates the biology into plain language and a specific action. You don't need to understand progesterone to benefit from knowing what to do on day 21.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Does she have to use the app too?
+      <span class="faq-plus">+</span>
+    </button>
+    <div class="faq-a">She has her own side, and it's minimal — one period entry gives him a full cycle of guidance. She can also set her Field Condition with one tap. But you can start without her. MVP works even if she never opens it.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Will she know what moves I'm getting?
+      <span class="faq-plus">+</span>
+    </button>
+    <div class="faq-a">She can see that he's doing something — but the specific moves are his. The goal is for the effort to speak for itself, not to be announced in advance.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      What if her cycle is irregular, or she's pregnant, postpartum, or in perimenopause?
+      <span class="faq-plus">+</span>
+    </button>
+    <div class="faq-a">MVP supports all six hormonal life phases: cycling, pregnant, postpartum, breastfeeding, perimenopause, and menopause. Moves are tailored to wherever she actually is — not just the textbook 28-day cycle.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Is this just for physical intimacy?
+      <span class="faq-plus">+</span>
+    </button>
+    <div class="faq-a">No. Moves span emotional support, acts of service, quality time, physical affection, communication, and more. Most of them have nothing to do with sex — they're about showing up in ways that actually land.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      How is this different from just Googling relationship advice?
+      <span class="faq-plus">+</span>
+    </button>
+    <div class="faq-a">Google gives you generic advice written for no one in particular. MVP gives you one specific action, calibrated to her biology right now, with the reason it works today — not in some hypothetical situation. There's no searching, no reading, no deciding. Just one move, every morning.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Is my data private?
+      <span class="faq-plus">+</span>
+    </button>
+    <div class="faq-a">Yes. Your data is never sold, never used for advertising, and never shared with third parties. Period and health data stays on your account. See our <a href="/privacy" style="color:var(--gold);">Privacy Policy</a> for full details.</div>
+  </div>
+</div>
+</div>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Stop <span class="gold">guessing.</span></h2>
+  <p>Download MVP on the App Store. Free to start.</p>
+  <div>
+    <a href="#" class="final-cta-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download on the App Store
+    </a>
+  </div>
+  <div class="final-cta-footnote">
+    <span>iOS only</span>
+    <span>·</span>
+    <span>Free to start</span>
+    <span>·</span>
+    <span>No tracking, no ads</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="footer-logo">
+    <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M60 6 C 78 12, 98 14, 112 14 L112 60 C112 96, 92 122, 60 134 C28 122, 8 96, 8 60 L8 14 C 22 14, 42 12, 60 6 Z" fill="#0E2348"/>
+      <path d="M60 14 C 76 19, 92 21, 104 21 L104 60 C104 92, 87 115, 60 126 C33 115, 16 92, 16 60 L16 21 C 28 21, 44 19, 60 14 Z" fill="none" stroke="#C8A24B" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M60 92 C 38 78, 28 62, 32 50 C 36 40, 50 40, 60 54 C 70 40, 84 40, 88 50 C 92 62, 82 78, 60 92 Z" fill="#C8A24B"/>
+    </svg>
+    <span class="footer-logo-text">MVP</span>
+  </a>
+  <div class="footer-copy">© 2026 Most Valuable Partner. iOS only. No tracking, no ads.</div>
+  <div class="footer-links">
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="/hervoice">Her Voice Survey</a>
+  </div>
+</footer>
+
+<script>
+function setActive(side) {
+  const hisPhone = document.getElementById('phone-his');
+  const herPhone = document.getElementById('phone-her');
+  const hisBtn = document.getElementById('btn-his');
+  const herBtn = document.getElementById('btn-her');
+
+  if (side === 'his') {
+    hisPhone.classList.add('active');
+    herPhone.classList.remove('active');
+    hisBtn.classList.add('active-his');
+    hisBtn.classList.remove('active-her');
+    herBtn.classList.remove('active-his', 'active-her');
+  } else {
+    herPhone.classList.add('active');
+    hisPhone.classList.remove('active');
+    herBtn.classList.add('active-her');
+    herBtn.classList.remove('active-his');
+    hisBtn.classList.remove('active-his', 'active-her');
+  }
+}
+
+function setPhase(phase) {
+  document.querySelectorAll('.phase-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.phase-content').forEach(c => c.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('phase-' + phase).classList.add('active');
+}
+
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  item.classList.toggle('open');
+}
+
+// Mobile: stack feature blocks
+if (window.innerWidth < 768) {
+  document.querySelectorAll('[style*="grid-template-columns: 1fr 1fr"]').forEach(el => {
+    el.style.gridTemplateColumns = '1fr';
+    el.style.gap = '40px';
+  });
+}
+</script>
+</body>
+</html>

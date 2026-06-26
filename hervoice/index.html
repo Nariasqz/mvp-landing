@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help Build MVP — Her Voice Survey</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #FDF8F6;
+  color: #1B2A4A;
+  min-height: 100vh;
+}
+
+.hero {
+  background: linear-gradient(135deg, #1B2A4A 0%, #2C3E6B 100%);
+  color: white;
+  text-align: center;
+  padding: 48px 24px 56px;
+}
+
+.hero-heart {
+  font-size: 28px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 5vw, 36px);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.hero h1 em {
+  color: #E8A598;
+  font-style: italic;
+}
+
+.hero p {
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.88;
+  max-width: 520px;
+  margin: 0 auto 8px;
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.intro-card {
+  background: white;
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 32px;
+  border-left: 4px solid #E8A598;
+  box-shadow: 0 2px 12px rgba(27,42,74,0.06);
+}
+
+.intro-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #1B2A4A;
+  margin-bottom: 12px;
+}
+
+.intro-card p:last-child { margin-bottom: 0; }
+
+.intro-card strong { color: #C4614A; }
+
+.section-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 12px rgba(27,42,74,0.06);
+}
+
+.section-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.section-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #E8A598;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1B2A4A;
+  line-height: 1.3;
+}
+
+.section-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+/* Phase checkboxes */
+.phase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 500px) {
+  .phase-grid { grid-template-columns: 1fr; }
+}
+
+.phase-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #FDF8F6;
+  border: 1.5px solid #E8D5D0;
+  border-radius: 10px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1B2A4A;
+}
+
+.phase-option:hover {
+  border-color: #E8A598;
+  background: #FFF0ED;
+}
+
+.phase-option input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #C4614A;
+  flex-shrink: 0;
+}
+
+.phase-option.selected {
+  border-color: #C4614A;
+  background: #FFF0ED;
+}
+
+/* Kids section */
+.kids-row {
+  margin-bottom: 20px;
+}
+
+.kids-row label {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1B2A4A;
+  margin-bottom: 10px;
+}
+
+.radio-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.radio-opt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #FDF8F6;
+  border: 1.5px solid #E8D5D0;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+
+.radio-opt:hover { border-color: #E8A598; background: #FFF0ED; }
+
+.radio-opt input { accent-color: #C4614A; }
+
+.age-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.age-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #FDF8F6;
+  border: 1.5px solid #E8D5D0;
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+
+.age-chip:hover { border-color: #E8A598; background: #FFF0ED; }
+.age-chip input { accent-color: #C4614A; }
+
+#age-section { display: none; }
+#age-section.visible { display: block; }
+
+/* Move examples */
+.examples-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 540px) {
+  .examples-row { grid-template-columns: 1fr; }
+}
+
+.example-card {
+  background: #FDF8F6;
+  border: 1.5px solid #E8D5D0;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.example-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #C4614A;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 6px;
+}
+
+.example-desc {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.example-move {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1B2A4A;
+  font-style: italic;
+}
+
+/* Move inputs */
+.move-input-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.move-input {
+  flex: 1;
+  border: 1.5px solid #E8D5D0;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  color: #1B2A4A;
+  background: #FEFEFE;
+  transition: border-color 0.15s;
+  outline: none;
+}
+
+.move-input:focus { border-color: #E8A598; }
+.move-input::placeholder { color: #B0A8A3; }
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #CCC;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.remove-btn:hover { color: #C4614A; }
+
+.add-move-btn {
+  background: none;
+  border: 1.5px dashed #E8A598;
+  border-radius: 10px;
+  color: #C4614A;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  padding: 11px 20px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 4px;
+  transition: all 0.15s;
+}
+
+.add-move-btn:hover { background: #FFF0ED; border-style: solid; }
+
+/* TestFlight section */
+.beta-box {
+  background: #FFF8F6;
+  border: 1.5px solid #E8D5D0;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.beta-box p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 12px;
+}
+
+.beta-box strong { color: #C4614A; }
+
+.fields-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 500px) {
+  .fields-grid { grid-template-columns: 1fr; }
+}
+
+.field-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 6px;
+}
+
+.field-input {
+  width: 100%;
+  border: 1.5px solid #E8D5D0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  color: #1B2A4A;
+  background: white;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.field-input:focus { border-color: #E8A598; }
+.field-input::placeholder { color: #C0B8B5; }
+
+.checkbox-opt {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: white;
+  border: 1.5px solid #E8D5D0;
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1B2A4A;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+
+.checkbox-opt:hover { border-color: #E8A598; background: #FFF8F6; }
+.checkbox-opt input { accent-color: #C4614A; margin-top: 2px; flex-shrink: 0; }
+
+/* Submit */
+.submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #C4614A 0%, #A84D3A 100%);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  padding: 18px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: opacity 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.submit-btn:hover { opacity: 0.92; }
+
+.thank-you {
+  text-align: center;
+  font-size: 14px;
+  color: #999;
+  margin-top: 16px;
+}
+
+.privacy-note {
+  text-align: center;
+  font-size: 12px;
+  color: #BBB;
+  margin-top: 32px;
+  line-height: 1.6;
+}
+
+.privacy-note a { color: #C4614A; text-decoration: none; }
+
+/* Success state */
+.success-screen {
+  display: none;
+  text-align: center;
+  padding: 60px 24px;
+}
+
+.success-screen.visible { display: block; }
+.success-screen h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: #1B2A4A;
+  margin-bottom: 16px;
+}
+.success-screen p { font-size: 16px; color: #666; line-height: 1.7; max-width: 420px; margin: 0 auto; }
+
+.divider {
+  height: 1px;
+  background: #EDE8E4;
+  margin: 24px 0;
+}
+
+.optional-tag {
+  font-size: 11px;
+  color: #AAA;
+  font-weight: 400;
+  margin-left: 4px;
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <span class="hero-heart">♥</span>
+  <h1>Thank you for helping me<br>build something <em>meaningful.</em></h1>
+  <p>Your voice shapes everything.</p>
+</div>
+
+<div class="container">
+
+  <div class="intro-card">
+    <p>I'm creating an app to help men show up for their partners — wives and girlfriends — in a meaningful way.</p>
+    <p>I've created daily action items called <strong>"moves"</strong> to support women at each phase of their life or their menstrual cycle.</p>
+    <p>I would <strong>LOVE</strong> and <strong>APPRECIATE</strong> your feedback to make this app the best it can be. Please fill out this survey so I can represent the needs of women like you. ♥</p>
+  </div>
+
+  <form id="survey-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+    <!-- SECTION 1: Phase -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">1</div>
+        <div>
+          <div class="section-title">What best describes where you are right now?</div>
+          <div class="section-subtitle">Select all that apply. You can skip this if you prefer not to answer.</div>
+        </div>
+      </div>
+
+      <div class="phase-grid">
+        <label class="phase-option">
+          <input type="checkbox" name="phase[]" value="cycling"> I have regular periods
+        </label>
+        <label class="phase-option">
+          <input type="checkbox" name="phase[]" value="pregnant"> I'm pregnant
+        </label>
+        <label class="phase-option">
+          <input type="checkbox" name="phase[]" value="postpartum"> I'm postpartum
+        </label>
+        <label class="phase-option">
+          <input type="checkbox" name="phase[]" value="breastfeeding"> I'm breastfeeding
+        </label>
+        <label class="phase-option">
+          <input type="checkbox" name="phase[]" value="perimenopause"> I'm in perimenopause
+        </label>
+        <label class="phase-option">
+          <input type="checkbox" name="phase[]" value="menopause"> I'm in menopause
+        </label>
+        <label class="phase-option">
+          <input type="checkbox" name="phase[]" value="hysterectomy"> I've had a hysterectomy
+        </label>
+        <label class="phase-option">
+          <input type="checkbox" name="phase[]" value="prefer_not"> I'd rather not say
+        </label>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="kids-row">
+        <label>Do you have kids?</label>
+        <div class="radio-row">
+          <label class="radio-opt">
+            <input type="radio" name="has_kids" value="yes" onchange="showAges(true)"> Yes
+          </label>
+          <label class="radio-opt">
+            <input type="radio" name="has_kids" value="no" onchange="showAges(false)"> No
+          </label>
+        </div>
+      </div>
+
+      <div id="age-section">
+        <label style="display:block; font-size:14px; font-weight:600; color:#1B2A4A; margin-bottom:10px;">Roughly what ages?</label>
+        <div class="age-grid">
+          <label class="age-chip"><input type="checkbox" name="child_ages[]" value="under2"> Under 2</label>
+          <label class="age-chip"><input type="checkbox" name="child_ages[]" value="2-5"> 2–5</label>
+          <label class="age-chip"><input type="checkbox" name="child_ages[]" value="6-12"> 6–12</label>
+          <label class="age-chip"><input type="checkbox" name="child_ages[]" value="13-17"> 13–17</label>
+          <label class="age-chip"><input type="checkbox" name="child_ages[]" value="18plus"> 18+</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: Moves -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">2</div>
+        <div>
+          <div class="section-title">What moves would make you feel loved, supported, and appreciated?</div>
+          <div class="section-subtitle">Share specific actions your partner could do to show up for you in meaningful ways. The more the better. There are no wrong answers.</div>
+        </div>
+      </div>
+
+      <div class="examples-row">
+        <div class="example-card">
+          <div class="example-label">Holiday Example</div>
+          <div class="example-desc">A special occasion or holiday.</div>
+          <div class="example-move">"Plan a relaxing Christmas morning with coffee and no schedule."</div>
+        </div>
+        <div class="example-card">
+          <div class="example-label">Everyday Example</div>
+          <div class="example-desc">Something that would always mean a lot.</div>
+          <div class="example-move">"Make me a cup of coffee without me having to ask."</div>
+        </div>
+        <div class="example-card">
+          <div class="example-label">Kids Example</div>
+          <div class="example-desc">Something that helps when you have kids.</div>
+          <div class="example-move">"Take the kids for an hour so I can have a break."</div>
+        </div>
+      </div>
+
+      <p style="font-size:14px; font-weight:600; color:#1B2A4A; margin-bottom:14px;">Now it's your turn! Add as many moves as you can think of.</p>
+
+      <div id="moves-container">
+        <div class="move-input-row">
+          <input class="move-input" type="text" name="move[]" placeholder="Describe the move...">
+          <button type="button" class="remove-btn" onclick="removeMove(this)" aria-label="Remove">×</button>
+        </div>
+        <div class="move-input-row">
+          <input class="move-input" type="text" name="move[]" placeholder="Describe the move...">
+          <button type="button" class="remove-btn" onclick="removeMove(this)" aria-label="Remove">×</button>
+        </div>
+        <div class="move-input-row">
+          <input class="move-input" type="text" name="move[]" placeholder="Describe the move...">
+          <button type="button" class="remove-btn" onclick="removeMove(this)" aria-label="Remove">×</button>
+        </div>
+      </div>
+
+      <button type="button" class="add-move-btn" onclick="addMove()">+ Add another move</button>
+    </div>
+
+    <!-- SECTION 3: TestFlight -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">3</div>
+        <div>
+          <div class="section-title">Want to help shape MVP? <span style="font-size:18px;">♡</span></div>
+          <div class="section-subtitle">I'm looking for a small group of couples to test the very first version of MVP before it's released.</div>
+        </div>
+      </div>
+
+      <div class="beta-box">
+        <p>If you and your <strong>partner</strong> are interested, leave your info below.</p>
+        <p>As a thank-you for helping us improve the app, you'll receive <strong>free lifetime access to MVP.</strong></p>
+        <p style="margin-bottom:0;">You'll occasionally receive early builds, share feedback, and help influence future features.</p>
+      </div>
+
+      <div class="fields-grid">
+        <div class="field-group">
+          <label>Your Name <span class="optional-tag">(optional)</span></label>
+          <input class="field-input" type="text" name="her_name" placeholder="First name">
+        </div>
+        <div class="field-group">
+          <label>Your Email <span class="optional-tag">(optional)</span></label>
+          <input class="field-input" type="email" name="her_email" placeholder="you@example.com">
+        </div>
+        <div class="field-group">
+          <label>Partner's First Name <span class="optional-tag">(optional)</span></label>
+          <input class="field-input" type="text" name="partner_name" placeholder="First name">
+        </div>
+        <div class="field-group">
+          <label>Partner's Email <span class="optional-tag">(optional)</span></label>
+          <input class="field-input" type="email" name="partner_email" placeholder="partner@example.com">
+        </div>
+      </div>
+
+      <label class="checkbox-opt">
+        <input type="checkbox" name="contact_ok" value="yes">
+        May we contact you if we have questions about one of your ideas?
+      </label>
+
+      <label class="checkbox-opt" style="border-color:#E8A598; background:#FFF8F6;">
+        <input type="checkbox" name="beta_interest" value="yes">
+        <span>Yes! We'd love to become official MVP beta testers and receive <strong>free lifetime access.</strong></span>
+      </label>
+    </div>
+
+    <button type="submit" class="submit-btn">
+      <span>♥</span> Submit Survey
+    </button>
+
+    <p class="thank-you">Thank you so much! Your input means the world. ♥</p>
+
+    <p class="privacy-note">
+      Your responses are private and will only be used to improve MVP.<br>
+      We will never sell your data or share it with third parties.<br>
+      <a href="/privacy">Privacy Policy</a>
+    </p>
+
+  </form>
+
+  <div class="success-screen" id="success-screen">
+    <div style="font-size:48px; margin-bottom:20px;">♥</div>
+    <h2>Thank you so much.</h2>
+    <p>Your feedback means everything. You're helping build something that could genuinely change how couples show up for each other.</p>
+    <p style="margin-top:16px; color:#C4614A; font-weight:600;">We'll be in touch if you signed up for beta access.</p>
+  </div>
+
+</div>
+
+<script>
+function showAges(show) {
+  document.getElementById('age-section').classList.toggle('visible', show);
+}
+
+function addMove() {
+  const container = document.getElementById('moves-container');
+  const row = document.createElement('div');
+  row.className = 'move-input-row';
+  row.innerHTML = `
+    <input class="move-input" type="text" name="move[]" placeholder="Describe the move...">
+    <button type="button" class="remove-btn" onclick="removeMove(this)" aria-label="Remove">×</button>
+  `;
+  container.appendChild(row);
+  row.querySelector('input').focus();
+}
+
+function removeMove(btn) {
+  const container = document.getElementById('moves-container');
+  if (container.children.length > 1) {
+    btn.closest('.move-input-row').remove();
+  } else {
+    btn.closest('.move-input-row').querySelector('input').value = '';
+  }
+}
+
+document.getElementById('survey-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      form.style.display = 'none';
+      document.getElementById('success-screen').classList.add('visible');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      alert('Something went wrong. Please try again or email us directly.');
+    }
+  } catch {
+    alert('Something went wrong. Please try again.');
+  }
+});
+
+// Highlight selected phase checkboxes
+document.querySelectorAll('.phase-option input[type="checkbox"]').forEach(cb => {
+  cb.addEventListener('change', function() {
+    this.closest('.phase-option').classList.toggle('selected', this.checked);
+  });
+});
+</script>
+</body>
+</html>

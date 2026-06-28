@@ -28,6 +28,15 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1998099904402392&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xeavfqkovw");
+</script>
+<!-- End Microsoft Clarity -->
 <title>MVP — Most Valuable Partner</title>
 <meta name="description" content="An iPhone app that helps men show up for their partners in a meaningful way. Phase-aware daily moves, every morning.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -1453,6 +1462,115 @@ footer {
 
 /* ── UTILITIES ── */
 .container { max-width: 1100px; margin: 0 auto; }
+
+/* ── WAITLIST FORM ── */
+.waitlist-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto 48px;
+}
+
+.waitlist-input {
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 50px;
+  border: none;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: rgba(255,255,255,0.96);
+  outline: none;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+
+.waitlist-input::placeholder { color: #9BA8BC; }
+
+.waitlist-input:focus {
+  box-shadow: 0 0 0 2px var(--gold), 0 2px 12px rgba(0,0,0,0.15);
+}
+
+.waitlist-submit {
+  width: 100%;
+  padding: 15px 32px;
+  border-radius: 50px;
+  border: none;
+  background: var(--gold);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.waitlist-submit:hover { background: var(--gold-dark); }
+.waitlist-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.waitlist-success {
+  display: none;
+  text-align: center;
+  padding: 20px 0 48px;
+}
+
+.waitlist-success-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+}
+
+.waitlist-success-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.waitlist-success-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+}
+
+/* Final CTA form variant (navy bg is the same, but reuse same classes) */
+.final-waitlist-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 20px;
+}
+
+.final-waitlist-success {
+  display: none;
+  text-align: center;
+  padding: 8px 0 20px;
+}
+
+.final-waitlist-success-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.final-waitlist-success-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+}
+
+@media (max-width: 480px) {
+  .waitlist-form, .final-waitlist-form { max-width: 100%; }
+}
 </style>
 </head>
 <body>
@@ -1470,17 +1588,37 @@ footer {
       <div class="logo-sub">Most Valuable Partner</div>
     </div>
   </a>
-  <a href="#pricing" class="nav-btn">Coming Soon</a>
+  <a href="#waitlist" class="nav-btn">Get Early Access</a>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="waitlist">
   <h1>You love her.<br>Let us help you <span class="gold">show her that.</span></h1>
   <p class="hero-sub">Every morning, MVP gives you one move built around where she actually is.</p>
   <p class="hero-body">No guessing. No overthinking. Just one right move, every day.</p>
-  <a href="#pricing" class="hero-cta">
-    Coming Soon to the App Store
-  </a>
+
+  <div id="waitlist-form-hero" class="waitlist-form">
+    <input
+      type="email"
+      id="waitlist-email-hero"
+      class="waitlist-input"
+      placeholder="Your email address"
+      autocomplete="email"
+      required
+    />
+    <button class="waitlist-submit" onclick="submitWaitlist('hero')">
+      Get Early Access
+    </button>
+    <div style="font-size:13px; color:rgba(255,255,255,0.40);">iOS only &middot; Free to start &middot; No spam, ever.</div>
+  </div>
+
+  <div id="waitlist-success-hero" class="waitlist-success">
+    <div class="waitlist-success-icon">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <div class="waitlist-success-title">You're on the list.</div>
+    <div class="waitlist-success-sub">We'll tell you the day it drops.</div>
+  </div>
 
   <div>
     <div class="phone-toggle">
@@ -1824,7 +1962,7 @@ footer {
         <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
         Preview of tomorrow's move
       </div>
-      <a href="#" class="price-btn price-btn-outline">Coming Soon</a>
+      <a href="#final-cta" class="price-btn price-btn-outline">Join the Waitlist</a>
     </div>
 
     <div class="price-card featured">
@@ -1852,7 +1990,7 @@ footer {
         <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
         All 6 hormonal life phases supported
       </div>
-      <a href="#" class="price-btn price-btn-gold">Coming Soon</a>
+      <a href="#final-cta" class="price-btn price-btn-gold">Join the Waitlist</a>
     </div>
   </div>
 
@@ -1908,14 +2046,29 @@ footer {
 </div>
 
 <!-- FINAL CTA -->
-<section class="final-cta">
+<section class="final-cta" id="final-cta">
   <h2>You love her.<br>Let us help you <span class="gold">show her that.</span></h2>
   <p>One move. Every morning. Coming soon to the App Store.</p>
-  <div>
-    <a href="#pricing" class="final-cta-btn">
-      Coming Soon
-    </a>
+
+  <div id="waitlist-form-final" class="final-waitlist-form">
+    <input
+      type="email"
+      id="waitlist-email-final"
+      class="waitlist-input"
+      placeholder="Your email address"
+      autocomplete="email"
+      required
+    />
+    <button class="waitlist-submit" onclick="submitWaitlist('final')">
+      Get Early Access
+    </button>
   </div>
+
+  <div id="waitlist-success-final" class="final-waitlist-success">
+    <div class="final-waitlist-success-title">You're on the list.</div>
+    <div class="final-waitlist-success-sub">We'll tell you the day it drops.</div>
+  </div>
+
   <div class="final-cta-footnote">
     <span>iOS only</span>
     <span>·</span>
@@ -1944,6 +2097,54 @@ footer {
 </footer>
 
 <script>
+// ── SUPABASE CONFIG ──────────────────────────────────────────────────────────
+// Fill in your project URL and anon key from the Supabase dashboard.
+// Settings → API → Project URL and anon/public key.
+const SUPABASE_URL  = 'https://uzpykcyowxusexfmqfnp.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV6cHlrY3lvd3h1c2V4Zm1xZm5wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExMzkyODUsImV4cCI6MjA5NjcxNTI4NX0.YRr8p6rKQtdk7V8xUQZ1PDzydPD21CuvqDaw6yhsgv0';
+
+async function submitWaitlist(location) {
+  const emailEl  = document.getElementById('waitlist-email-' + location);
+  const formEl   = document.getElementById('waitlist-form-' + location);
+  const successEl = document.getElementById('waitlist-success-' + location);
+  const btn = formEl.querySelector('button');
+
+  const email = emailEl.value.trim();
+  if (!email || !email.includes('@')) {
+    emailEl.focus();
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'One sec...';
+
+  try {
+    const res = await fetch(SUPABASE_URL + '/rest/v1/waitlist', {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_ANON,
+        'Authorization': 'Bearer ' + SUPABASE_ANON,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({ email, source: location })
+    });
+
+    if (res.ok || res.status === 409) {
+      // 409 = duplicate email (unique constraint) — still show success
+      formEl.style.display = 'none';
+      successEl.style.display = 'block';
+    } else {
+      const body = await res.text();
+      throw new Error('Status ' + res.status + ': ' + body);
+    }
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'Get Early Access';
+    alert(err.message);
+  }
+}
+
 function setActive(side) {
   const hisPhone = document.getElementById('phone-his');
   const herPhone = document.getElementById('phone-her');

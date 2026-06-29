@@ -1,9 +1,4 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false,
-  "routes": [
-    { "src": "/hervoice", "dest": "/hervoice/index.html" },
-    { "src": "/privacy", "dest": "/privacy/index.html" },
-    { "src": "/", "dest": "/index.html" }
-  ]
+  "trailingSlash": false
 }

@@ -116,15 +116,15 @@ nav {
 .hero-feedback-link {
   display: none;
   background: none;
-  border: none;
-  color: rgba(255,255,255,0.6);
-  font-size: 14px;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
-  padding: 0;
-  margin-top: 6px;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  padding: 10px 22px;
+  border-radius: 50px;
+  margin-top: 28px;
+  letter-spacing: 0.2px;
 }
 @media (max-width: 600px) {
   .hero-feedback-link { display: inline-block; }
@@ -1649,8 +1649,6 @@ footer {
   <p class="hero-sub">Every morning, MVP gives you one thing to do, built around what she's going through right now.</p>
   <p class="hero-body">No guessing. No overthinking. Just one right thing to do, every day.</p>
 
-  <button class="hero-feedback-link" onclick="openFeedbackModal()">Share your feedback →</button>
-
   <div>
     <div class="phone-toggle">
       <button class="toggle-btn active-his" id="btn-his" onclick="setActive('his')">His side</button>
@@ -1788,6 +1786,9 @@ footer {
       </div>
     </div>
   </div>
+
+  <button class="hero-feedback-link" onclick="openFeedbackModal()">Share your feedback →</button>
+
 </section>
 
 <!-- PROBLEM -->

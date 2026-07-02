@@ -2070,6 +2070,9 @@ function closeFeedbackModal() {
   document.getElementById('feedback-modal').style.display = 'none';
   document.body.style.overflow = '';
 }
+window.addEventListener('pageshow', function(e) {
+  if (e.persisted) closeFeedbackModal();
+});
 </script>
 
 <!-- FEEDBACK FORK MODAL -->

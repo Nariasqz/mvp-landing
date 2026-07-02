@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PZ9S4H6D53"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PZ9S4H6D53');
+</script>
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1998099904402392');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1998099904402392&ev=PageView&noscript=1"/></noscript>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xeavfqkovw");
+</script>
+<title>MVP: His Voice Survey</title>
+<meta name="description" content="You love her. Help us build the app that helps you show her that.">
+<meta property="og:title" content="Help Build MVP — His Voice">
+<meta property="og:description" content="You love her. Let us help you show her that. 12 questions, about 3 minutes.">
+<meta property="og:url" content="https://www.mostvaluablepartner.app/hisvoice">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #F4F5F8;
+  color: #1B2A4A;
+  min-height: 100vh;
+}
+
+/* Header */
+.page-header {
+  background: #1B2A4A;
+  text-align: center;
+  padding: 32px 24px 38px;
+}
+
+.header-shield { margin-bottom: 18px; }
+
+.page-title {
+  font-size: clamp(24px, 5vw, 36px);
+  line-height: 1.2;
+  color: white;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.page-subtitle {
+  font-size: 15px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 8px;
+}
+
+/* Container */
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 24px 20px 80px;
+}
+
+/* Cards */
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 22px 24px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 16px rgba(27,42,74,0.06);
+}
+
+/* Intro card */
+.intro-card {
+  background: white;
+  border-radius: 18px;
+  padding: 22px 24px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 16px rgba(27,42,74,0.06);
+  border-left: 3px solid #C8A24B;
+}
+
+.intro-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1B2A4A;
+  margin-bottom: 6px;
+}
+
+.intro-card p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #555;
+  margin-bottom: 14px;
+}
+
+.intro-card p:last-child { margin-bottom: 0; }
+
+.no-lecture-line {
+  font-size: 13px;
+  font-weight: 600;
+  color: #C8A24B;
+  margin-top: 10px;
+}
+
+/* Section header */
+.section-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.section-num {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #1B2A4A;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.section-num.gold { background: #C8A24B; }
+
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1B2A4A;
+  line-height: 1.35;
+  padding-top: 6px;
+}
+
+.section-sub {
+  font-size: 12px;
+  color: #999;
+  margin-top: 3px;
+}
+
+/* Options */
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.opt-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1.5px solid rgba(27,42,74,0.10);
+  border-radius: 12px;
+  padding: 12px 15px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1B2A4A;
+  transition: border-color 0.12s, background 0.12s;
+  background: white;
+  line-height: 1.4;
+  user-select: none;
+}
+
+/* Hover is lighter than selected */
+.opt-label:hover {
+  border-color: rgba(200,162,75,0.35);
+  background: #FEFDF8;
+}
+
+/* Selected is full gold */
+.opt-label.selected {
+  border-color: #C8A24B;
+  background: #FDFBF5;
+}
+
+.opt-label input[type="radio"],
+.opt-label input[type="checkbox"] {
+  accent-color: #1B2A4A;
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+/* Open text */
+.open-text {
+  width: 100%;
+  border: 1.5px solid rgba(27,42,74,0.10);
+  border-radius: 12px;
+  padding: 12px 15px;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  color: #1B2A4A;
+  background: white;
+  outline: none;
+  resize: vertical;
+  min-height: 84px;
+  transition: border-color 0.12s;
+  line-height: 1.55;
+}
+
+.open-text:focus { border-color: #C8A24B; }
+.open-text::placeholder { color: rgba(27,42,74,0.22); }
+
+.optional-note {
+  font-size: 12px;
+  color: #BBB;
+  margin-top: 6px;
+}
+
+/* Contact fields */
+.field-row { margin-bottom: 10px; }
+
+.field-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #AAA;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.field-input {
+  width: 100%;
+  border: 1.5px solid rgba(27,42,74,0.10);
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  color: #1B2A4A;
+  background: white;
+  outline: none;
+  transition: border-color 0.12s;
+}
+
+.field-input:focus { border-color: #C8A24B; }
+.field-input::placeholder { color: rgba(27,42,74,0.22); }
+
+.privacy-inline {
+  font-size: 12px;
+  color: #BBB;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+/* Submit */
+.submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #1B2A4A 0%, #0F1E38 100%);
+  color: #C8A24B;
+  border: none;
+  border-radius: 14px;
+  padding: 19px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  transition: opacity 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.submit-btn:hover { opacity: 0.88; }
+
+.privacy-note {
+  text-align: center;
+  font-size: 12px;
+  color: #BBB;
+  margin-top: 16px;
+  line-height: 1.6;
+}
+
+.privacy-note a {
+  color: #1B2A4A;
+  text-decoration: none;
+  border-bottom: 1px solid #C8A24B;
+}
+
+/* Success */
+.success-screen {
+  display: none;
+  text-align: center;
+  padding: 52px 24px;
+}
+
+.success-screen.visible { display: block; }
+
+.success-check {
+  width: 68px;
+  height: 68px;
+  background: #C8A24B;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.success-screen h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #1B2A4A;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+
+.success-screen .launch-line {
+  font-size: 16px;
+  color: #888;
+  line-height: 1.7;
+  max-width: 360px;
+  margin: 0 auto 28px;
+}
+
+.referral-block {
+  background: white;
+  border-radius: 16px;
+  padding: 22px 24px;
+  max-width: 360px;
+  margin: 0 auto;
+  box-shadow: 0 2px 16px rgba(27,42,74,0.08);
+}
+
+.referral-block p {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1B2A4A;
+  margin-bottom: 12px;
+}
+
+.share-btn {
+  background: #C8A24B;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  width: 100%;
+}
+
+.share-btn:hover { opacity: 0.88; }
+
+.copy-confirm {
+  font-size: 13px;
+  color: #C8A24B;
+  font-weight: 600;
+  margin-top: 8px;
+  min-height: 18px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 32px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1B2A4A;
+  text-decoration: none;
+  border-bottom: 2px solid #C8A24B;
+  padding-bottom: 2px;
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="page-header">
+  <a href="/" class="header-shield" style="display:inline-block; text-decoration:none;">
+    <svg width="84" height="98" viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M60 6 C 78 12, 98 14, 112 14 L112 60 C112 96, 92 122, 60 134 C28 122, 8 96, 8 60 L8 14 C 22 14, 42 12, 60 6 Z" fill="rgba(255,255,255,0.06)"/>
+      <path d="M60 14 C 76 19, 92 21, 104 21 L104 60 C104 92, 87 115, 60 126 C33 115, 16 92, 16 60 L16 21 C 28 21, 44 19, 60 14 Z" fill="none" stroke="#C8A24B" stroke-width="3"/>
+      <path d="M60 92 C 38 78, 28 62, 32 50 C 36 40, 50 40, 60 54 C 70 40, 84 40, 88 50 C 92 62, 82 78, 60 92 Z" fill="#C8A24B"/>
+    </svg>
+  </a>
+  <h1 class="page-title">You love her.<br>Let us help you show her that.</h1>
+  <p class="page-subtitle">10 questions. About 3 minutes.</p>
+  <p style="margin-top:16px; font-size:13px; color:rgba(255,255,255,0.5);">Not him? <a href="/hervoice" style="color:#C8A24B; text-decoration:none; font-weight:600; border-bottom:1px solid rgba(200,162,75,0.4);">Take the Her Voice survey →</a></p>
+</div>
+
+<div class="container">
+
+  <!-- Intro card -->
+  <div class="intro-card">
+    <h3>What is MVP?</h3>
+    <p>Most Valuable Partner gives you one thing to do each day, built around what's actually going on with her. Her mood. Her cycle. What she's dealing with. Less guessing. Better timing. More of what you both want.</p>
+    <h3>Why we're asking:</h3>
+    <p>We want to know where men actually get stuck, so MVP feels useful instead of annoying. Your answers shape what the app tells men to do.</p>
+    <p class="no-lecture-line">No lectures. No therapy-speak. Just honest questions.</p>
+  </div>
+
+  <form id="survey-form" action="https://formspree.io/f/REPLACE_WITH_HIS_FORM_ID" method="POST">
+
+    <!-- Q1 -->
+    <div class="card">
+      <div class="section-header">
+        <div class="section-num">1</div>
+        <div class="section-title">How did you find us?</div>
+      </div>
+      <div class="options-list">
+        <label class="opt-label"><input type="radio" name="q1_source" value="someone_sent"> Someone sent it to me</label>
+        <label class="opt-label"><input type="radio" name="q1_source" value="social_media"> Social media</label>
+        <label class="opt-label"><input type="radio" name="q1_source" value="looking"> I was looking for something like this</label>
+        <label class="opt-label"><input type="radio" name="q1_source" value="other"> Other</label>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="card">
+      <div class="section-header">
+        <div class="section-num">2</div>
+        <div class="section-title">How long have you been together?</div>
+      </div>
+      <div class="options-list">
+        <label class="opt-label"><input type="radio" name="q2_duration" value="under_1"> Less than 1 year</label>
+        <label class="opt-label"><input type="radio" name="q2_duration" value="1_3"> 1 to 3 years</label>
+        <label class="opt-label"><input type="radio" name="q2_duration" value="3_7"> 3 to 7 years</label>
+        <label class="opt-label"><input type="radio" name="q2_duration" value="7_plus"> 7 years or more</label>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="card">
+      <div class="section-header">
+        <div class="section-num">3</div>
+        <div class="section-title">Do you have kids?</div>
+      </div>
+      <div class="options-list">
+        <label class="opt-label"><input type="radio" name="q3_kids" value="yes"> Yes, we do</label>
+        <label class="opt-label"><input type="radio" name="q3_kids" value="not_yet"> No, not yet</label>
+        <label class="opt-label"><input type="radio" name="q3_kids" value="no"> No, and not planning to</label>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="card">
+      <div class="section-header">
+        <div class="section-num">4</div>
+        <div class="section-title">How often do you feel out of sync with her?</div>
+      </div>
+      <div class="options-list">
+        <label class="opt-label"><input type="radio" name="q4_sync" value="rarely"> Rarely. We're pretty well connected.</label>
+        <label class="opt-label"><input type="radio" name="q4_sync" value="sometimes"> Sometimes. We drift but we find our way back.</label>
+        <label class="opt-label"><input type="radio" name="q4_sync" value="not_landing"> More than I'd like. I try but something still isn't landing.</label>
+        <label class="opt-label"><input type="radio" name="q4_sync" value="often"> Often. And I genuinely don't know why.</label>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="card">
+      <div class="section-header">
+        <div class="section-num">5</div>
+        <div>
+          <div class="section-title">What's the hardest part?</div>
+          <div class="section-sub">Pick all that apply.</div>
+        </div>
+      </div>
+      <div class="options-list">
+        <label class="opt-label"><input type="checkbox" name="q5_hardest[]" value="not_knowing"> Not knowing what she needs in the moment</label>
+        <label class="opt-label"><input type="checkbox" name="q5_hardest[]" value="listen_vs_act"> Knowing when she wants me to listen vs. when she wants me to act</label>
+        <label class="opt-label"><input type="checkbox" name="q5_hardest[]" value="doesnt_register"> I put in effort but it doesn't seem to register</label>
+        <label class="opt-label"><input type="checkbox" name="q5_hardest[]" value="dont_know_where"> I want to do better but I don't know where to start</label>
+      </div>
+      <input class="open-text" style="min-height:0; padding:11px 15px; margin-top:8px;" type="text" name="q5_other" placeholder="Something else? Write it in.">
+    </div>
+
+    <!-- Q6 NEW: intimacy/outcome -->
+    <div class="card">
+      <div class="section-header">
+        <div class="section-num">6</div>
+        <div>
+          <div class="section-title">Where would you most want things to improve?</div>
+          <div class="section-sub">Pick all that apply.</div>
+        </div>
+      </div>
+      <div class="options-list">
+        <label class="opt-label"><input type="checkbox" name="q6_improve[]" value="intimacy"> More affection and intimacy</label>
+        <label class="opt-label"><input type="checkbox" name="q6_improve[]" value="fun"> I just want to have fun with her again</label>
+        <label class="opt-label"><input type="checkbox" name="q6_improve[]" value="tension"> Less tension and fewer arguments</label>
+        <label class="opt-label"><input type="checkbox" name="q6_improve[]" value="struggling"> Knowing what to do when she's struggling</label>
+        <label class="opt-label"><input type="checkbox" name="q6_improve[]" value="effort_land"> Making my effort actually land</label>
+      </div>
+    </div>
+
+    <!-- Q7 (formerly Q6 - pick all that apply) -->
+    <div class="card">
+      <div class="section-header">
+        <div class="section-num">7</div>
+        <div>
+          <div class="section-title">When she's struggling, what do you usually do?</div>
+          <div class="section-sub">Pick all that apply.</div>
+        </div>
+      </div>
+      <div class="options-list">
+        <label class="opt-label"><input type="checkbox" name="q7_struggling[]" value="give_solutions"> Give her solutions</label>
+        <label class="opt-label"><input type="checkbox" name="q7_struggling[]" value="cheer_up"> Try to cheer her up or lighten the mood</label>
+        <label class="opt-label"><input type="checkbox" name="q7_struggling[]" value="ask"> Ask what she needs</label>
+        <label class="opt-label"><input type="checkbox" name="q7_struggling[]" value="just_there"> Just be there, hold her or sit with her</label>
+      </div>
+      <input class="open-text" style="min-height:0; padding:11px 15px; margin-top:8px;" type="text" name="q7_other" placeholder="Something else? Write it in.">
+    </div>
+
+    <!-- Q8 -->
+    <div class="card">
+      <div class="section-header">
+        <div class="section-num">8</div>
+        <div class="section-title">What would actually get you to use an app like this?</div>
+      </div>
+      <div class="options-list">
+        <label class="opt-label"><input type="radio" name="q8_motivation" value="show_me"> Show me exactly what I get out of using the app</label>
+        <label class="opt-label"><input type="radio" name="q8_motivation" value="understand_why"> Help me understand why she reacts the way she does</label>
+        <label class="opt-label"><input type="radio" name="q8_motivation" value="small_wins"> Give me something small I can do that actually works</label>
+        <label class="opt-label"><input type="radio" name="q8_motivation" value="see_difference"> Show me it's making a real difference</label>
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="card">
+      <div class="section-header">
+        <div class="section-num">9</div>
+        <div class="section-title">How do you want to hear from us?</div>
+      </div>
+      <div class="options-list">
+        <label class="opt-label"><input type="radio" name="q9_contact" value="push_morning"> Push notification in the morning</label>
+        <label class="opt-label"><input type="radio" name="q9_contact" value="push_later"> Push notification, midday or evening</label>
+        <label class="opt-label"><input type="radio" name="q9_contact" value="self"> I'll open the app myself</label>
+        <label class="opt-label"><input type="radio" name="q9_contact" value="text"> Text me</label>
+      </div>
+      <input class="open-text" style="min-height:0; padding:11px 15px; margin-top:8px;" type="text" name="q9_other" placeholder="Something else? Write it in.">
+    </div>
+
+    <!-- Q10 optional -->
+    <div class="card">
+      <div class="section-header">
+        <div class="section-num">10</div>
+        <div class="section-title">Any other feedback?</div>
+      </div>
+      <textarea class="open-text" name="q10_anything" placeholder="Type here..."></textarea>
+      <p class="optional-note">Optional.</p>
+    </div>
+
+    <!-- Early access -->
+    <div class="card">
+      <div class="section-header">
+        <div class="section-num gold">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div>
+          <div class="section-title">Want to be first in?</div>
+          <div class="section-sub">Leave your name and email. You'll get early access before it goes public.</div>
+        </div>
+      </div>
+      <div class="field-row">
+        <label class="field-label">First Name</label>
+        <input class="field-input" type="text" name="name" placeholder="Your first name">
+      </div>
+      <div class="field-row" style="margin-bottom:0;">
+        <label class="field-label">Email</label>
+        <input class="field-input" type="email" name="email" placeholder="your@email.com">
+      </div>
+      <p class="privacy-inline">Your email is for MVP updates only. Your survey answers are separate.</p>
+    </div>
+
+    <button type="submit" class="submit-btn">
+      <svg width="16" height="19" viewBox="0 0 120 140" fill="none">
+        <path d="M60 6 C 78 12, 98 14, 112 14 L112 60 C112 96, 92 122, 60 134 C28 122, 8 96, 8 60 L8 14 C 22 14, 42 12, 60 6 Z" fill="rgba(200,162,75,0.2)"/>
+        <path d="M60 14 C 76 19, 92 21, 104 21 L104 60 C104 92, 87 115, 60 126 C33 115, 16 92, 16 60 L16 21 C 28 21, 44 19, 60 14 Z" fill="none" stroke="#C8A24B" stroke-width="3.5"/>
+        <path d="M60 92 C 38 78, 28 62, 32 50 C 36 40, 50 40, 60 54 C 70 40, 84 40, 88 50 C 92 62, 82 78, 60 92 Z" fill="#C8A24B"/>
+      </svg>
+      Send my answers
+    </button>
+
+    <p class="privacy-note">
+      Your responses are private and will only be used to improve MVP.<br>
+      We will never sell your data. <a href="/privacy">Privacy Policy</a>
+    </p>
+
+  </form>
+
+  <!-- Success Screen -->
+  <div class="success-screen" id="success-screen">
+    <div class="success-check">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+    <h2>You're in.</h2>
+    <p class="launch-line">MVP launches late 2026.<br>You'll be the first to know.</p>
+
+    <div class="referral-block">
+      <p>Know a guy who needs this?</p>
+      <button class="share-btn" onclick="shareLink()">Send him the link</button>
+      <p class="copy-confirm" id="copy-confirm"></p>
+    </div>
+
+    <a href="/" class="back-link">Back to home</a>
+  </div>
+
+</div>
+
+<footer style="text-align:center; padding:24px 24px; border-top:1px solid rgba(27,42,74,0.07); margin-top:40px;">
+  <a href="/" style="font-size:14px; font-weight:600; color:#1B2A4A; text-decoration:none; border-bottom:2px solid #C8A24B; padding-bottom:2px;">Back to home</a>
+</footer>
+
+<script>
+// Q5 checkboxes -- pick all that apply
+document.querySelectorAll('input[name="q5_hardest[]"]').forEach(cb => {
+  cb.addEventListener('change', function() {
+    this.closest('.opt-label').classList.toggle('selected', this.checked);
+  });
+});
+
+// Q6 checkboxes -- pick all that apply
+document.querySelectorAll('input[name="q6_improve[]"]').forEach(cb => {
+  cb.addEventListener('change', function() {
+    this.closest('.opt-label').classList.toggle('selected', this.checked);
+  });
+});
+
+// Q7 checkboxes (no limit)
+document.querySelectorAll('input[name="q7_struggling[]"]').forEach(cb => {
+  cb.addEventListener('change', function() {
+    this.closest('.opt-label').classList.toggle('selected', this.checked);
+  });
+});
+
+// Radio selected state
+document.querySelectorAll('.opt-label input[type="radio"]').forEach(input => {
+  input.addEventListener('change', function() {
+    document.querySelectorAll(`input[name="${this.name}"]`).forEach(r => {
+      r.closest('.opt-label').classList.remove('selected');
+    });
+    if (this.checked) this.closest('.opt-label').classList.add('selected');
+  });
+});
+
+// Form submit
+document.getElementById('survey-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      form.style.display = 'none';
+      document.getElementById('success-screen').classList.add('visible');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      alert('Something went wrong. Please try again.');
+    }
+  } catch {
+    alert('Something went wrong. Please try again.');
+  }
+});
+
+// Referral share
+async function shareLink() {
+  const url = 'https://www.mostvaluablepartner.app/hisvoice';
+  const msg = document.getElementById('copy-confirm');
+  if (navigator.share) {
+    try { await navigator.share({ title: 'MVP', text: 'You love her. Let us help you show her that.', url }); }
+    catch (_) {}
+  } else {
+    try {
+      await navigator.clipboard.writeText(url);
+      msg.textContent = 'Link copied.';
+      setTimeout(() => { msg.textContent = ''; }, 2500);
+    } catch (_) { msg.textContent = url; }
+  }
+}
+</script>
+
+</body>
+</html>

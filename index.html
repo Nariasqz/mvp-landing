@@ -91,8 +91,8 @@ nav {
 .nav-logo svg { width: 36px; height: 42px; }
 
 .nav-logo-text { line-height: 1.1; }
-.nav-logo-text .logo-main { font-size: 18px; font-weight: 800; color: #fff; letter-spacing: 0.5px; }
-.nav-logo-text .logo-sub { font-size: 9px; font-weight: 500; color: rgba(255,255,255,0.5); letter-spacing: 1.5px; text-transform: uppercase; }
+.nav-logo-text .logo-main { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.55); letter-spacing: 1px; }
+.nav-logo-text .logo-sub { font-size: 15px; font-weight: 700; color: #fff; letter-spacing: 0.3px; }
 
 .nav-btn {
   background: var(--gold);
@@ -443,16 +443,17 @@ nav {
   flex: 1;
   text-align: center;
   font-size: 9px;
-  color: var(--text-light);
+  color: #3D4F6B;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 3px;
+  font-weight: 500;
 }
 
 .tab-item.active { color: var(--gold); }
 
-.tab-icon { width: 16px; height: 16px; }
+.tab-icon { width: 22px; height: 22px; }
 
 /* HER screen */
 .her-screen {
@@ -498,7 +499,7 @@ nav {
 }
 
 .fc-card {
-  margin: 0 12px 8px;
+  margin: 12px 12px 8px;
   background: #fff;
   border-radius: 14px;
   padding: 12px 14px;
@@ -577,10 +578,11 @@ nav {
 }
 
 .phase-name-her {
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 800;
   color: #C8A24B;
   flex: 1;
+  white-space: nowrap;
 }
 
 .phase-day-her {
@@ -627,7 +629,7 @@ section { position: relative; }
 /* ── PROBLEM ── */
 .problem {
   background: var(--cream-light);
-  padding: 100px 40px;
+  padding: 60px 40px 0;
 }
 
 .problem h2 {
@@ -685,7 +687,7 @@ section { position: relative; }
 /* ── HOW IT WORKS ── */
 .how {
   background: var(--navy);
-  padding: 100px 40px;
+  padding: 80px 40px 48px;
 }
 
 .how h2 {
@@ -699,7 +701,7 @@ section { position: relative; }
 
 .how-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 0.7fr;
   gap: 64px;
   max-width: 1000px;
   margin: 0 auto;
@@ -761,8 +763,12 @@ section { position: relative; }
 .move-card-demo {
   background: #f0f2f5;
   border-radius: 20px;
-  padding: 24px;
+  padding: 56px 40px;
   box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .demo-phase-row {
@@ -1146,7 +1152,7 @@ section { position: relative; }
 /* ── PRICING ── */
 .pricing {
   background: var(--cream-light);
-  padding: 100px 40px;
+  padding: 48px 40px 60px;
   text-align: center;
 }
 
@@ -1161,7 +1167,7 @@ section { position: relative; }
 .pricing-sub {
   font-size: 17px;
   color: var(--text-mid);
-  margin-bottom: 64px;
+  margin-bottom: 32px;
 }
 
 .pricing-cards {
@@ -1180,7 +1186,7 @@ section { position: relative; }
 .price-card {
   background: #fff;
   border-radius: 20px;
-  padding: 36px;
+  padding: 36px 36px 24px;
   text-align: left;
   box-shadow: 0 4px 24px rgba(27,42,74,0.08);
 }
@@ -1581,6 +1587,17 @@ footer {
 @media (max-width: 480px) {
   .waitlist-form, .final-waitlist-form { max-width: 100%; }
 }
+
+/* ── MOBILE RESPONSIVE OVERRIDES ── */
+@media (max-width: 640px) {
+  .personalized-grid { grid-template-columns: repeat(3, 1fr) !important; }
+  .why-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+  .whats-inside-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .section-side-pad { padding-left: 20px !important; padding-right: 20px !important; }
+}
+@media (max-width: 400px) {
+  .personalized-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
 </style>
 </head>
 <body>
@@ -1594,41 +1611,21 @@ footer {
       <path d="M60 92 C 38 78, 28 62, 32 50 C 36 40, 50 40, 60 54 C 70 40, 84 40, 88 50 C 92 62, 82 78, 60 92 Z" fill="#C8A24B"/>
     </svg>
     <div class="nav-logo-text">
-      <div class="logo-main">MVP</div>
       <div class="logo-sub">Most Valuable Partner</div>
+      <div class="logo-main">MVP</div>
     </div>
   </a>
-  <a href="#waitlist" class="nav-btn">Get Early Access</a>
+  <div style="display:flex; align-items:center; gap:12px;">
+    <button onclick="openFeedbackModal()" style="font-size:14px; font-weight:700; color:#C8A24B; background:transparent; border:2px solid #C8A24B; border-radius:50px; padding:8px 18px; white-space:nowrap; cursor:pointer; transition:all 0.15s; font-family:inherit;" onmouseover="this.style.background='rgba(200,162,75,0.12)'" onmouseout="this.style.background='transparent'">Share your feedback</button>
+    <a href="#waitlist" class="nav-btn">Get Early Access</a>
+  </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="waitlist">
+<section class="hero">
   <h1>You love her.<br>Let us help you <span class="gold">show her that.</span></h1>
-  <p class="hero-sub">Every morning, MVP gives you one move built around where she actually is.</p>
-  <p class="hero-body">No guessing. No overthinking. Just one right move, every day.</p>
-
-  <div id="waitlist-form-hero" class="waitlist-form">
-    <input
-      type="email"
-      id="waitlist-email-hero"
-      class="waitlist-input"
-      placeholder="Your email address"
-      autocomplete="email"
-      required
-    />
-    <button class="waitlist-submit" onclick="submitWaitlist('hero')">
-      Get Early Access
-    </button>
-    <div style="font-size:13px; color:rgba(255,255,255,0.40);">iOS only &middot; Free to start &middot; No spam, ever.</div>
-  </div>
-
-  <div id="waitlist-success-hero" class="waitlist-success">
-    <div class="waitlist-success-icon">
-      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-    </div>
-    <div class="waitlist-success-title">You're on the list.</div>
-    <div class="waitlist-success-sub">We'll tell you the day it drops.</div>
-  </div>
+  <p class="hero-sub">Every morning, MVP gives you one thing to do, built around what she's going through right now.</p>
+  <p class="hero-body">No guessing. No overthinking. Just one right thing to do, every day.</p>
 
   <div>
     <div class="phone-toggle">
@@ -1644,54 +1641,28 @@ footer {
       <div class="phone-screen-inner">
         <div class="his-screen" style="background:#F5F5F3; position:relative; overflow:hidden; display:flex; flex-direction:column; flex:1;">
           <!-- Status bar -->
-          <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 12px 2px;">
-            <div class="phone-time" style="margin:0;">9:41</div>
-            <div style="width:22px; height:22px; border-radius:50%; border:1.5px solid #1B2A4A; display:flex; align-items:center; justify-content:center;">
+          <div style="padding:16px 12px 2px;">
+            <div class="phone-time" style="margin:0;">8:00</div>
+          </div>
+          <!-- Greeting + profile icon -->
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; padding:8px 12px 10px;">
+            <div>
+              <div style="font-size:17px; font-weight:700; color:#1B2A4A; line-height:1.2;">Good morning, Adam</div>
+            </div>
+            <div style="width:22px; height:22px; border-radius:50%; border:1.5px solid #1B2A4A; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px;">
               <svg viewBox="0 0 24 24" width="13" height="13" fill="#1B2A4A"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
             </div>
           </div>
-          <!-- Greeting + Playbook -->
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; padding:6px 12px 10px;">
-            <div>
-              <div style="font-size:17px; font-weight:700; color:#1B2A4A; line-height:1.2;">Good morning, Adam</div>
-              <div style="font-size:10px; font-weight:600; color:#C8A24B; margin-top:2px;">Here's your move for today.</div>
-            </div>
-            <div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
-              <div style="display:flex; align-items:center; justify-content:center;">
-                <svg viewBox="0 0 24 24" width="38" height="38" fill="none">
-                  <!-- Notebook body -->
-                  <rect x="4" y="2" width="14" height="20" rx="1.5" fill="white" stroke="#1B2A4A" stroke-width="1.3"/>
-                  <!-- Spine line -->
-                  <line x1="7.5" y1="2" x2="7.5" y2="22" stroke="#1B2A4A" stroke-width="1"/>
-                  <!-- Binding rings -->
-                  <circle cx="7.5" cy="6" r="1.2" fill="white" stroke="#1B2A4A" stroke-width="0.9"/>
-                  <circle cx="7.5" cy="12" r="1.2" fill="white" stroke="#1B2A4A" stroke-width="0.9"/>
-                  <circle cx="7.5" cy="18" r="1.2" fill="white" stroke="#1B2A4A" stroke-width="0.9"/>
-                  <!-- Gold bookmark tab -->
-                  <path d="M16 2 L20 2 L20 8 L18 6.5 L16 8 Z" fill="#C8A24B"/>
-                  <!-- X mark (play diagram) -->
-                  <line x1="10" y1="6" x2="13" y2="9" stroke="#1B2A4A" stroke-width="1"/>
-                  <line x1="13" y1="6" x2="10" y2="9" stroke="#1B2A4A" stroke-width="1"/>
-                  <!-- Dotted arrow -->
-                  <path d="M11.5 9.5 Q13.5 12 15 9.5" stroke="#1B2A4A" stroke-width="0.8" stroke-dasharray="1 0.8" fill="none"/>
-                  <!-- Gold heart -->
-                  <path d="M14 20 C12 18.5 10 16 10.5 15 C11 14 13 14 14 16 C15 14 17 14 17.5 15 C18 16 16 18.5 14 20 Z" fill="#C8A24B"/>
-                </svg>
-              </div>
-              <div style="font-size:8px; font-weight:600; color:#1B2A4A;">Playbook</div>
-            </div>
-          </div>
           <!-- Move card -->
-          <div style="margin:0 10px; background:white; border-radius:14px; padding:14px 12px; box-shadow:0 2px 10px rgba(0,0,0,0.07);">
-            <div style="font-size:13px; font-weight:800; color:#1B2A4A; text-align:center; line-height:1.45; margin-bottom:10px;">Clean the kitchen. Tidy the common areas. Take out the trash.</div>
-            <div style="font-size:9px; font-weight:700; letter-spacing:0.8px; color:#C8A24B; text-align:center; margin-bottom:5px;">Why it works</div>
-            <div style="font-size:10.5px; color:#6B7A99; text-align:center; line-height:1.5; margin-bottom:12px;">Environmental disorder feels more irritating in luteal. A clean space helps her regulate.</div>
+          <div style="margin:12px 10px 0; background:white; border-radius:14px; padding:14px 12px; box-shadow:0 2px 10px rgba(0,0,0,0.07);">
+            <div style="font-size:10px; font-weight:700; letter-spacing:1px; color:#C8A24B; text-align:center; margin-bottom:6px; text-transform:uppercase;">Today's action</div>
+            <div style="font-size:13px; font-weight:800; color:#1B2A4A; text-align:center; line-height:1.45; margin-bottom:10px;">Clean the kitchen.</div>
+            <div style="font-size:10.5px; color:#6B7A99; text-align:center; line-height:1.5; margin-bottom:12px;">Environmental clutter can feel<br>heavier right now. A clean<br>space is a genuine gift.</div>
             <div style="background:#C8A24B; border-radius:22px; padding:9px; text-align:center; color:white; font-size:12px; font-weight:700; margin-bottom:8px;">Mark as done</div>
             <div style="text-align:center; font-size:9.5px; color:#1B2A4A; margin-bottom:3px;">Learn why this was suggested →</div>
-            <div style="text-align:center; font-size:9.5px; color:#9BA8BC;">This won't work today →</div>
           </div>
           <!-- Streak -->
-          <div class="streak-row" style="margin-top:8px;">
+          <div class="streak-row" style="margin-top:16px; margin-bottom:10px;">
             <div class="streak-label">3 DAY STREAK</div>
             <div class="streak-text">You're the MVP!</div>
           </div>
@@ -1699,19 +1670,19 @@ footer {
         </div>
         <div class="phone-tab-bar">
           <div class="tab-item active">
-            <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10" fill="none" stroke="white" stroke-width="2"/></svg>
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#C8A24B"/><polyline points="7 12 10 15 17 9" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             Today
           </div>
           <div class="tab-item">
-            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
             Library
           </div>
           <div class="tab-item">
-            <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L3 6.5V12c0 5.2 3.8 10 9 11.3C17.2 22 21 17.2 21 12V6.5L12 2z"/><path d="M12 16.5c-1.8-1.5-3.2-3.6-2.7-4.8.5-1.2 1.9-1.1 2.7.4.8-1.5 2.2-1.6 2.7-.4.5 1.2-.9 3.3-2.7 4.8z" fill="white"/></svg>
+            <svg class="tab-icon" viewBox="0 0 120 120" fill="currentColor"><path fill-rule="evenodd" d="M60 8 C 76 13, 95 15, 108 15 L108 58 C108 90, 90 112, 60 122 C30 112, 12 90, 12 58 L12 15 C 25 15, 44 13, 60 8 Z M60 87 C 40 74, 31 59, 35 48 C 38 39, 50 39, 60 51 C 70 39, 82 39, 85 48 C 89 59, 80 74, 60 87 Z"/></svg>
             Medals
           </div>
           <div class="tab-item">
-            <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M16.2 7.8l-2.4 6.6-6.6 2.4 2.4-6.6 6.6-2.4z" fill="white"/></svg>
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
             Quests
           </div>
         </div>
@@ -1723,15 +1694,13 @@ footer {
       <div class="phone-notch"></div>
       <div class="phone-screen-inner">
         <div class="her-screen" style="background:#F7F4EF;">
-          <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 12px 2px;">
+          <div style="padding:16px 12px 2px;">
             <div class="phone-time" style="margin:0;">9:41</div>
-            <div style="width:22px; height:22px; border-radius:50%; border:1.5px solid #1B2A4A; background:white; display:flex; align-items:center; justify-content:center;">
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#1B2A4A"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
-            </div>
           </div>
-          <div class="her-header" style="justify-content:flex-start;">
-            <div>
-              <div class="her-greeting">Good morning, Sarah</div>
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 12px 10px;">
+            <div class="her-greeting">Good morning, Sarah</div>
+            <div style="width:22px; height:22px; border-radius:50%; border:1.5px solid #1B2A4A; background:white; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="#1B2A4A"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
             </div>
           </div>
           <div class="fc-card">
@@ -1743,16 +1712,20 @@ footer {
               </div>
               <div class="fc-weather-item selected">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
-                  <line x1="16" y1="3.5" x2="16" y2="2" stroke="#C8A24B" stroke-width="1.5" stroke-linecap="round"/>
-                  <line x1="19.5" y1="4.5" x2="20.5" y2="3.5" stroke="#C8A24B" stroke-width="1.5" stroke-linecap="round"/>
-                  <line x1="21" y1="7.5" x2="22.5" y2="7.5" stroke="#C8A24B" stroke-width="1.5" stroke-linecap="round"/>
-                  <circle cx="16" cy="7.5" r="3.5" fill="#C8A24B"/>
+                  <!-- Sun rays fanning from upper-right of cloud -->
+                  <line x1="17" y1="2" x2="17" y2="4" stroke="#C8A24B" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="20" y1="3" x2="19" y2="4.5" stroke="#C8A24B" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="22" y1="6" x2="20.5" y2="6.5" stroke="#C8A24B" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="22.5" y1="9.5" x2="21" y2="9.5" stroke="#C8A24B" stroke-width="1.5" stroke-linecap="round"/>
+                  <!-- Sun circle sitting behind the cloud -->
+                  <circle cx="17" cy="9" r="3.5" fill="#C8A24B"/>
+                  <!-- Cloud in front -->
                   <path d="M4 18 L14 18 C16.2 18 18 16.2 18 14 C18 11.8 16.2 10 14 10 C13.3 10 12.7 10.2 12.2 10.5 C11.5 9 10.1 8 8.5 8 C6.1 8 4.3 9.7 4.1 11.8 C2 11.8 0.5 13.3 0.5 15 C0.5 16.7 2 18 4 18 Z" fill="white" stroke="#1B2A4A" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
                 </svg>
                 <span class="fc-mood-label">Okay</span>
               </div>
               <div class="fc-weather-item">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none"><path d="M5 14 C3.3 14 2 12.7 2 11 C2 9.3 3.3 8 5 8 C5.1 6 6.9 4.5 9 4.5 C10.5 4.5 11.8 5.3 12.5 6.5 C13 6.3 13.5 6.2 14 6.2 C15.7 6.2 17 7.5 17 9.2 C17 10.9 15.7 12.2 14 12.2" stroke="#1B2A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polygon points="11,13 8.5,18 11,18 9,22 14,16 11.5,16" fill="#C8A24B"/></svg>
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none"><path d="M4 17 L14 17 C16.2 17 18 15.2 18 13 C18 10.8 16.2 9 14 9 C13.3 9 12.7 9.2 12.2 9.5 C11.5 8 10.1 7 8.5 7 C6.1 7 4.3 8.7 4.1 10.8 C2 10.8 0.5 12.3 0.5 14 C0.5 15.7 2 17 4 17 Z" fill="white" stroke="#1B2A4A" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><polygon points="12,17 9,21.5 12,21.5 9.5,26 15.5,19.5 12.5,19.5" fill="#C8A24B"/></svg>
                 <span class="fc-mood-label">Rough</span>
               </div>
             </div>
@@ -1760,7 +1733,7 @@ footer {
           <div class="phase-card-her">
             <div class="phase-current-label">CURRENT PHASE</div>
             <div class="phase-name-row">
-              <span class="phase-icon-emoji">🌙</span>
+              <img src="images/phase-luteal.png" style="width:32px; height:32px; object-fit:contain;" alt="Luteal phase"/>
               <span class="phase-name-her">Luteal Phase</span>
               <span class="phase-day-her">Day 21 of 28</span>
             </div>
@@ -1772,19 +1745,19 @@ footer {
         </div>
         <div class="phone-tab-bar">
           <div class="tab-item active">
-            <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10" fill="none" stroke="white" stroke-width="2"/></svg>
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#C8A24B"/><polyline points="7 12 10 15 17 9" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             Today
           </div>
           <div class="tab-item">
-            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="9" r="5"/><path d="M9.5 14.5L8 22l4-2.5 4 2.5-1.5-7.5"/></svg>
-            Milestones
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+            Awards
           </div>
           <div class="tab-item">
-            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-            Info
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            Library
           </div>
           <div class="tab-item">
-            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="17 7 21 7 21 11"/></svg>
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 19 9 13 14 9 18 5"/><polyline points="13 5 18 5 18 10"/></svg>
             Phases
           </div>
         </div>
@@ -1796,205 +1769,154 @@ footer {
 <!-- PROBLEM -->
 <section class="problem">
   <h2>She didn't come with<br>an instruction manual.<br><span style="color:var(--gold);">We wrote one.</span></h2>
-  <p class="problem-body">Her mood, energy, and needs shift across her cycle and her life. That's not a personality. It's a pattern. Now you have it.</p>
+  <p class="problem-body">Her mood, energy, and needs shift week to week and across her whole life. That's not a personality. It's a pattern. Now you have it.</p>
 </section>
 
 <!-- HOW IT WORKS -->
 <section class="how">
-  <h2>One move. Every morning.<br>Three steps to get there.</h2>
+  <h2>One small action you can take today<br>that will build the relationship you both want.</h2>
   <div class="how-layout">
     <div class="steps">
       <div class="step">
         <div class="step-num">01</div>
         <div>
           <div class="step-title">She checks in.</div>
-          <div class="step-body">Period start date or life stage. Field Condition in one tap: Sunny, Partly Cloudy, or Stormy. Five seconds. That's it.</div>
+          <div class="step-body">She tells us how she's feeling. One tap. That's it.</div>
         </div>
       </div>
       <div class="step">
         <div class="step-num">02</div>
         <div>
-          <div class="step-title">You get today's move.</div>
-          <div class="step-body">Every morning: what to do, why it works today, and what it costs. Free, Low-cost, or Splurge. You pick the tier that fits. No guessing required.</div>
+          <div class="step-title">We tell you what to do.</div>
+          <div class="step-body">Every morning: one specific thing, and why it works right now. No guessing required.</div>
         </div>
       </div>
       <div class="step">
         <div class="step-num">03</div>
         <div>
-          <div class="step-title">She feels seen.</div>
-          <div class="step-body">Small moments become habits. Good intentions become action. Over time, she stops wondering if you'll notice. Because you do.</div>
+          <div class="step-title">Less tension. More connection.</div>
+          <div class="step-body">When your actions land at the right moment, she feels seen. That's when everything shifts.</div>
         </div>
       </div>
     </div>
     <div class="move-card-demo">
-      <div class="demo-phase-row">
-        <span class="demo-phase">LATE LUTEAL</span>
-        <span class="demo-day">Day 24</span>
-      </div>
-      <div style="font-size:19px; font-weight:800; color:var(--navy); text-align:center; line-height:1.4; margin-bottom:14px;">Pick up dinner on the way home.</div>
-      <div style="font-size:11px; font-weight:700; letter-spacing:1px; color:var(--gold); text-align:center; margin-bottom:8px;">Why it works</div>
-      <div style="font-size:14px; color:var(--text-mid); text-align:center; line-height:1.65; margin-bottom:20px;">Decision fatigue is real in late luteal. One less thing to figure out is a genuine gift right now.</div>
-      <div class="demo-btn">Mark as done</div>
-      <div style="text-align:center; font-size:12px; color:var(--navy); margin-top:12px; margin-bottom:4px; opacity:0.8;">Learn why this was suggested →</div>
-      <div style="text-align:center; font-size:12px; color:var(--text-light);">This won't work today →</div>
-    </div>
-  </div>
-</section>
-
-<!-- EVEN GOOD MEN MISS THE MOMENT -->
-<section style="background: var(--navy); padding: 80px 40px;">
-  <div style="max-width: 780px; margin: 0 auto; text-align: center;">
-    <h2 style="color: white; font-size: clamp(28px, 4vw, 48px); margin-bottom: 16px;">Even good men miss the moment.</h2>
-    <p style="color: rgba(255,255,255,0.55); font-size: 18px; margin-bottom: 44px;">Nobody teaches men things like...</p>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; text-align: left; max-width: 680px; margin: 0 auto 48px;">
-      <div style="background: rgba(255,255,255,0.06); border-radius: 12px; padding: 16px 20px; color: rgba(255,255,255,0.82); font-size: 15px; line-height: 1.5;">Why today isn't the day to joke.</div>
-      <div style="background: rgba(255,255,255,0.06); border-radius: 12px; padding: 16px 20px; color: rgba(255,255,255,0.82); font-size: 15px; line-height: 1.5;">Why she's suddenly exhausted.</div>
-      <div style="background: rgba(255,255,255,0.06); border-radius: 12px; padding: 16px 20px; color: rgba(255,255,255,0.82); font-size: 15px; line-height: 1.5;">Why bringing her favorite drink home today means more than it did yesterday.</div>
-      <div style="background: rgba(255,255,255,0.06); border-radius: 12px; padding: 16px 20px; color: rgba(255,255,255,0.82); font-size: 15px; line-height: 1.5;">When giving her space is actually the loving thing to do.</div>
-      <div style="background: rgba(255,255,255,0.06); border-radius: 12px; padding: 16px 20px; color: rgba(255,255,255,0.82); font-size: 15px; line-height: 1.5;">Why emptying the dishwasher can feel more romantic than flowers.</div>
-      <div style="background: rgba(255,255,255,0.06); border-radius: 12px; padding: 16px 20px; color: rgba(255,255,255,0.82); font-size: 15px; line-height: 1.5;">What she actually needs right now vs. what she says she needs.</div>
-    </div>
-    <p style="color: #C8A24B; font-size: 20px; font-weight: 700; margin: 0;">MVP helps you notice the moments that matter.</p>
-  </div>
-</section>
-
-<!-- BUILT FOR REAL RELATIONSHIPS -->
-<section style="background: var(--cream-light); padding: 80px 40px;">
-  <div style="max-width: 780px; margin: 0 auto; text-align: center;">
-    <div style="font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;">Built for real relationships</div>
-    <h2 style="margin-bottom: 16px;">Know where she is.<br>Show up right.</h2>
-    <p style="color: var(--text-mid); font-size: 17px; line-height: 1.7; margin-bottom: 48px;">Her needs don't follow a schedule. They shift week to week, season to season, and across her whole life. MVP keeps up with where she actually is — so you can too.</p>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 16px; max-width: 680px; margin: 0 auto 32px;">
-      <div style="background: white; border-radius: 14px; padding: 24px 16px; text-align: center; border: 1px solid rgba(27,42,74,0.08);">
-        <div style="width: 44px; height: 44px; background: rgba(200,162,75,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
-        </div>
-        <div style="font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 6px;">Her monthly rhythm</div>
-        <div style="font-size: 11px; color: var(--text-light); line-height: 1.55;">Her energy and mood shift every week. MVP tracks which week she's in.</div>
-      </div>
-      <div style="background: white; border-radius: 14px; padding: 24px 16px; text-align: center; border: 1px solid rgba(27,42,74,0.08);">
-        <div style="width: 44px; height: 44px; background: rgba(200,162,75,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        </div>
-        <div style="font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 6px;">Pregnancy</div>
-        <div style="font-size: 11px; color: var(--text-light); line-height: 1.55;">Her body is doing something extraordinary. How you show up shifts each trimester.</div>
-      </div>
-      <div style="background: white; border-radius: 14px; padding: 24px 16px; text-align: center; border: 1px solid rgba(27,42,74,0.08);">
-        <div style="width: 44px; height: 44px; background: rgba(200,162,75,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </div>
-        <div style="font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 6px;">The baby season</div>
-        <div style="font-size: 11px; color: var(--text-light); line-height: 1.55;">Postpartum and breastfeeding are chapters of their own. What she needs is different than anything before.</div>
-      </div>
-      <div style="background: white; border-radius: 14px; padding: 24px 16px; text-align: center; border: 1px solid rgba(27,42,74,0.08);">
-        <div style="width: 44px; height: 44px; background: rgba(200,162,75,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <div style="font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 6px;">Midlife and beyond</div>
-        <div style="font-size: 11px; color: var(--text-light); line-height: 1.55;">Perimenopause and menopause change the ground rules. MVP helps you keep up.</div>
-      </div>
+      <div style="font-size:16px; font-weight:700; letter-spacing:1.5px; color:var(--gold); text-align:center; margin-bottom:20px; text-transform:uppercase;">Today's action</div>
+      <div style="font-size:30px; font-weight:800; color:var(--navy); text-align:center; line-height:1.3; margin-bottom:20px;">Kiss her on the back of the neck before you leave this morning.</div>
+      <div style="font-size:19px; color:var(--text-mid); text-align:center; line-height:1.65;">Seduction starts at breakfast. Show up for her today, and she'll want to show up for you tonight.</div>
     </div>
   </div>
 </section>
 
 <!-- MORE THAN DAILY MOVES -->
-<section style="background: var(--cream-light); padding: 80px 40px;">
-  <div style="max-width: 780px; margin: 0 auto; text-align: center;">
-    <div style="font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;">More than daily moves</div>
-    <h2 style="margin-bottom: 48px;">Everything you need.<br>Nothing you don't.</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left;">
-      <div style="display: flex; gap: 14px; align-items: flex-start;">
-        <div style="width: 38px; height: 38px; background: var(--navy); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="#C8A24B"><path d="M12 2L3 6.5V12c0 5.2 3.8 10 9 11.3C17.2 22 21 17.2 21 12V6.5L12 2z"/><path d="M12 16.5c-1.8-1.5-3.2-3.6-2.7-4.8.5-1.2 1.9-1.1 2.7.4.8-1.5 2.2-1.6 2.7-.4.5 1.2-.9 3.3-2.7 4.8z" fill="#1B2A4A"/></svg>
+<section class="section-side-pad" style="background: var(--cream-light); padding: 48px 40px 100px;">
+  <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+    <div style="font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px;">Beyond the daily</div>
+    <h2 style="font-size: clamp(32px, 5vw, 52px); margin-bottom: 56px;">Everything you need.<br>Nothing you don't.</h2>
+    <div class="whats-inside-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 36px; text-align: left;">
+      <div style="display: flex; gap: 20px; align-items: flex-start;">
+        <div style="width: 52px; height: 52px; background: var(--navy); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="#C8A24B"><circle cx="12" cy="12" r="10"/><path d="M16.2 7.8l-2.4 6.6-6.6 2.4 2.4-6.6 6.6-2.4z" fill="#1B2A4A"/></svg>
         </div>
-        <div><div style="font-weight: 700; color: var(--navy); margin-bottom: 4px; font-size: 15px;">Streaks and Medals</div><div style="font-size: 14px; color: var(--text-mid); line-height: 1.5;">Track your consistency. Earn recognition for showing up.</div></div>
+        <div><div style="font-weight: 700; color: var(--navy); margin-bottom: 6px; font-size: 18px;">Side Quests</div><div style="font-size: 16px; color: var(--text-mid); line-height: 1.6;">Date nights, seasonal challenges, holiday missions. Men love a challenge.</div></div>
       </div>
-      <div style="display: flex; gap: 14px; align-items: flex-start;">
-        <div style="width: 38px; height: 38px; background: var(--navy); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="#C8A24B"><circle cx="12" cy="12" r="10"/><path d="M16.2 7.8l-2.4 6.6-6.6 2.4 2.4-6.6 6.6-2.4z" fill="#1B2A4A"/></svg>
+      <div style="display: flex; gap: 20px; align-items: flex-start;">
+        <div style="width: 52px; height: 52px; background: var(--navy); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#C8A24B" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         </div>
-        <div><div style="font-weight: 700; color: var(--navy); margin-bottom: 4px; font-size: 15px;">Side Quests</div><div style="font-size: 14px; color: var(--text-mid); line-height: 1.5;">Date nights, seasonal challenges, holiday missions.</div></div>
+        <div><div style="font-weight: 700; color: var(--navy); margin-bottom: 6px; font-size: 18px;">Important Date Alerts</div><div style="font-size: 16px; color: var(--text-mid); line-height: 1.6;">Reminders 30 days before birthdays, anniversaries, and holidays. You'll never miss one.</div></div>
       </div>
-      <div style="display: flex; gap: 14px; align-items: flex-start;">
-        <div style="width: 38px; height: 38px; background: var(--navy); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="#C8A24B"><path d="M2 5a1 1 0 0 1 1-1c1.6 0 3.6.7 5 2v13c-1.4-1.1-3.4-1.7-5-1.7A1 1 0 0 1 2 17V5z"/><path d="M22 5a1 1 0 0 0-1-1c-1.6 0-3.6.7-5 2v13c1.4-1.1 3.4-1.7 5-1.7a1 1 0 0 0 1-1V5z"/></svg>
+      <div style="display: flex; gap: 20px; align-items: flex-start;">
+        <div style="width: 52px; height: 52px; background: var(--navy); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="#C8A24B"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="8" cy="7" r="1.3" fill="#1B2A4A"/><circle cx="8" cy="12" r="1.3" fill="#1B2A4A"/><circle cx="8" cy="17" r="1.3" fill="#1B2A4A"/><path d="M14 15.5c-1.5-1.3-2.7-3.2-2.2-4.2.5-1 1.7-.9 2.2.4.5-1.3 1.7-1.4 2.2-.4.5 1-.7 2.9-2.2 4.2z" fill="#1B2A4A"/></svg>
         </div>
-        <div><div style="font-weight: 700; color: var(--navy); margin-bottom: 4px; font-size: 15px;">Library</div><div style="font-size: 14px; color: var(--text-mid); line-height: 1.5;">Articles that explain why today's move works. Under 3 minutes each.</div></div>
+        <div><div style="font-weight: 700; color: var(--navy); margin-bottom: 6px; font-size: 18px;">Personal Playbook</div><div style="font-size: 16px; color: var(--text-mid); line-height: 1.6;">Her favorites, important dates, and your notes. Everything in one place so you're always ready.</div></div>
       </div>
-      <div style="display: flex; gap: 14px; align-items: flex-start;">
-        <div style="width: 38px; height: 38px; background: var(--navy); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#C8A24B" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <div style="display: flex; gap: 20px; align-items: flex-start;">
+        <div style="width: 52px; height: 52px; background: var(--navy); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg viewBox="0 0 120 120" width="28" height="28" fill="#C8A24B"><path fill-rule="evenodd" d="M60 8 C 76 13, 95 15, 108 15 L108 58 C108 90, 90 112, 60 122 C30 112, 12 90, 12 58 L12 15 C 25 15, 44 13, 60 8 Z M60 87 C 40 74, 31 59, 35 48 C 38 39, 50 39, 60 51 C 70 39, 82 39, 85 48 C 89 59, 80 74, 60 87 Z"/></svg>
         </div>
-        <div><div style="font-weight: 700; color: var(--navy); margin-bottom: 4px; font-size: 15px;">Important Date Alerts</div><div style="font-size: 14px; color: var(--text-mid); line-height: 1.5;">Reminders 30 days before birthdays, anniversaries, and holidays.</div></div>
-      </div>
-      <div style="display: flex; gap: 14px; align-items: flex-start;">
-        <div style="width: 38px; height: 38px; background: var(--navy); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="#C8A24B"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="8" cy="7" r="1.3" fill="#1B2A4A"/><circle cx="8" cy="12" r="1.3" fill="#1B2A4A"/><circle cx="8" cy="17" r="1.3" fill="#1B2A4A"/><path d="M14 15.5c-1.5-1.3-2.7-3.2-2.2-4.2.5-1 1.7-.9 2.2.4.5-1.3 1.7-1.4 2.2-.4.5 1-.7 2.9-2.2 4.2z" fill="#1B2A4A"/></svg>
-        </div>
-        <div><div style="font-weight: 700; color: var(--navy); margin-bottom: 4px; font-size: 15px;">Personal Playbook</div><div style="font-size: 14px; color: var(--text-mid); line-height: 1.5;">Her favorites, important dates, and your notes. All in one place.</div></div>
-      </div>
-      <div style="display: flex; gap: 14px; align-items: flex-start;">
-        <div style="width: 38px; height: 38px; background: var(--navy); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#C8A24B" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        </div>
-        <div><div style="font-weight: 700; color: var(--navy); margin-bottom: 4px; font-size: 15px;">Love Language Moves</div><div style="font-size: 14px; color: var(--text-mid); line-height: 1.5;">Moves personalized to how she actually receives love.</div></div>
+        <div><div style="font-weight: 700; color: var(--navy); margin-bottom: 6px; font-size: 18px;">Streaks and Medals</div><div style="font-size: 16px; color: var(--text-mid); line-height: 1.6;">Track your consistency. Earn recognition for showing up.</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CLOSING HOOK -->
-<section style="background: var(--navy); padding: 80px 40px; text-align: center;">
-  <div style="max-width: 680px; margin: 0 auto;">
-    <h2 style="color: white; font-size: clamp(28px, 4vw, 44px); margin-bottom: 16px;">Good men have bad days.</h2>
-    <p style="color: rgba(255,255,255,0.65); font-size: 20px; line-height: 1.6; margin-bottom: 12px;">You can't always bring your A game.</p>
-    <p style="color: #C8A24B; font-size: clamp(20px, 3vw, 26px); font-weight: 800; margin-bottom: 40px;">You can always make one right move.</p>
-    <p style="color: rgba(255,255,255,0.45); font-size: 16px; line-height: 1.7;">She doesn't need grand gestures every day.<br>She needs the right gesture today.</p>
+<!-- EVEN GOOD MEN MISS THE MOMENT -->
+<section class="section-side-pad" style="background: var(--navy); padding: 80px 40px;">
+  <div style="max-width: 780px; margin: 0 auto; text-align: center;">
+    <h2 style="color: white; font-size: clamp(28px, 4vw, 48px); margin-bottom: 44px;">Why she works the way she does.</h2>
+    <div class="why-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; text-align: left; max-width: 780px; margin: 0 auto 48px;">
+      <div style="background: rgba(255,255,255,0.06); border-radius: 12px; padding: 16px 20px; color: rgba(255,255,255,0.82); font-size: 15px; line-height: 1.5;">Why emptying the dishwasher can feel more romantic than flowers.</div>
+      <div style="background: rgba(255,255,255,0.06); border-radius: 12px; padding: 16px 20px; color: rgba(255,255,255,0.82); font-size: 15px; line-height: 1.5;">Why today isn't the day to joke.</div>
+      <div style="background: rgba(255,255,255,0.06); border-radius: 12px; padding: 16px 20px; color: rgba(255,255,255,0.82); font-size: 15px; line-height: 1.5;">Why bringing her favorite drink home today means more than it did yesterday.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BUILT FOR REAL RELATIONSHIPS -->
+<section class="section-side-pad" style="background: var(--cream-light); padding: 80px 40px;">
+  <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
+    <div style="font-size: 15px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;">What makes MVP different</div>
+    <h2 style="margin-bottom: 16px;">Personalized to her needs.</h2>
+    <div class="personalized-grid" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; max-width: 1100px; margin: 0 auto 32px;">
+      <div style="background: white; border-radius: 14px; padding: 24px 12px 16px; text-align: center; border: 1px solid rgba(27,42,74,0.08);">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:10px;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <div style="font-size: 13px; font-weight: 700; color: var(--navy);">Her daily mood</div>
+      </div>
+      <div style="background: white; border-radius: 14px; padding: 24px 12px 16px; text-align: center; border: 1px solid rgba(27,42,74,0.08);">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:10px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M12 10 C11 8.5 9 8.5 9 10 C9 11 10.5 12 12 13 C13.5 12 15 11 15 10 C15 8.5 13 8.5 12 10 Z" stroke-width="1.3"/></svg>
+        <div style="font-size: 13px; font-weight: 700; color: var(--navy);">Her love language</div>
+      </div>
+      <div style="background: white; border-radius: 14px; padding: 24px 12px 16px; text-align: center; border: 1px solid rgba(27,42,74,0.08);">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round" style="margin-bottom:10px;"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+        <div style="font-size: 13px; font-weight: 700; color: var(--navy);">Her cycle</div>
+      </div>
+      <div style="background: white; border-radius: 14px; padding: 24px 12px 16px; text-align: center; border: 1px solid rgba(27,42,74,0.08);">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:10px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <div style="font-size: 13px; font-weight: 700; color: var(--navy);">Pregnancy</div>
+      </div>
+      <div style="background: white; border-radius: 14px; padding: 24px 12px 16px; text-align: center; border: 1px solid rgba(27,42,74,0.08);">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:10px;"><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/><rect x="8" y="4" width="8" height="8" rx="1.5"/></svg>
+        <div style="font-size: 13px; font-weight: 700; color: var(--navy);">After kids</div>
+      </div>
+      <div style="background: white; border-radius: 14px; padding: 24px 12px 16px; text-align: center; border: 1px solid rgba(27,42,74,0.08);">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:10px;"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <div style="font-size: 13px; font-weight: 700; color: var(--navy);">Midlife and beyond</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="section-side-pad" style="background: var(--navy); padding: 48px 40px 80px; text-align: center;">
+  <div style="max-width: 700px; margin: 0 auto;">
+    <p style="color: rgba(255,255,255,0.6); font-size: clamp(20px, 3vw, 28px); line-height: 1.6; margin-bottom: 20px;">She doesn't need grand gestures every day.<br>She needs the right gesture today.</p>
+    <p style="color: #C8A24B; font-size: clamp(22px, 3.5vw, 32px); font-weight: 800; line-height: 1.4; margin-bottom: 16px;">MVP helps you show up at the right moment.</p>
+    <p style="color: rgba(255,255,255,0.45); font-size: clamp(16px, 2vw, 20px); line-height: 1.6; margin-bottom: 36px;">Less guessing. Less tension. More of the relationship you both want.</p>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" fill="none" width="144" height="168">
+      <g stroke="#C9A24C" stroke-linejoin="round" stroke-linecap="round" fill="none">
+        <path d="M60 6 C 78 12, 98 14, 112 14 L112 60 C112 96, 92 122, 60 134 C28 122, 8 96, 8 60 L8 14 C 22 14, 42 12, 60 6 Z" stroke-width="4"/>
+        <path d="M60 14 C 76 19, 92 21, 104 21 L104 60 C104 92, 87 115, 60 126 C33 115, 16 92, 16 60 L16 21 C 28 21, 44 19, 60 14 Z" stroke-width="1.5"/>
+      </g>
+      <path d="M60 92 C 38 78, 28 62, 32 50 C 36 40, 50 40, 60 54 C 70 40, 84 40, 88 50 C 92 62, 82 78, 60 92 Z" fill="#C9A24C"/>
+    </svg>
   </div>
 </section>
 
 <!-- PRICING -->
 <section class="pricing" id="pricing">
-  <h2>Simple pricing.<br>More connection.</h2>
-  <p class="pricing-sub">Free to start. No credit card required.</p>
-
-  <div class="pricing-cards">
-    <div class="price-card">
-      <div class="price-tier">FREE</div>
-      <div class="price-amount">$0</div>
-      <p class="price-desc">Free to start. No credit card required.</p>
-      <div class="price-divider"></div>
-      <div class="price-feature">
-        <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        Period logging + cycle tracking
-      </div>
-      <div class="price-feature">
-        <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        Field Conditions (Sunny / Partly Cloudy / Stormy)
-      </div>
-      <div class="price-feature">
-        <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        Sample daily moves, one per cycle phase
-      </div>
-      <div class="price-feature">
-        <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        Preview of tomorrow's move
-      </div>
-      <a href="#final-cta" class="price-btn price-btn-outline">Join the Waitlist</a>
-    </div>
-
-    <div class="price-card featured">
-      <div class="price-tier">PREMIUM</div>
+  <div style="display: flex; align-items: center; gap: 48px; max-width: 860px; margin: 0 auto; flex-wrap: wrap; justify-content: center;">
+    <div class="price-card featured" style="max-width: 420px; width: 100%; flex-shrink: 0;">
       <div class="price-amount">$7.99<span>/month</span></div>
-      <p class="price-desc" style="color:rgba(255,255,255,0.5); margin-bottom:20px;">Everything he needs to show up every day.</p>
+      <p class="price-desc" style="color:rgba(255,255,255,0.5); margin-bottom:4px;">First month free.</p>
       <div class="price-divider"></div>
       <div class="price-feature">
         <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        Unlimited daily moves, every morning
+        One daily action, tailored for you specifically
       </div>
       <div class="price-feature">
         <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        All tiers: Free, Low-cost, and Splurge
+        Important Date Alerts: 30 days before birthdays, anniversaries, and holidays
       </div>
       <div class="price-feature">
         <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -2002,13 +1924,15 @@ footer {
       </div>
       <div class="price-feature">
         <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        Field Conditions for her, forecast for him
+        Personal Playbook: her favorites, important dates, and your notes
       </div>
-      <div class="price-feature">
-        <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        All 6 hormonal life phases supported
+    </div>
+    <div style="text-align: left; flex: 1; min-width: 220px;">
+      <h2 style="font-size: clamp(28px, 4vw, 44px); margin-bottom: 24px;">Simple pricing.<br>More connection.</h2>
+      <div style="display:flex; flex-direction:column; gap:10px; max-width:340px;">
+        <input type="email" id="waitlist-email-pricing" class="waitlist-input" placeholder="Your email address" autocomplete="email" required />
+        <button class="waitlist-submit" onclick="submitWaitlist('pricing')">Get Early Access</button>
       </div>
-      <a href="#final-cta" class="price-btn price-btn-gold">Join the Waitlist</a>
     </div>
   </div>
 
@@ -2023,78 +1947,6 @@ footer {
   </div>
 </section>
 
-<!-- FAQ -->
-<div style="background: var(--cream-light);">
-<div class="faq">
-  <div class="faq-eyebrow">FAQ</div>
-  <h2>Questions you probably have.</h2>
-
-  <div class="faq-item open">
-    <button class="faq-q" onclick="toggleFaq(this)">
-      Do I need to know anything about hormones?
-      <span class="faq-plus">+</span>
-    </button>
-    <div class="faq-a">No. MVP translates the biology into plain language and a specific action. You don't need to understand progesterone to benefit from knowing what to do on day 21.</div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-q" onclick="toggleFaq(this)">
-      Does she have to use the app too?
-      <span class="faq-plus">+</span>
-    </button>
-    <div class="faq-a">She has her own side and it's minimal. One period entry gives you a full cycle of guidance. She can also set her Field Condition with one tap. But you can start without her. MVP works even if she never opens it.</div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-q" onclick="toggleFaq(this)">
-      What if her cycle is irregular, or she's pregnant, postpartum, or in perimenopause?
-      <span class="faq-plus">+</span>
-    </button>
-    <div class="faq-a">MVP supports all six hormonal life phases: cycling, pregnant, postpartum, breastfeeding, perimenopause, and menopause. Moves are tailored to wherever she actually is, not just the textbook 28-day cycle.</div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-q" onclick="toggleFaq(this)">
-      Is my data private?
-      <span class="faq-plus">+</span>
-    </button>
-    <div class="faq-a">Yes. Your data is never sold, never used for advertising, and never shared with third parties. See our <a href="/privacy" style="color:var(--gold);">Privacy Policy</a> for full details.</div>
-  </div>
-</div>
-</div>
-
-<!-- FINAL CTA -->
-<section class="final-cta" id="final-cta">
-  <h2>You love her.<br>Let us help you <span class="gold">show her that.</span></h2>
-  <p>One move. Every morning. Coming soon to the App Store.</p>
-
-  <div id="waitlist-form-final" class="final-waitlist-form">
-    <input
-      type="email"
-      id="waitlist-email-final"
-      class="waitlist-input"
-      placeholder="Your email address"
-      autocomplete="email"
-      required
-    />
-    <button class="waitlist-submit" onclick="submitWaitlist('final')">
-      Get Early Access
-    </button>
-  </div>
-
-  <div id="waitlist-success-final" class="final-waitlist-success">
-    <div class="final-waitlist-success-title">You're on the list.</div>
-    <div class="final-waitlist-success-sub">We'll tell you the day it drops.</div>
-  </div>
-
-  <div class="final-cta-footnote">
-    <span>iOS only</span>
-    <span>·</span>
-    <span>Free to start</span>
-    <span>·</span>
-    <span>No tracking, no ads</span>
-  </div>
-</section>
 
 <!-- FOOTER -->
 <footer>
@@ -2104,13 +1956,15 @@ footer {
       <path d="M60 14 C 76 19, 92 21, 104 21 L104 60 C104 92, 87 115, 60 126 C33 115, 16 92, 16 60 L16 21 C 28 21, 44 19, 60 14 Z" fill="none" stroke="#C8A24B" stroke-width="2" stroke-linejoin="round"/>
       <path d="M60 92 C 38 78, 28 62, 32 50 C 36 40, 50 40, 60 54 C 70 40, 84 40, 88 50 C 92 62, 82 78, 60 92 Z" fill="#C8A24B"/>
     </svg>
-    <span class="footer-logo-text">MVP</span>
+    <div style="line-height:1.1;">
+      <div style="font-size:15px; font-weight:700; color:#fff; letter-spacing:0.3px;">Most Valuable Partner</div>
+      <div style="font-size:13px; font-weight:700; color:rgba(255,255,255,0.55); letter-spacing:1px;">MVP</div>
+    </div>
   </a>
   <div class="footer-copy">© 2026 Most Valuable Partner. iOS only. No tracking, no ads.</div>
   <div class="footer-links">
     <a href="/privacy">Privacy</a>
     <a href="/terms">Terms</a>
-    <a href="/hervoice">Her Voice Survey</a>
   </div>
 </footer>
 
@@ -2207,6 +2061,35 @@ if (window.innerWidth < 640) {
     el.style.gap = '40px';
   });
 }
+
+function openFeedbackModal() {
+  document.getElementById('feedback-modal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeFeedbackModal() {
+  document.getElementById('feedback-modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
 </script>
+
+<!-- FEEDBACK FORK MODAL -->
+<div id="feedback-modal" onclick="if(event.target===this)closeFeedbackModal()" style="display:none; position:fixed; inset:0; z-index:999; background:rgba(27,42,74,0.72); backdrop-filter:blur(4px); align-items:center; justify-content:center; padding:20px;">
+  <div style="background:white; border-radius:24px; padding:44px 36px 36px; max-width:380px; width:100%; text-align:center; position:relative; box-shadow:0 24px 80px rgba(27,42,74,0.25);">
+    <button onclick="closeFeedbackModal()" style="position:absolute; top:16px; right:18px; background:none; border:none; cursor:pointer; color:#8A96A8; font-size:22px; line-height:1; padding:4px;">×</button>
+    <svg viewBox="0 0 120 140" fill="none" width="48" height="56" style="margin-bottom:16px;">
+      <g stroke="#C8A24B" stroke-linejoin="round" stroke-linecap="round" fill="none">
+        <path d="M60 6 C 78 12, 98 14, 112 14 L112 60 C112 96, 92 122, 60 134 C28 122, 8 96, 8 60 L8 14 C 22 14, 42 12, 60 6 Z" stroke-width="4"/>
+        <path d="M60 14 C 76 19, 92 21, 104 21 L104 60 C104 92, 87 115, 60 126 C33 115, 16 92, 16 60 L16 21 C 28 21, 44 19, 60 14 Z" stroke-width="1.5"/>
+      </g>
+      <path d="M60 92 C 38 78, 28 62, 32 50 C 36 40, 50 40, 60 54 C 70 40, 84 40, 88 50 C 92 62, 82 78, 60 92 Z" fill="#C8A24B"/>
+    </svg>
+    <div style="font-size:21px; font-weight:800; color:#1B2A4A; margin-bottom:10px;">Who's sharing feedback?</div>
+    <div style="font-size:15px; color:#4A5A78; margin-bottom:32px; line-height:1.55;">Help us build the right thing<br>for both of you.</div>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <a href="/hisvoice" style="background:#1B2A4A; color:white; padding:16px 24px; border-radius:50px; font-weight:700; font-size:16px; text-decoration:none; display:block;">I'm him &nbsp;→</a>
+      <a href="/hervoice" style="background:#C8A24B; color:white; padding:16px 24px; border-radius:50px; font-weight:700; font-size:16px; text-decoration:none; display:block;">I'm her &nbsp;→</a>
+    </div>
+  </div>
+</div>
 </body>
 </html>

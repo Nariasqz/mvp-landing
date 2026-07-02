@@ -107,8 +107,10 @@ nav {
 .nav-btn:hover { background: var(--gold-dark); }
 
 @media (max-width: 600px) {
-  nav { padding: 0 20px; }
+  nav { padding: 0 16px; }
   .nav-logo-text .logo-sub { display: none; }
+  .nav-feedback-btn { display: none; }
+  .nav-btn { font-size: 13px; padding: 9px 16px; white-space: nowrap; }
 }
 
 /* ── HERO ── */
@@ -1616,7 +1618,7 @@ footer {
     </div>
   </a>
   <div style="display:flex; align-items:center; gap:12px;">
-    <button onclick="openFeedbackModal()" style="font-size:14px; font-weight:700; color:#C8A24B; background:transparent; border:2px solid #C8A24B; border-radius:50px; padding:8px 18px; white-space:nowrap; cursor:pointer; transition:all 0.15s; font-family:inherit;" onmouseover="this.style.background='rgba(200,162,75,0.12)'" onmouseout="this.style.background='transparent'">Share your feedback</button>
+    <button class="nav-feedback-btn" onclick="openFeedbackModal()" style="font-size:14px; font-weight:700; color:#C8A24B; background:transparent; border:2px solid #C8A24B; border-radius:50px; padding:8px 18px; white-space:nowrap; cursor:pointer; transition:all 0.15s; font-family:inherit;" onmouseover="this.style.background='rgba(200,162,75,0.12)'" onmouseout="this.style.background='transparent'">Share your feedback</button>
     <a href="#waitlist" class="nav-btn">Get Early Access</a>
   </div>
 </nav>

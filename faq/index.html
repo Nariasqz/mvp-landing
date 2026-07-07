@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PZ9S4H6D53"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PZ9S4H6D53');
+</script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1998099904402392');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1998099904402392&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xeavfqkovw");
+</script>
+<!-- End Microsoft Clarity -->
+<title>FAQ — MVP</title>
+<meta name="description" content="Frequently asked questions about MVP, the app that helps partners show up better every day.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #F5F2EC;
+  color: #1B2A4A;
+  -webkit-font-smoothing: antialiased;
+}
+
+nav {
+  background: #1B2A4A;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 68px;
+}
+
+.nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-logo svg { width: 32px; height: 37px; }
+.logo-main { font-size: 16px; font-weight: 800; color: #fff; }
+.logo-sub { font-size: 9px; color: rgba(255,255,255,0.4); letter-spacing: 1.5px; text-transform: uppercase; }
+.nav-home { font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; }
+.nav-home:hover { color: #fff; }
+
+.page-header {
+  background: #1B2A4A;
+  padding: 56px 40px 48px;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -1.5px;
+  margin-bottom: 12px;
+}
+
+.page-header h1 span { color: #C8A24B; }
+
+.page-header p {
+  font-size: 17px;
+  color: rgba(255,255,255,0.55);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+.content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 64px 40px 100px;
+}
+
+.faq-group {
+  margin-bottom: 12px;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(27,42,74,0.06);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 22px 24px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  transition: background 0.15s;
+}
+
+.faq-question:hover { background: rgba(27,42,74,0.03); }
+
+.faq-question.open { background: rgba(200,162,75,0.05); }
+
+.faq-q-text {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1B2A4A;
+  line-height: 1.4;
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #F5F2EC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+  transition: background 0.15s, transform 0.2s;
+}
+
+.faq-question.open .faq-icon {
+  background: #C8A24B;
+  transform: rotate(45deg);
+}
+
+.faq-icon svg { width: 12px; height: 12px; }
+.faq-icon svg path { stroke: #1B2A4A; transition: stroke 0.15s; }
+.faq-question.open .faq-icon svg path { stroke: #fff; }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-answer.open {
+  max-height: 1000px;
+}
+
+.faq-answer-inner {
+  padding: 0 24px 24px;
+  border-top: 1px solid rgba(27,42,74,0.07);
+  padding-top: 16px;
+}
+
+.faq-answer-inner p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: #4A5A78;
+  margin-bottom: 12px;
+}
+
+.faq-answer-inner p:last-child { margin-bottom: 0; }
+
+.faq-answer-inner strong { color: #1B2A4A; font-weight: 600; }
+
+.contact-row {
+  margin-top: 56px;
+  text-align: center;
+  padding: 32px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 1px 4px rgba(27,42,74,0.06);
+}
+
+.contact-row p {
+  font-size: 16px;
+  color: #4A5A78;
+  line-height: 1.65;
+}
+
+.contact-row a {
+  color: #C8A24B;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-row a:hover { text-decoration: underline; }
+
+footer {
+  background: #1B2A4A;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 28px 40px;
+  text-align: center;
+}
+
+.footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+.footer-copy a { color: rgba(255,255,255,0.4); text-decoration: none; }
+.footer-copy a:hover { color: rgba(255,255,255,0.7); }
+
+@media (max-width: 600px) {
+  nav { padding: 0 16px; }
+  .page-header { padding: 40px 20px 36px; }
+  .content { padding: 40px 16px 80px; }
+  footer { padding: 24px 20px; }
+  .faq-question { padding: 18px 18px; }
+  .faq-answer-inner { padding: 0 18px 20px; padding-top: 14px; }
+  .faq-q-text { font-size: 15px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 120 140" fill="none"><path d="M60 6 C 78 12, 98 14, 112 14 L112 60 C112 96, 92 122, 60 134 C28 122, 8 96, 8 60 L8 14 C 22 14, 42 12, 60 6 Z" fill="#0E2348"/><path d="M60 14 C 76 19, 92 21, 104 21 L104 60 C104 92, 87 115, 60 126 C33 115, 16 92, 16 60 L16 21 C 28 21, 44 19, 60 14 Z" fill="none" stroke="#C8A24B" stroke-width="2"/><path d="M60 92 C 38 78, 28 62, 32 50 C 36 40, 50 40, 60 54 C 70 40, 84 40, 88 50 C 92 62, 82 78, 60 92 Z" fill="#C8A24B"/></svg>
+    <div><div class="logo-main">MVP</div><div class="logo-sub">Most Valuable Partner</div></div>
+  </a>
+  <a href="/" class="nav-home">← Back to home</a>
+</nav>
+
+<div class="page-header">
+  <h1>Frequently Asked <span>Questions</span></h1>
+  <p>Everything you want to know before you download, and a few things worth knowing after.</p>
+</div>
+
+<div class="content">
+
+  <!-- Q1 -->
+  <div class="faq-group">
+    <button class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-text">Why do the men's side and women's side of the app look different?</span>
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>Because they are doing different jobs.</p>
+        <p>Her side is built around her hormonal cycle. She can log where she is in her cycle or life stage, share how she is feeling today, and update the preferences that help personalize what he receives. His side is built for action - one clear thing to do today, a short explanation of why it matters right now, and a way to build consistency over time.</p>
+        <p>Different roles. Different designs. One relationship.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="faq-group">
+    <button class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-text">Is MVP only for heterosexual couples?</span>
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>The magic of MVP is in its hormonal phase customization. Every daily action he receives is shaped by where she is in her cycle or life stage. That level of specificity is what makes MVP different from every other relationship app.</p>
+        <p>Our first version is built for male-female couples because the entire system is designed around one partner's hormonal cycle shaping what the other partner does.</p>
+        <p>We plan to expand to other relationship types in future versions, and when we do, we want to build those experiences with the same depth and care. Not a quick reskin. A version that actually works for the couples using it.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="faq-group">
+    <button class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-text">How does her menstrual cycle affect what he gets in the app?</span>
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>Each phase of the hormonal cycle affects energy, mood, stress, and what kind of support actually lands. What feels thoughtful during her follicular phase can feel completely tone-deaf during her menstrual phase or luteal phase, when PMS symptoms often occur. The difference is real, and most partners have no way of knowing it.</p>
+        <p>MVP uses her current phase to shape his daily action so what he does is matched to where she actually is, not just a generic suggestion. For example, during her menstrual phase he might get a comfort-based action focused on reducing her load. During her follicular or ovulatory phase he might get something more energetic or planned.</p>
+        <p>He does not need to understand the biology. The app translates it for him.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="faq-group">
+    <button class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-text">What does he actually see?</span>
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>All of her data is hers.</p>
+        <p>If she shares her cycle information, her partner will only ever see her current hormonal phase - for example, that she is in her luteal phase, when PMS symptoms often occur - to help guide his daily actions. He does not see her cycle history, raw entries, or anything beyond what she has chosen to share. The more she shares, the more personalized his support becomes. That choice is always hers.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="faq-group">
+    <button class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-text">What makes MVP better than other relationship apps?</span>
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>Most relationship apps give you quizzes, vague advice, and reminders to communicate more. MVP gives him one specific action today, shaped by where she actually is in her hormonal cycle or life stage.</p>
+        <p>Her body and energy are not the same every day. What he does during her menstrual phase is different from what he does during ovulation, postpartum, or perimenopause. The daily action is never generic because her context is never generic.</p>
+        <p>She gets fewer conversations that start with "you just do not get it." He gets fewer days where he tried but missed. The goal: help him show up better, every day, without her having to ask.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="faq-group">
+    <button class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-text">How much personal information do I have to enter?</span>
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>Only what you want. The app works with less. It works better with more.</p>
+        <p>You can skip questions during onboarding and come back later. More information means more specific recommendations. It should never feel like pressure.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="faq-group">
+    <button class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-text">How is my health data stored?</span>
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>Your health data is yours and you control it.</p>
+        <p>Your cycle entries are yours to keep as long as you want. You can delete them at any time from Settings. We will never remove them on our end.</p>
+        <p>Your data is always in your hands. Adjust, delete, or manage anything from Settings at any time. Your daily signal resets on its own every 24 hours.</p>
+        <p>Full account deletion removes everything within 30 days of your request.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="faq-group">
+    <button class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-text">Do you sell my data?</span>
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>No, and we want to say that plainly. We are not here to be creepy. We are here to help you and your partner.</p>
+        <p>MVP does not sell data to advertisers, data brokers, or anyone else. That is a permanent commitment, not a launch-phase promise. The people who built this app use it in their own relationships. Every privacy decision we make is one we live with too.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="faq-group">
+    <button class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-text">What if one of us does not want to use the app?</span>
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>Each partner can use MVP independently. A man using the app alone will receive less personalized guidance - his daily actions are most specific when her cycle and preferences are connected.</p>
+        <p>Women can use MVP on their own for cycle tracking, daily mood logging, the article library, and Milestones, with no partner linked. Accounts can be connected or disconnected at any time from Settings, and no data is lost either way.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="faq-group">
+    <button class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-text">What if one of us takes a break and stops using it for a while?</span>
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>Pick back up whenever you are ready. There are no guilt notifications and no pressure to explain the gap. Your history is right where you left it. Returning is always easy.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="faq-group">
+    <button class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-text">I am pregnant, postpartum, breastfeeding, or in perimenopause. Does this work for me?</span>
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>Yes. MVP supports six hormonal life stages, not just a four-phase cycle: cycling, pregnant, postpartum, breastfeeding, perimenopause, and menopause. Postpartum and breastfeeding can both be active at the same time, because that reflects real life.</p>
+        <p>These are some of the most significant hormonal chapters of a woman's life, and MVP is built to support all of them.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="faq-group">
+    <button class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-text">Is MVP therapy or couples counseling?</span>
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>No. MVP is not therapy, couples counseling, or a substitute for professional support.</p>
+        <p>It is built for the day-to-day, the times when nothing is critically wrong but there is still room to show up better. For anything that feels too heavy to carry without professional help, we always encourage reaching out to a licensed therapist or counselor. MVP is a daily practice, not a replacement for real support.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="faq-group">
+    <button class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-text">Is this app going to lecture me?</span>
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>No. MVP assumes you care. It does not assume you are failing.</p>
+        <p>Most people want to show up well for their partner. They just do not always know what would actually help today. MVP translates her context into one specific action. No lectures. No shame. Just a useful next step.</p>
+        <p>We also want to hear from you. If something in the app does not feel right, does not reflect your relationship, or leaves you feeling unsupported rather than helped, tell us. We are building this for real people and we want every person who uses it to feel seen, not managed.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="faq-group">
+    <button class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-text">Can I use MVP as a period tracker?</span>
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>Yes. MVP tracks your cycle, logs your daily signal, and walks you through each hormonal phase of your menstrual cycle and life with guides explaining why you may be feeling the way you feel.</p>
+        <p>You do not need a linked partner to use any of this. Your cycle history is always yours.</p>
+        <p>Understanding the biology behind how you feel does not make the feeling less real. It just makes it less mysterious.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="faq-group">
+    <button class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-text">What happens to my data if my relationship changes?</span>
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>Your account belongs to you, not the relationship.</p>
+        <p>His progress, badges, and articles stay with him regardless of who he is linked to. Her cycle history, preferences, love languages, and Milestones stay with her. Neither person loses anything they built.</p>
+        <p>Accounts can be unlinked and relinked with a new partner at any time from Settings. Everything you added about yourself travels with you.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="faq-group">
+    <button class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-text">Is there a free version?</span>
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>MVP is free during beta testing. After beta, it will move to a monthly subscription. Exact pricing will be confirmed before launch.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="faq-group">
+    <button class="faq-question" onclick="toggle(this)">
+      <span class="faq-q-text">Is MVP available on Android?</span>
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        <p>iOS only at launch. Android is on the roadmap without a confirmed timeline.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-row">
+    <p>Have a question that is not here? Reach out at <a href="mailto:hello@mostvaluablepartner.app">hello@mostvaluablepartner.app</a></p>
+  </div>
+
+</div>
+
+<footer>
+  <p class="footer-copy">
+    &copy; 2026 Most Valuable Partner &nbsp;&middot;&nbsp;
+    <a href="/privacy/">Privacy Policy</a> &nbsp;&middot;&nbsp;
+    <a href="/terms/">Terms of Service</a>
+  </p>
+</footer>
+
+<script>
+function toggle(btn) {
+  const answer = btn.nextElementSibling;
+  const isOpen = answer.classList.contains('open');
+  document.querySelectorAll('.faq-answer.open').forEach(el => el.classList.remove('open'));
+  document.querySelectorAll('.faq-question.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) {
+    answer.classList.add('open');
+    btn.classList.add('open');
+  }
+}
+</script>
+
+</body>
+</html>

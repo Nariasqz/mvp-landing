@@ -2147,35 +2147,12 @@ footer {
   </div>
 </section>
 
-<!-- FOUNDING 100 -->
+<!-- DOWNLOAD -->
 <section class="sec cream founding" id="join">
   <div class="wrap">
-    <div id="founding-open">
-      <div class="eyebrow">Free for a limited time. No credit card required.</div>
-      <h2 class="h2">Try MVP free. Lock in $7.99/month for life.</h2>
-      <p class="body">Our first 100 members get free early access now, and lock in $7.99/month for life once pricing begins. Everyone after that pays the standard rate.</p>
-      <div class="join-form" id="waitlist-form-founding">
-        <input type="email" id="waitlist-email-founding" class="waitlist-input" placeholder="Your email address" autocomplete="email" required onkeydown="if(event.key==='Enter')submitWaitlist('founding')">
-        <button class="btn-gold" onclick="submitWaitlist('founding')">Get Free Early Access</button>
-      </div>
-      <div class="form-success" id="waitlist-success-founding">You're on the list.<small>We'll email you as soon as MVP is ready to download.</small></div>
-      <div class="checks">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>No credit card</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>iOS only</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>No ads</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>We don't sell your data</span>
-      </div>
-    </div>
-    <div id="founding-closed" style="display:none;">
-      <div class="eyebrow">The founding 100 is full</div>
-      <h2 class="h2">Join the waitlist.</h2>
-      <p class="body">All 100 founding spots are taken. Join the general waitlist and we'll email you the moment MVP opens up to new members.</p>
-      <div class="join-form" id="waitlist-form-general">
-        <input type="email" id="waitlist-email-general" class="waitlist-input" placeholder="Your email address" autocomplete="email" required onkeydown="if(event.key==='Enter')submitWaitlist('general')">
-        <button class="btn-gold" onclick="submitWaitlist('general')">Join the Waitlist</button>
-      </div>
-      <div class="form-success" id="waitlist-success-general">You're on the list.<small>We'll email you as soon as a spot opens up.</small></div>
-    </div>
+    <div class="eyebrow">Free for a limited time</div>
+    <h2 class="h2">Download MVP for free.</h2>
+    <a href="#" id="app-store-link" class="btn-gold" style="display:inline-block; margin-top:8px; text-decoration:none;">Download on the App Store</a>
   </div>
 </section>
 
@@ -2204,77 +2181,6 @@ footer {
 </footer>
 
 <script>
-// ── SUPABASE CONFIG ──────────────────────────────────────────────────────────
-// Fill in your project URL and anon key from the Supabase dashboard.
-// Settings → API → Project URL and anon/public key.
-const SUPABASE_URL  = 'https://uzpykcyowxusexfmqfnp.supabase.co';
-const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV6cHlrY3lvd3h1c2V4Zm1xZm5wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExMzkyODUsImV4cCI6MjA5NjcxNTI4NX0.YRr8p6rKQtdk7V8xUQZ1PDzydPD21CuvqDaw6yhsgv0';
-
-async function submitWaitlist(location) {
-  const emailEl  = document.getElementById('waitlist-email-' + location);
-  const formEl   = document.getElementById('waitlist-form-' + location);
-  const successEl = document.getElementById('waitlist-success-' + location);
-  const btn = formEl.querySelector('button');
-
-  const email = emailEl.value.trim();
-  if (!email || !email.includes('@')) {
-    emailEl.focus();
-    return;
-  }
-
-  btn.disabled = true;
-  btn.textContent = 'One sec...';
-
-  try {
-    const res = await fetch(SUPABASE_URL + '/rest/v1/waitlist', {
-      method: 'POST',
-      headers: {
-        'apikey': SUPABASE_ANON,
-        'Authorization': 'Bearer ' + SUPABASE_ANON,
-        'Content-Type': 'application/json',
-        'Prefer': 'return=minimal'
-      },
-      body: JSON.stringify({ email, source: location })
-    });
-
-    if (res.ok || res.status === 409) {
-      // 409 = duplicate email (unique constraint), still show success
-      formEl.style.display = 'none';
-      successEl.style.display = 'block';
-    } else {
-      const body = await res.text();
-      throw new Error('Status ' + res.status + ': ' + body);
-    }
-  } catch (err) {
-    btn.disabled = false;
-    btn.textContent = 'Get Free Early Access';
-    alert(err.message);
-  }
-}
-
-// The "Founding 100" offer is a real, shared cap with the main homepage (same source value,
-// 'founding', so a signup here counts against the same 100 regardless of which page it came
-// from), not just a claim in the copy. get_founding_waitlist_count() is a count-only RPC, anon
-// has no SELECT on the waitlist table itself, by design, so it can't read emails. See
-// supabase/migrations/20261025000002_founding_waitlist_count.sql in mvp-app.
-async function checkFoundingCap() {
-  try {
-    const res = await fetch(SUPABASE_URL + '/rest/v1/rpc/get_founding_waitlist_count', {
-      method: 'POST',
-      headers: { 'apikey': SUPABASE_ANON, 'Authorization': 'Bearer ' + SUPABASE_ANON, 'Content-Type': 'application/json' }
-    });
-    if (!res.ok) return;
-    const count = await res.json();
-    if (count >= 100) {
-      document.getElementById('founding-open').style.display = 'none';
-      document.getElementById('founding-closed').style.display = 'block';
-    }
-  } catch (err) {
-    // If the check fails, leave the open/founding state showing rather than blocking signups.
-  }
-}
-document.addEventListener('DOMContentLoaded', checkFoundingCap);
-
 function setActive(side) {
   const hisPhone = document.getElementById('phone-his');
   const herPhone = document.getElementById('phone-her');

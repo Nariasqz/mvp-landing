@@ -1,0 +1,2356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PZ9S4H6D53"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PZ9S4H6D53');
+</script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1998099904402392');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1998099904402392&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xeavfqkovw");
+</script>
+<!-- End Microsoft Clarity -->
+<title>MVP for Her | Most Valuable Partner</title>
+<meta name="description" content="He wants to be a better partner. MVP gives him the playbook. Cycle tracking, optional 3-second check-ins, and one thoughtful action for him each day, built around what you are going through.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1B2A4A;
+  --navy-mid: #243358;
+  --gold: #C8A24B;
+  --gold-dark: #A88432;
+  --cream: #EAE6DE;
+  --cream-light: #F5F2EC;
+  --terra: #C4614A;
+  --blush: #E8A598;
+  --white: #FFFFFF;
+  --text: #1B2A4A;
+  --text-mid: #4A5A78;
+  --text-light: #8A96A8;
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text);
+  background: var(--cream-light);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 68px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.nav-logo svg { width: 36px; height: 42px; }
+
+.nav-logo-text { line-height: 1.1; }
+.nav-logo-text .logo-main { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.55); letter-spacing: 1px; }
+.nav-logo-text .logo-sub { font-size: 15px; font-weight: 700; color: #fff; letter-spacing: 0.3px; }
+
+.nav-btn {
+  background: var(--gold);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 22px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.nav-btn:hover { background: var(--gold-dark); }
+
+@media (max-width: 600px) {
+  nav { padding: 0 16px; }
+  .nav-logo-text .logo-sub { display: none; }
+  .nav-feedback-btn { display: none; }
+  .nav-btn { font-size: 13px; padding: 9px 16px; white-space: nowrap; }
+}
+
+.hero-feedback-link {
+  display: none;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 22px;
+  border-radius: 50px;
+  margin-top: 28px;
+  letter-spacing: 0.2px;
+}
+@media (max-width: 600px) {
+  .hero-feedback-link { display: inline-block; }
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--navy);
+  text-align: center;
+  padding: 80px 24px 60px;
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-size: clamp(52px, 8vw, 88px);
+  font-weight: 900;
+  line-height: 1.0;
+  color: #fff;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+}
+
+.hero h1 .gold { color: var(--gold); }
+
+.hero-sub {
+  font-size: clamp(18px, 2.5vw, 22px);
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 16px;
+}
+
+.hero-body {
+  font-size: clamp(15px, 1.8vw, 17px);
+  color: rgba(255,255,255,0.65);
+  max-width: 560px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 16px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  margin-bottom: 48px;
+  transition: background 0.15s;
+}
+.hero-cta:hover { background: var(--gold-dark); }
+.hero-cta svg { width: 18px; height: 18px; }
+
+/* Phone toggle */
+.phone-toggle {
+  display: inline-flex;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50px;
+  padding: 4px;
+  margin-bottom: 48px;
+  gap: 4px;
+}
+
+.toggle-btn {
+  padding: 10px 24px;
+  border-radius: 50px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: transparent;
+  color: rgba(255,255,255,0.6);
+}
+
+.toggle-btn.active-his {
+  background: #fff;
+  color: var(--navy);
+}
+
+.toggle-btn.active-her {
+  background: var(--blush);
+  color: #fff;
+}
+
+/* Phone mockups */
+.phones-wrapper {
+  position: relative;
+  height: 520px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.phone {
+  position: absolute;
+  width: 240px;
+  border-radius: 36px;
+  background: #fff;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(.4,0,.2,1), z-index 0s 0.1s, opacity 0.35s;
+  border: 2px solid rgba(255,255,255,0.15);
+}
+
+.phone-notch {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 24px;
+  background: #000;
+  border-radius: 12px;
+  z-index: 10;
+}
+
+.phone-time {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 14px 18px 4px;
+  text-align: left;
+}
+
+.phone-dots {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  display: flex;
+  gap: 3px;
+}
+.phone-dots span { width: 4px; height: 4px; background: var(--text-light); border-radius: 50%; }
+
+/* HIS phone */
+.phone-his {
+  transform: translateX(-48px) translateY(0px);
+  z-index: 2;
+}
+
+.phone-his.active {
+  transform: translateX(-80px) translateY(0px);
+  z-index: 3;
+}
+
+/* HER phone, 60% behind HIS, flat side-by-side */
+.phone-her {
+  transform: translateX(48px) translateY(0px);
+  z-index: 1;
+}
+
+.phone-her.active {
+  transform: translateX(-20px) translateY(0px);
+  z-index: 3;
+}
+
+.phone-screen-inner {
+  padding: 0;
+  height: 480px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HIS screen */
+.his-screen {
+  background: #F8F8FA;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.his-header {
+  padding: 48px 18px 12px;
+  text-align: center;
+}
+
+.his-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.his-greeting {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.move-card-phone {
+  margin: 8px 12px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 2px 12px rgba(27,42,74,0.08);
+  flex: 1;
+}
+
+.move-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.phase-badge-small {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--text-light);
+  text-transform: uppercase;
+}
+
+.day-badge-small {
+  font-size: 9px;
+  color: var(--text-light);
+}
+
+.what-label {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.what-text {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.what-sub {
+  font-size: 10px;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+
+.why-label {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.why-text {
+  font-size: 10px;
+  color: var(--text-mid);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.tier-row { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; }
+.tier-label { font-size: 8px; font-weight: 600; color: var(--text-light); }
+.tier-pill {
+  font-size: 9px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: #FDDEE0;
+  color: #C4614A;
+}
+.tier-pill.low { background: #E8F5E9; color: #2E7D32; }
+
+.mark-done-btn {
+  width: 100%;
+  background: var(--gold);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.streak-row {
+  text-align: center;
+  padding: 12px 12px 8px;
+}
+
+.streak-icon {
+  width: 28px;
+  height: 28px;
+  margin: 0 auto 2px;
+}
+
+.streak-label {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.streak-text {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.fc-mood-label {
+  font-size: 7px;
+  color: var(--text-light);
+  margin-top: 1px;
+  display: block;
+}
+
+.fc-weather-item.selected .fc-mood-label {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.phone-tab-bar {
+  border-top: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  padding: 8px 0 12px;
+  background: #fff;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  font-size: 9px;
+  color: #3D4F6B;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  font-weight: 500;
+}
+
+.tab-item.active { color: var(--gold); }
+
+.tab-icon { width: 22px; height: 22px; }
+
+/* HER screen */
+.her-screen {
+  background: #FAF7F5;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.her-header {
+  background: #FAF7F5;
+  padding: 32px 18px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.her-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.her-greeting {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.her-profile-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.13);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fc-card {
+  margin: 12px 12px 8px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.fc-label {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.fc-state {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+
+.fc-tap { font-size: 9px; color: var(--text-light); margin-bottom: 8px; }
+
+.fc-weather-row {
+  display: flex;
+  gap: 6px;
+}
+
+.fc-weather-item {
+  flex: 1;
+  text-align: center;
+  padding: 6px 4px;
+  border-radius: 8px;
+  font-size: 8px;
+  color: var(--text-light);
+  border: 1.5px solid transparent;
+}
+
+.fc-weather-item.selected {
+  border-color: var(--navy);
+  background: rgba(27,42,74,0.05);
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.fc-weather-emoji { font-size: 14px; display: block; margin-bottom: 2px; }
+
+.phase-card-her {
+  margin: 0 12px 8px;
+  background: #FBF5EC;
+  border-radius: 14px;
+  padding: 12px 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.phase-current-label {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.phase-name-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.phase-icon-emoji {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.phase-name-her {
+  font-size: 13px;
+  font-weight: 800;
+  color: #C8A24B;
+  flex: 1;
+  white-space: nowrap;
+}
+
+.phase-day-her {
+  font-size: 9px;
+  color: var(--text-light);
+}
+
+.phase-learn-more {
+  font-size: 9px;
+  font-weight: 600;
+  color: rgba(27,42,74,0.7);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.phase-divider {
+  height: 1px;
+  background: rgba(200,162,75,0.25);
+  margin: 6px 0;
+}
+
+.phase-section-label {
+  font-size: 8px;
+  font-weight: 700;
+  color: rgba(27,42,74,0.55);
+  letter-spacing: 0.2px;
+  margin-bottom: 4px;
+}
+
+.phase-blurb {
+  font-size: 10px;
+  color: rgba(27,42,74,0.75);
+  line-height: 1.5;
+}
+
+/* ── SECTIONS ── */
+section { position: relative; }
+
+.section-cream { background: var(--cream-light); }
+.section-cream-alt { background: var(--cream); }
+.section-navy { background: var(--navy); }
+
+/* ── PROBLEM ── */
+.problem {
+  background: var(--cream-light);
+  padding: 60px 40px 0;
+}
+
+.problem h2 {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.1;
+  max-width: 640px;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.problem-body {
+  font-size: 17px;
+  color: var(--text-mid);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 72px;
+}
+
+.gaps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  max-width: 960px;
+}
+
+@media (max-width: 768px) {
+  .gaps { grid-template-columns: 1fr; gap: 32px; }
+  .problem { padding: 60px 24px; }
+}
+
+.gap-num {
+  font-size: 72px;
+  font-weight: 900;
+  color: rgba(27,42,74,0.08);
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -3px;
+}
+
+.gap-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.gap-body {
+  font-size: 15px;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+
+/* ── HOW IT WORKS ── */
+.how {
+  background: var(--navy);
+  padding: 80px 40px 48px;
+}
+
+.how h2 {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  color: #fff;
+  text-align: center;
+  letter-spacing: -1px;
+  margin-bottom: 72px;
+}
+
+.how-layout {
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+  gap: 64px;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .how-layout { grid-template-columns: 1fr; }
+  .how { padding: 60px 24px; }
+}
+
+.steps { display: flex; flex-direction: column; gap: 0; }
+
+.step {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 36px;
+  position: relative;
+}
+
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 44px;
+  bottom: 0;
+  width: 2px;
+  background: rgba(200,162,75,0.25);
+}
+
+.step-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid rgba(200,162,75,0.5);
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.step-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--gold);
+  margin-bottom: 6px;
+  margin-top: 8px;
+}
+
+.step-body {
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+}
+
+.move-card-demo {
+  background: #f0f2f5;
+  border-radius: 20px;
+  padding: 56px 40px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.demo-phase-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.demo-phase {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--text-light);
+  text-transform: uppercase;
+}
+
+.demo-day {
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+.demo-what-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.demo-what {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.demo-what-sub {
+  font-size: 13px;
+  color: var(--text-mid);
+  margin-bottom: 16px;
+}
+
+.demo-why-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.demo-why {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.demo-tier-row { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+.demo-tier-label { font-size: 11px; font-weight: 600; color: var(--text-light); }
+.demo-tier-pill {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 12px;
+  border-radius: 20px;
+  background: #FDDEE0;
+  color: #C4614A;
+}
+.demo-tier-pill.low { background: #E8F5E9; color: #2E7D32; }
+
+.demo-btn {
+  width: 100%;
+  background: var(--gold);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 14px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* ── FEATURES ── */
+.feature-block {
+  padding: 80px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.feature-block.reverse { direction: rtl; }
+.feature-block.reverse > * { direction: ltr; }
+
+@media (max-width: 768px) {
+  .feature-block { grid-template-columns: 1fr; gap: 40px; direction: ltr; padding: 60px 24px; }
+  .feature-block.reverse { direction: ltr; }
+}
+
+.feature-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin-bottom: 12px;
+}
+
+.feature-block.navy-bg .feature-section-label { color: var(--gold); }
+
+.feature-title {
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.feature-body {
+  font-size: 16px;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+
+/* Feature card mockups */
+.feature-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 8px 40px rgba(27,42,74,0.1);
+}
+
+.fc-demo-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+
+.fc-demo-state {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.fc-demo-sub { font-size: 12px; color: var(--text-light); margin-bottom: 16px; }
+
+.fc-demo-row {
+  display: flex;
+  gap: 10px;
+}
+
+.fc-demo-item {
+  flex: 1;
+  text-align: center;
+  padding: 12px 8px;
+  border-radius: 12px;
+  border: 1.5px solid transparent;
+  background: #F7F8FA;
+  cursor: default;
+  transition: all 0.15s;
+}
+
+.fc-demo-item.selected {
+  border-color: var(--navy);
+  background: rgba(27,42,74,0.05);
+}
+
+.fc-demo-emoji { font-size: 22px; margin-bottom: 4px; }
+.fc-demo-name { font-size: 11px; font-weight: 600; color: var(--text-mid); }
+.fc-demo-item.selected .fc-demo-name { color: var(--navy); }
+
+.move-demo-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 8px 40px rgba(27,42,74,0.1);
+}
+
+.her-demo-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 8px 40px rgba(27,42,74,0.1);
+}
+
+.her-demo-greeting {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+
+.her-demo-row {
+  background: #F7F8FA;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+
+.her-demo-you-in {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 4px;
+}
+
+.her-demo-phase {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.her-demo-day { font-size: 11px; color: var(--text-light); }
+
+.her-demo-fc-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 4px;
+}
+
+.her-demo-fc-val {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* ── PHASES ── */
+.phases {
+  background: var(--navy);
+  padding: 100px 40px;
+  text-align: center;
+}
+
+.phases h2 {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -1px;
+  margin-bottom: 48px;
+}
+
+.phase-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.phase-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 1.5px solid rgba(255,255,255,0.15);
+  background: transparent;
+  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+
+.phase-tab:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); }
+
+.phase-tab.active {
+  background: #fff;
+  border-color: #fff;
+  color: var(--navy);
+}
+
+.phase-content {
+  display: none;
+  background: rgba(255,255,255,0.06);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.phase-content.active { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+
+@media (max-width: 640px) {
+  .phase-content.active { grid-template-columns: 1fr; }
+  .phases { padding: 60px 20px; }
+}
+
+.phase-content-emoji {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.phase-content-name {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.phase-content-days {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 16px;
+}
+
+.phase-content-tagline {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+.phase-for-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 6px;
+}
+
+.phase-for-text {
+  font-size: 15px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.moves-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.move-pill {
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.move-pill::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.phases-footnote {
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+  margin-top: 32px;
+  text-align: center;
+}
+
+/* ── PRICING ── */
+.pricing {
+  background: var(--cream-light);
+  padding: 48px 40px 60px;
+  text-align: center;
+}
+
+.pricing h2 {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  color: var(--navy);
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+
+.pricing-sub {
+  font-size: 17px;
+  color: var(--text-mid);
+  margin-bottom: 32px;
+}
+
+.pricing-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .pricing-cards { grid-template-columns: 1fr; }
+  .pricing { padding: 60px 24px; }
+}
+
+.price-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px 36px 24px;
+  text-align: left;
+  box-shadow: 0 4px 24px rgba(27,42,74,0.08);
+}
+
+.price-card.featured {
+  background: var(--navy);
+}
+
+.price-tier {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+
+.price-card.featured .price-tier { color: var(--gold); }
+
+.price-amount {
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--navy);
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.price-card.featured .price-amount { color: #fff; }
+
+.price-amount span {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.price-couples {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.price-couples-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 20px;
+}
+
+.price-desc {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 24px;
+}
+
+.price-divider {
+  height: 1px;
+  background: rgba(0,0,0,0.06);
+  margin-bottom: 20px;
+}
+
+.price-card.featured .price-divider { background: rgba(255,255,255,0.1); }
+
+.price-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-mid);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.price-card.featured .price-feature { color: rgba(255,255,255,0.8); }
+
+.check {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.price-btn {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: 24px;
+  transition: all 0.15s;
+}
+
+.price-btn-outline {
+  border: 2px solid var(--navy);
+  color: var(--navy);
+  background: transparent;
+}
+.price-btn-outline:hover { background: var(--navy); color: #fff; }
+
+.price-btn-gold {
+  background: var(--gold);
+  color: #fff;
+}
+.price-btn-gold:hover { background: var(--gold-dark); }
+
+.pricing-footnote {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* ── FAQ ── */
+.faq {
+  background: var(--cream-light);
+  padding: 100px 40px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) { .faq { padding: 60px 24px; } }
+
+.faq-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.faq h2 {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  color: var(--navy);
+  text-align: center;
+  letter-spacing: -1px;
+  margin-bottom: 56px;
+}
+
+.faq-item {
+  border-top: 1px solid rgba(27,42,74,0.1);
+  padding: 20px 0;
+}
+
+.faq-item:last-child { border-bottom: 1px solid rgba(27,42,74,0.1); }
+
+.faq-q {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.faq-plus {
+  color: var(--gold);
+  font-size: 22px;
+  font-weight: 300;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+  line-height: 1;
+}
+
+.faq-item.open .faq-plus { transform: rotate(45deg); }
+
+.faq-a {
+  display: none;
+  font-size: 15px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  padding-top: 14px;
+}
+
+.faq-item.open .faq-a { display: block; }
+
+/* ── FINAL CTA ── */
+.final-cta {
+  background: var(--navy);
+  text-align: center;
+  padding: 100px 40px;
+}
+
+.final-cta h2 {
+  font-size: clamp(48px, 8vw, 88px);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -3px;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.final-cta h2 .gold { color: var(--gold); }
+
+.final-cta p {
+  font-size: 18px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 36px;
+}
+
+.final-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 16px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: background 0.15s;
+}
+.final-cta-btn:hover { background: var(--gold-dark); }
+
+.final-cta-footnote {
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 28px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  footer { padding: 28px 20px; flex-direction: column; align-items: center; text-align: center; gap: 16px; }
+  .footer-copy { flex: none; }
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.footer-logo svg { width: 24px; height: 28px; }
+
+.footer-logo-text {
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.7);
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  text-align: center;
+  flex: 1;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+/* ── UTILITIES ── */
+.container { max-width: 1100px; margin: 0 auto; }
+
+/* ── WAITLIST FORM ── */
+.waitlist-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto 48px;
+}
+
+.waitlist-input {
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 50px;
+  border: none;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: rgba(255,255,255,0.96);
+  outline: none;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+
+.waitlist-input::placeholder { color: #9BA8BC; }
+
+.waitlist-input:focus {
+  box-shadow: 0 0 0 2px var(--gold), 0 2px 12px rgba(0,0,0,0.15);
+}
+
+.waitlist-submit {
+  width: 100%;
+  padding: 15px 32px;
+  border-radius: 50px;
+  border: none;
+  background: var(--gold);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.waitlist-submit:hover { background: var(--gold-dark); }
+.waitlist-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.waitlist-success {
+  display: none;
+  text-align: center;
+  padding: 20px 0 48px;
+}
+
+.waitlist-success-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+}
+
+.waitlist-success-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.waitlist-success-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+}
+
+/* Final CTA form variant (navy bg is the same, but reuse same classes) */
+.final-waitlist-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 20px;
+}
+
+.final-waitlist-success {
+  display: none;
+  text-align: center;
+  padding: 8px 0 20px;
+}
+
+.final-waitlist-success-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.final-waitlist-success-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+}
+
+@media (max-width: 480px) {
+  .waitlist-form, .final-waitlist-form { max-width: 100%; }
+}
+
+/* ── MOBILE RESPONSIVE OVERRIDES ── */
+@media (max-width: 640px) {
+  .personalized-grid { grid-template-columns: repeat(3, 1fr) !important; }
+  .why-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+  .whats-inside-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .section-side-pad { padding-left: 20px !important; padding-right: 20px !important; }
+}
+@media (max-width: 400px) {
+  .personalized-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* ── HER PAGE (/her) ── shares every token and component above with index.html */
+.wrap { max-width: 1120px; margin: 0 auto; }
+.eyebrow {
+  font-size: 13px; font-weight: 700; letter-spacing: 2.6px; text-transform: uppercase;
+  color: var(--gold-dark); margin-bottom: 18px;
+}
+.on-navy .eyebrow { color: var(--gold); }
+.h2 {
+  font-size: clamp(34px, 5vw, 60px); font-weight: 800; line-height: 1.05;
+  letter-spacing: -1.5px; color: var(--navy); text-wrap: balance;
+}
+.on-navy .h2 { color: #fff; }
+.h2 .gold { color: var(--gold); }
+.nowrap { white-space: nowrap; }
+.icon { width: 26px; height: 26px; color: var(--gold); flex-shrink: 0; }
+.icon svg, svg.icon { width: 26px; height: 26px; display: block; }
+
+/* Nav */
+.nav-links { display: flex; gap: 28px; }
+.nav-links a { color: rgba(255,255,255,0.8); font-size: 15px; font-weight: 500; text-decoration: none; }
+.nav-links a:hover { color: #fff; }
+.nav-actions { display: flex; align-items: center; gap: 12px; }
+.nav-ghost {
+  font-size: 14px; font-weight: 700; color: var(--gold); background: transparent;
+  border: 2px solid var(--gold); border-radius: 50px; padding: 8px 18px; white-space: nowrap;
+  cursor: pointer; font-family: inherit; transition: background 0.15s;
+}
+.nav-ghost:hover { background: rgba(200,162,75,0.12); }
+@media (max-width: 900px) { .nav-links { display: none; } }
+@media (max-width: 600px) { .nav-ghost { display: none; } }
+
+/* Hero: two columns, copy left, phones right */
+.her-hero { background: var(--navy); padding: 88px 40px 96px; overflow: hidden; }
+.her-hero .wrap {
+  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 56px; align-items: center;
+}
+.her-hero h1 {
+  font-size: clamp(44px, 6.2vw, 84px); font-weight: 800; line-height: 1.02;
+  letter-spacing: -2px; color: #fff; margin-bottom: 32px; text-wrap: balance;
+}
+.her-hero h1 .gold { color: var(--gold); display: block; margin-top: 6px; }
+.her-hero .lead {
+  font-size: clamp(19px, 2vw, 23px); line-height: 1.5; color: rgba(255,255,255,0.92);
+  margin-bottom: 22px; max-width: 620px;
+}
+.her-hero .body { font-size: 17px; line-height: 1.65; color: rgba(255,255,255,0.72); margin-bottom: 10px; max-width: 620px; }
+.her-hero .body.small { font-size: 15px; color: rgba(255,255,255,0.55); margin-bottom: 36px; }
+.cta-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.cta-note { font-size: 14px; color: rgba(255,255,255,0.6); }
+.btn-gold {
+  display: inline-block; background: var(--gold); color: #fff; font-size: 16px; font-weight: 700;
+  padding: 17px 32px; border-radius: 50px; text-decoration: none; transition: background 0.15s;
+  border: none; cursor: pointer; font-family: inherit; white-space: nowrap;
+}
+.btn-gold:hover { background: var(--gold-dark); }
+.btn-outline {
+  display: inline-block; color: var(--gold); border: 2px solid var(--gold); background: transparent;
+  font-size: 16px; font-weight: 700; padding: 14px 30px; border-radius: 50px; cursor: pointer;
+  font-family: inherit; transition: background 0.15s;
+}
+.btn-outline:hover { background: rgba(200,162,75,0.12); }
+
+.hero-phones { display: flex; flex-direction: column; align-items: center; }
+.hero-phones .phone-toggle { margin-bottom: 28px; }
+.hero-phones .phones-wrapper { width: 100%; max-width: 380px; }
+.phone-caption { margin-top: 22px; font-size: 13px; color: rgba(255,255,255,0.5); text-align: center; }
+
+@media (max-width: 960px) {
+  .her-hero { padding: 64px 24px 72px; }
+  .her-hero .wrap { grid-template-columns: 1fr; gap: 48px; }
+  .her-hero .copy { text-align: center; }
+  .her-hero .lead, .her-hero .body { margin-left: auto; margin-right: auto; }
+  .cta-row { justify-content: center; }
+}
+
+/* Generic section shells */
+.sec { padding: 112px 40px; }
+.sec.cream { background: var(--cream-light); }
+.sec.navy { background: var(--navy); }
+.sec.white { background: #FDFCF9; }
+@media (max-width: 768px) { .sec { padding: 72px 24px; } }
+
+/* How it works */
+.how-head { text-align: center; margin-bottom: 56px; }
+.steps-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.step-card {
+  background: #fff; border-radius: 22px; padding: 36px 32px 40px; position: relative;
+  box-shadow: 0 10px 40px rgba(27,42,74,0.07);
+}
+.step-card .num { position: absolute; top: 28px; right: 30px; font-size: 13px; font-weight: 700; color: #C9D1DD; }
+.step-card .icon { margin-bottom: 36px; }
+.step-card h3 { font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 14px; }
+.step-card p { font-size: 16px; line-height: 1.65; color: var(--text-mid); }
+@media (max-width: 860px) { .steps-grid { grid-template-columns: 1fr; } }
+
+/* Your side */
+.side-head { margin-bottom: 52px; }
+.feature-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.feature-card {
+  background: var(--navy-mid); border-radius: 20px; padding: 30px 32px;
+  display: grid; grid-template-columns: 26px 1fr; column-gap: 22px; row-gap: 10px; align-items: start;
+}
+.feature-card h3 { font-size: 21px; font-weight: 600; color: #fff; align-self: center; }
+.feature-card p { grid-column: 2; font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.68); }
+@media (max-width: 760px) { .feature-grid { grid-template-columns: 1fr; } }
+
+.stage-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; margin-top: 40px; }
+.stage-card {
+  background: #fff; border-radius: 18px; padding: 26px 12px 24px; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
+}
+.stage-card .icon { width: 28px; height: 28px; }
+.stage-card span { font-size: 15px; font-weight: 700; color: var(--navy); }
+.stage-note { margin-top: 28px; text-align: center; font-size: 16px; color: rgba(255,255,255,0.62); }
+@media (max-width: 960px) { .stage-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .stage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Two-column split sections (Apple Health, privacy) */
+.split { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 64px; align-items: center; }
+.split .lede { font-size: 20px; color: var(--text-mid); margin-top: 22px; line-height: 1.5; }
+.stack { display: flex; flex-direction: column; gap: 18px; }
+.row-card {
+  background: #fff; border-radius: 20px; padding: 28px 32px;
+  display: grid; grid-template-columns: 26px 1fr; column-gap: 22px; row-gap: 8px;
+  box-shadow: 0 8px 32px rgba(27,42,74,0.06);
+}
+.row-card h3 { font-size: 21px; font-weight: 600; color: var(--navy); align-self: center; }
+.row-card p { grid-column: 2; font-size: 16px; line-height: 1.6; color: var(--text-mid); }
+.sec.white .row-card { background: var(--cream-light); box-shadow: none; }
+.split-note { font-size: 14px; color: var(--text-light); margin-top: 4px; padding-left: 4px; }
+.privacy-shield { width: 60px; height: 70px; color: var(--gold); margin-bottom: 26px; }
+@media (max-width: 900px) { .split { grid-template-columns: 1fr; gap: 40px; } }
+
+/* Creator note */
+.creator { display: grid; grid-template-columns: 170px 1fr; gap: 56px; align-items: start; max-width: 1040px; margin: 0 auto; }
+.creator-badge { width: 150px; height: 175px; }
+.creator .eyebrow { color: rgba(255,255,255,0.75); }
+.creator blockquote {
+  font-size: clamp(24px, 3vw, 38px); font-weight: 800; line-height: 1.3; color: #fff;
+  margin-bottom: 26px; text-wrap: pretty;
+}
+.creator p { font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.7); margin-bottom: 30px; max-width: 760px; }
+@media (max-width: 760px) {
+  .creator { grid-template-columns: 1fr; gap: 28px; text-align: center; }
+  .creator-badge { width: 110px; height: 128px; margin: 0 auto; }
+  .creator p { margin-left: auto; margin-right: auto; }
+}
+
+/* Founding 100 */
+.founding { text-align: center; }
+.founding .body { font-size: 19px; line-height: 1.6; color: var(--text-mid); max-width: 660px; margin: 22px auto 34px; }
+.join-form { display: flex; gap: 14px; justify-content: center; max-width: 640px; margin: 0 auto; }
+.join-form .waitlist-input { flex: 1; min-width: 0; }
+.join-form .btn-gold { flex-shrink: 0; }
+.checks { display: flex; gap: 26px; justify-content: center; flex-wrap: wrap; margin-top: 30px; font-size: 14px; color: var(--text-light); }
+.checks span { display: inline-flex; align-items: center; gap: 7px; }
+.checks svg { width: 14px; height: 14px; color: var(--gold); }
+.form-success { display: none; font-size: 18px; font-weight: 700; color: var(--navy); margin-top: 8px; }
+.form-success small { display: block; font-size: 15px; font-weight: 400; color: var(--text-mid); margin-top: 6px; }
+@media (max-width: 600px) { .join-form { flex-direction: column; } }
+
+/* Footer extras */
+.footer-disclaimer { width: 100%; text-align: center; font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 18px; }
+
+.founding .waitlist-input { background:#fff; border:1px solid #E3DDD2; box-shadow:0 6px 20px rgba(27,42,74,0.06); padding:17px 24px; }
+
+
+/* Privacy: short headline, so give it less width and more size, and tuck the shield in close */
+.privacy-split { grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr); gap: 56px; align-items: start; }
+.privacy-split .h2 { font-size: clamp(40px, 5.6vw, 76px); }
+.privacy-split .privacy-shield { width: 104px; height: 121px; margin-bottom: 22px; margin-left: -7px; margin-top: -5px; }
+.privacy-split .eyebrow { font-size: 22px; letter-spacing: 3.5px; margin-bottom: 22px; margin-left: -1px; }
+/* Optical alignment: big letters carry built-in side space, nudge so every Y starts on one edge */
+.privacy-split .h2 { margin-left: -0.045em; }
+@media (max-width: 900px) { .privacy-split { grid-template-columns: 1fr; gap: 36px; } }
+
+/* Abi, 2026-10-25: card icons ~25% bigger so they anchor the titles, and card text one step darker */
+.row-card { grid-template-columns: 32px 1fr; }
+.row-card > svg.icon { width: 32px; height: 32px; }
+.row-card p { color: #34405C; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M60 6 C 78 12, 98 14, 112 14 L112 60 C112 96, 92 122, 60 134 C28 122, 8 96, 8 60 L8 14 C 22 14, 42 12, 60 6 Z" fill="#0E2348"/>
+      <path d="M60 14 C 76 19, 92 21, 104 21 L104 60 C104 92, 87 115, 60 126 C33 115, 16 92, 16 60 L16 21 C 28 21, 44 19, 60 14 Z" fill="none" stroke="#C8A24B" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M60 92 C 38 78, 28 62, 32 50 C 36 40, 50 40, 60 54 C 70 40, 84 40, 88 50 C 92 62, 82 78, 60 92 Z" fill="#C8A24B"/>
+    </svg>
+    <div class="nav-logo-text">
+      <div class="logo-sub">Most Valuable Partner</div>
+      <div class="logo-main">MVP</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#how">How it works</a>
+    <a href="#privacy">Your privacy</a>
+  </div>
+  <div class="nav-actions">
+    <button class="nav-ghost" onclick="openFeedbackModal()">Share your feedback</button>
+    <a href="#join" class="nav-btn">Get Free Early Access</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="her-hero">
+  <div class="wrap">
+    <div class="copy">
+      <div class="eyebrow" style="color:var(--gold);">Welcome to Most Valuable Partner</div>
+      <h1>He wants to be a better&nbsp;partner. <span class="gold">MVP gives him the playbook.</span></h1>
+      <p class="lead">You shouldn't have to carry the mental load of teaching your partner how your body works, or hint at what you need when your energy shifts.</p>
+      <p class="body">MVP translates your hormonal phase, love language, and preferences into one thoughtful action for him each day, calibrated to what you are actually going through.</p>
+      <p class="body small">On your side: cycle tracking, optional 3-second check-ins, hormonal insights, and resources built for every season of life.</p>
+      <div class="cta-row">
+        <a href="#join" class="btn-gold">Get Free Early Access</a>
+        <span class="cta-note">Free for a limited time. No credit card required.</span>
+      </div>
+    </div>
+
+    <div class="hero-phones">
+      <div class="phone-toggle">
+        <button class="toggle-btn active-her" id="btn-her" onclick="setActive('her')">Her side</button>
+        <button class="toggle-btn" id="btn-his" onclick="setActive('his')">His side</button>
+      </div>
+  <div class="phones-wrapper">
+    <!-- HIS phone -->
+    <div class="phone phone-his" id="phone-his" onclick="setActive('his')">
+      <div class="phone-notch"></div>
+      <div class="phone-screen-inner">
+        <div class="his-screen" style="background:#F5F5F3; position:relative; overflow:hidden; display:flex; flex-direction:column; flex:1;">
+          <!-- Status bar -->
+          <div style="padding:16px 12px 2px;">
+            <div class="phone-time" style="margin:0;">8:00</div>
+          </div>
+          <!-- Greeting + profile icon -->
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; padding:8px 12px 10px;">
+            <div>
+              <div style="font-size:17px; font-weight:700; color:#1B2A4A; line-height:1.2;">Good morning, Adam</div>
+            </div>
+            <div style="width:22px; height:22px; border-radius:50%; border:1.5px solid #1B2A4A; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px;">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="#1B2A4A"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+            </div>
+          </div>
+          <!-- Move card -->
+          <div style="margin:12px 10px 0; background:white; border-radius:14px; padding:14px 12px; box-shadow:0 2px 10px rgba(0,0,0,0.07);">
+            <div style="font-size:10px; font-weight:700; letter-spacing:1px; color:#C8A24B; text-align:center; margin-bottom:6px; text-transform:uppercase;">Today's action</div>
+            <div style="font-size:13px; font-weight:800; color:#1B2A4A; text-align:center; line-height:1.45; margin-bottom:10px;">Bring home her favorite morning drink.</div>
+            <div style="font-size:10.5px; color:#6B7A99; text-align:center; line-height:1.5; margin-bottom:12px;">She feels remembered when you notice the little things.</div>
+            <div style="background:#C8A24B; border-radius:22px; padding:9px; text-align:center; color:white; font-size:12px; font-weight:700; margin-bottom:8px;">Mark as done</div>
+            <div style="text-align:center; font-size:9.5px; color:#1B2A4A; margin-bottom:3px;">Learn why this was suggested →</div>
+          </div>
+          <!-- Streak -->
+          <div class="streak-row" style="margin-top:16px; margin-bottom:10px;">
+            <div class="streak-label">3 DAY STREAK</div>
+            <div class="streak-text">You're the MVP!</div>
+          </div>
+
+        </div>
+        <div class="phone-tab-bar">
+          <div class="tab-item active">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#C8A24B"/><polyline points="7 12 10 15 17 9" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Today
+          </div>
+          <div class="tab-item">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            Library
+          </div>
+          <div class="tab-item">
+            <svg class="tab-icon" viewBox="0 0 120 120" fill="currentColor"><path fill-rule="evenodd" d="M60 8 C 76 13, 95 15, 108 15 L108 58 C108 90, 90 112, 60 122 C30 112, 12 90, 12 58 L12 15 C 25 15, 44 13, 60 8 Z M60 87 C 40 74, 31 59, 35 48 C 38 39, 50 39, 60 51 C 70 39, 82 39, 85 48 C 89 59, 80 74, 60 87 Z"/></svg>
+            Medals
+          </div>
+          <div class="tab-item">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+            Quests
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HER phone -->
+    <div class="phone phone-her active" id="phone-her" onclick="setActive('her')">
+      <div class="phone-notch"></div>
+      <div class="phone-screen-inner">
+        <div class="her-screen" style="background:#F7F4EF;">
+          <div style="padding:16px 12px 2px;">
+            <div class="phone-time" style="margin:0;">9:41</div>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 12px 10px;">
+            <div class="her-greeting">Good morning, Sarah</div>
+            <div style="width:22px; height:22px; border-radius:50%; border:1.5px solid #1B2A4A; background:white; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="#1B2A4A"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+            </div>
+          </div>
+          <div class="fc-card">
+            <div class="fc-label">HOW ARE YOU FEELING TODAY?</div>
+            <div class="fc-weather-row">
+              <div class="fc-weather-item">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none"><circle cx="12" cy="12" r="4" fill="#C8A24B"/><line x1="12" y1="2" x2="12" y2="5" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round"/><line x1="12" y1="19" x2="12" y2="22" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round"/><line x1="2" y1="12" x2="5" y2="12" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round"/><line x1="19" y1="12" x2="22" y2="12" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round"/><line x1="4.93" y1="4.93" x2="7.05" y2="7.05" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round"/><line x1="16.95" y1="16.95" x2="19.07" y2="19.07" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round"/><line x1="19.07" y1="4.93" x2="16.95" y2="7.05" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round"/><line x1="7.05" y1="16.95" x2="4.93" y2="19.07" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <span class="fc-mood-label">Great</span>
+              </div>
+              <div class="fc-weather-item selected">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                  <!-- Sun rays fanning from upper-right of cloud -->
+                  <line x1="17" y1="2" x2="17" y2="4" stroke="#C8A24B" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="20" y1="3" x2="19" y2="4.5" stroke="#C8A24B" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="22" y1="6" x2="20.5" y2="6.5" stroke="#C8A24B" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="22.5" y1="9.5" x2="21" y2="9.5" stroke="#C8A24B" stroke-width="1.5" stroke-linecap="round"/>
+                  <!-- Sun circle sitting behind the cloud -->
+                  <circle cx="17" cy="9" r="3.5" fill="#C8A24B"/>
+                  <!-- Cloud in front -->
+                  <path d="M4 18 L14 18 C16.2 18 18 16.2 18 14 C18 11.8 16.2 10 14 10 C13.3 10 12.7 10.2 12.2 10.5 C11.5 9 10.1 8 8.5 8 C6.1 8 4.3 9.7 4.1 11.8 C2 11.8 0.5 13.3 0.5 15 C0.5 16.7 2 18 4 18 Z" fill="white" stroke="#1B2A4A" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+                </svg>
+                <span class="fc-mood-label">Okay</span>
+              </div>
+              <div class="fc-weather-item">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none"><path d="M4 17 L14 17 C16.2 17 18 15.2 18 13 C18 10.8 16.2 9 14 9 C13.3 9 12.7 9.2 12.2 9.5 C11.5 8 10.1 7 8.5 7 C6.1 7 4.3 8.7 4.1 10.8 C2 10.8 0.5 12.3 0.5 14 C0.5 15.7 2 17 4 17 Z" fill="white" stroke="#1B2A4A" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><polygon points="12,17 9,21.5 12,21.5 9.5,26 15.5,19.5 12.5,19.5" fill="#C8A24B"/></svg>
+                <span class="fc-mood-label">Rough</span>
+              </div>
+            </div>
+          </div>
+          <div class="phase-card-her">
+            <div class="phase-current-label">CURRENT PHASE</div>
+            <div class="phase-name-row">
+              <img src="../images/phase-luteal.png" style="width:32px; height:32px; object-fit:contain;" alt="Luteal phase"/>
+              <span class="phase-name-her">Luteal Phase</span>
+              <span class="phase-day-her">Day 21 of 28</span>
+            </div>
+            <a href="#" class="phase-learn-more">Learn more →</a>
+            <div class="phase-divider"></div>
+            <div class="phase-section-label">What this means for you</div>
+            <div class="phase-blurb">Your progesterone is dropping this week. Emotional load can feel heavier than usual. That's not you. That's biology.</div>
+          </div>
+        </div>
+        <div class="phone-tab-bar">
+          <div class="tab-item active">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#C8A24B"/><polyline points="7 12 10 15 17 9" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Today
+          </div>
+          <div class="tab-item">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+            Awards
+          </div>
+          <div class="tab-item">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            Library
+          </div>
+          <div class="tab-item">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 8 11 13 13 19 5"/><polyline points="15 5 19 5 19 9"/></svg>
+            Phases
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      <div class="phone-caption">Tap the toggle to see how MVP supports both partners.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="sec cream" id="how">
+  <div class="wrap">
+    <div class="how-head">
+      <div class="eyebrow">How it works</div>
+      <h2 class="h2">A few seconds from you.<br>One thoughtful action from&nbsp;him.</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <h3>Check in when you want</h3>
+        <p>Tell MVP how you are feeling. Check-ins are optional and take only seconds.</p>
+      </div>
+      <div class="step-card">
+        <svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <h3>Add what matters</h3>
+        <p>Save your love languages, favorite comforts, anniversary, and the details that help you feel known.</p>
+      </div>
+      <div class="step-card">
+        <svg class="icon" width="26" height="26" viewBox="0 0 120 120" fill="#C8A24B"><path fill-rule="evenodd" d="M60 8 C 76 13, 95 15, 108 15 L108 58 C108 90, 90 112, 60 122 C30 112, 12 90, 12 58 L12 15 C 25 15, 44 13, 60 8 Z M60 87 C 40 74, 31 59, 35 48 C 38 39, 50 39, 60 51 C 70 39, 82 39, 85 48 C 89 59, 80 74, 60 87 Z"/></svg>
+        <h3>MVP guides him</h3>
+        <p>He receives a daily suggestion even if you do not check in. The more you choose to add, the more tailored his guidance becomes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- YOUR SIDE -->
+<section class="sec navy on-navy" id="your-side">
+  <div class="wrap">
+    <div class="side-head">
+      <div class="eyebrow">Your side of MVP</div>
+      <h2 class="h2">Useful for your relationship.<br><span class="gold">Valuable for you.</span></h2>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <h3>Cycle and mood tracking</h3>
+        <p>Log your period, view your cycle, and record how you are feeling.</p>
+      </div>
+      <div class="feature-card">
+        <svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        <h3>Private notes and archive</h3>
+        <p>Save personal notes and look back through your history anytime.</p>
+      </div>
+      <div class="feature-card">
+        <svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+        <h3>Hormonal insights</h3>
+        <p>Learn how hormonal phases may affect your energy, mood, body, and relationships.</p>
+      </div>
+      <div class="feature-card">
+        <svg class="icon" width="26" height="26" class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <h3>Resource library</h3>
+        <p>Explore approachable articles about hormonal health, mental load, intimacy, and relationships.</p>
+      </div>
+    </div>
+
+    <div class="stage-grid">
+      <div class="stage-card">
+        <svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+        <span>Your cycle</span>
+      </div>
+      <div class="stage-card">
+        <svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <span>Pregnancy</span>
+      </div>
+      <div class="stage-card">
+        <svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/><rect x="8" y="4" width="8" height="8" rx="1.5"/></svg>
+        <span>Postpartum</span>
+      </div>
+      <div class="stage-card">
+        <svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+        <span>Breastfeeding</span>
+      </div>
+      <div class="stage-card">
+        <svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <span>Perimenopause</span>
+      </div>
+      <div class="stage-card">
+        <svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <span>Menopause</span>
+      </div>
+    </div>
+    <p class="stage-note">Use MVP with a connected partner or keep the experience entirely your own.</p>
+  </div>
+</section>
+
+<!-- APPLE HEALTH -->
+<section class="sec cream" id="apple-health">
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow">Already tracking your period?</div>
+      <h2 class="h2">Bring your cycle history with&nbsp;you.</h2>
+      <p class="lede">No starting over. No entering it twice.</p>
+    </div>
+    <div class="stack">
+      <div class="row-card">
+        <svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        <h3>Import in one tap</h3>
+        <p>MVP can import your existing cycle history directly from Apple Health once.</p>
+      </div>
+      <div class="row-card">
+        <svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+        <h3>Stay in sync</h3>
+        <p>Log future periods in MVP and, if you choose, sync them to Apple Health so you only log once.</p>
+      </div>
+      <p class="split-note">Don't use Apple Health? You can log everything directly in MVP.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVACY -->
+<section class="sec white" id="privacy">
+  <div class="wrap split privacy-split">
+    <div>
+      <svg class="privacy-shield" width="60" height="60" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" fill="none">
+      <g stroke="#C9A24C" stroke-linejoin="round" stroke-linecap="round" fill="none">
+        <path d="M60 6 C 78 12, 98 14, 112 14 L112 60 C112 96, 92 122, 60 134 C28 122, 8 96, 8 60 L8 14 C 22 14, 42 12, 60 6 Z" stroke-width="4"/>
+        <path d="M60 14 C 76 19, 92 21, 104 21 L104 60 C104 92, 87 115, 60 126 C33 115, 16 92, 16 60 L16 21 C 28 21, 44 19, 60 14 Z" stroke-width="1.5"/>
+      </g>
+      <path d="M60 92 C 38 78, 28 62, 32 50 C 36 40, 50 40, 60 54 C 70 40, 84 40, 88 50 C 92 62, 82 78, 60 92 Z" fill="#C9A24C"/>
+    </svg>
+      <div class="eyebrow">Your privacy</div>
+      <h2 class="h2"><span class="nowrap">Your body.</span><br><span class="nowrap">Your data.</span></h2>
+    </div>
+    <div class="stack">
+      <div class="row-card">
+        <svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <h3>Today's action, never your archive</h3>
+        <p>MVP can use your current cycle and your last few days of mood information to guide his action. He cannot browse your past moods, tracking history, logs, or private notes.</p>
+      </div>
+      <div class="row-card">
+        <svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <h3>Your account stays yours</h3>
+        <p>Pause, unlink, switch partners, or use MVP on your own. Your account and personal history remain yours.</p>
+      </div>
+      <div class="row-card">
+        <svg class="icon" width="26" height="26" viewBox="0 0 120 120" fill="#C8A24B"><path fill-rule="evenodd" d="M60 8 C 76 13, 95 15, 108 15 L108 58 C108 90, 90 112, 60 122 C30 112, 12 90, 12 58 L12 15 C 25 15, 44 13, 60 8 Z M60 87 C 40 74, 31 59, 35 48 C 38 39, 50 39, 60 51 C 70 39, 82 39, 85 48 C 89 59, 80 74, 60 87 Z"/></svg>
+        <h3>No ads. No data selling.</h3>
+        <p>MVP has no third-party ads and never sells your personal or health information.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREATOR NOTE -->
+<section class="sec navy on-navy" id="creator">
+  <div class="creator">
+    <svg class="creator-badge" width="170" height="170" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" fill="none">
+      <g stroke="#C9A24C" stroke-linejoin="round" stroke-linecap="round" fill="none">
+        <path d="M60 6 C 78 12, 98 14, 112 14 L112 60 C112 96, 92 122, 60 134 C28 122, 8 96, 8 60 L8 14 C 22 14, 42 12, 60 6 Z" stroke-width="4"/>
+        <path d="M60 14 C 76 19, 92 21, 104 21 L104 60 C104 92, 87 115, 60 126 C33 115, 16 92, 16 60 L16 21 C 28 21, 44 19, 60 14 Z" stroke-width="1.5"/>
+      </g>
+      <path d="M60 92 C 38 78, 28 62, 32 50 C 36 40, 50 40, 60 54 C 70 40, 84 40, 88 50 C 92 62, 82 78, 60 92 Z" fill="#C9A24C"/>
+    </svg>
+    <div>
+      <div class="eyebrow">A note from the creator</div>
+      <blockquote>I built MVP not only to help partners understand each other, but because, as a woman navigating hormonal changes myself, I wanted a tool that reflected our everyday reality.</blockquote>
+      <p>I use MVP too, and it will continue to grow through the real experiences of the women who use it. If there is something that would make MVP more supportive or valuable for you, I would love to hear from you.</p>
+      <button class="btn-outline" onclick="window.location.href='/hervoice'">Share Your Feedback</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDING 100 -->
+<section class="sec cream founding" id="join">
+  <div class="wrap">
+    <div id="founding-open">
+      <div class="eyebrow">Free for a limited time. No credit card required.</div>
+      <h2 class="h2">Try MVP free. Lock in $7.99/month for life.</h2>
+      <p class="body">Our first 100 members get free early access now, and lock in $7.99/month for life once pricing begins. Everyone after that pays the standard rate.</p>
+      <div class="join-form" id="waitlist-form-founding">
+        <input type="email" id="waitlist-email-founding" class="waitlist-input" placeholder="Your email address" autocomplete="email" required onkeydown="if(event.key==='Enter')submitWaitlist('founding')">
+        <button class="btn-gold" onclick="submitWaitlist('founding')">Get Free Early Access</button>
+      </div>
+      <div class="form-success" id="waitlist-success-founding">You're on the list.<small>We'll email you as soon as MVP is ready to download.</small></div>
+      <div class="checks">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>No credit card</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>iOS only</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>No ads</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>We don't sell your data</span>
+      </div>
+    </div>
+    <div id="founding-closed" style="display:none;">
+      <div class="eyebrow">The founding 100 is full</div>
+      <h2 class="h2">Join the waitlist.</h2>
+      <p class="body">All 100 founding spots are taken. Join the general waitlist and we'll email you the moment MVP opens up to new members.</p>
+      <div class="join-form" id="waitlist-form-general">
+        <input type="email" id="waitlist-email-general" class="waitlist-input" placeholder="Your email address" autocomplete="email" required onkeydown="if(event.key==='Enter')submitWaitlist('general')">
+        <button class="btn-gold" onclick="submitWaitlist('general')">Join the Waitlist</button>
+      </div>
+      <div class="form-success" id="waitlist-success-general">You're on the list.<small>We'll email you as soon as a spot opens up.</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="footer-logo">
+    <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M60 6 C 78 12, 98 14, 112 14 L112 60 C112 96, 92 122, 60 134 C28 122, 8 96, 8 60 L8 14 C 22 14, 42 12, 60 6 Z" fill="#0E2348"/>
+      <path d="M60 14 C 76 19, 92 21, 104 21 L104 60 C104 92, 87 115, 60 126 C33 115, 16 92, 16 60 L16 21 C 28 21, 44 19, 60 14 Z" fill="none" stroke="#C8A24B" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M60 92 C 38 78, 28 62, 32 50 C 36 40, 50 40, 60 54 C 70 40, 84 40, 88 50 C 92 62, 82 78, 60 92 Z" fill="#C8A24B"/>
+    </svg>
+    <div style="line-height:1.1;">
+      <div style="font-size:15px; font-weight:700; color:#fff; letter-spacing:0.3px;">Most Valuable Partner</div>
+      <div style="font-size:13px; font-weight:700; color:rgba(255,255,255,0.55); letter-spacing:1px;">MVP</div>
+    </div>
+  </a>
+  <div class="footer-links">
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="/faq">FAQ</a>
+    <a href="#" onclick="openFeedbackModal(); return false;">Feedback</a>
+    <a href="mailto:hello@mostvaluablepartner.app">Contact</a>
+  </div>
+  <div class="footer-copy" style="flex:none;">© 2026 Most Valuable Partner. All rights reserved.</div>
+  <div class="footer-disclaimer">MVP is not a medical app, and it isn't for birth control or pregnancy planning.</div>
+</footer>
+
+<script>
+// ── SUPABASE CONFIG ──────────────────────────────────────────────────────────
+// Fill in your project URL and anon key from the Supabase dashboard.
+// Settings → API → Project URL and anon/public key.
+const SUPABASE_URL  = 'https://uzpykcyowxusexfmqfnp.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV6cHlrY3lvd3h1c2V4Zm1xZm5wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExMzkyODUsImV4cCI6MjA5NjcxNTI4NX0.YRr8p6rKQtdk7V8xUQZ1PDzydPD21CuvqDaw6yhsgv0';
+
+async function submitWaitlist(location) {
+  const emailEl  = document.getElementById('waitlist-email-' + location);
+  const formEl   = document.getElementById('waitlist-form-' + location);
+  const successEl = document.getElementById('waitlist-success-' + location);
+  const btn = formEl.querySelector('button');
+
+  const email = emailEl.value.trim();
+  if (!email || !email.includes('@')) {
+    emailEl.focus();
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'One sec...';
+
+  try {
+    const res = await fetch(SUPABASE_URL + '/rest/v1/waitlist', {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_ANON,
+        'Authorization': 'Bearer ' + SUPABASE_ANON,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({ email, source: location })
+    });
+
+    if (res.ok || res.status === 409) {
+      // 409 = duplicate email (unique constraint), still show success
+      formEl.style.display = 'none';
+      successEl.style.display = 'block';
+    } else {
+      const body = await res.text();
+      throw new Error('Status ' + res.status + ': ' + body);
+    }
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'Get Free Early Access';
+    alert(err.message);
+  }
+}
+
+// The "Founding 100" offer is a real, shared cap with the main homepage (same source value,
+// 'founding', so a signup here counts against the same 100 regardless of which page it came
+// from), not just a claim in the copy. get_founding_waitlist_count() is a count-only RPC, anon
+// has no SELECT on the waitlist table itself, by design, so it can't read emails. See
+// supabase/migrations/20261025000002_founding_waitlist_count.sql in mvp-app.
+async function checkFoundingCap() {
+  try {
+    const res = await fetch(SUPABASE_URL + '/rest/v1/rpc/get_founding_waitlist_count', {
+      method: 'POST',
+      headers: { 'apikey': SUPABASE_ANON, 'Authorization': 'Bearer ' + SUPABASE_ANON, 'Content-Type': 'application/json' }
+    });
+    if (!res.ok) return;
+    const count = await res.json();
+    if (count >= 100) {
+      document.getElementById('founding-open').style.display = 'none';
+      document.getElementById('founding-closed').style.display = 'block';
+    }
+  } catch (err) {
+    // If the check fails, leave the open/founding state showing rather than blocking signups.
+  }
+}
+document.addEventListener('DOMContentLoaded', checkFoundingCap);
+
+function setActive(side) {
+  const hisPhone = document.getElementById('phone-his');
+  const herPhone = document.getElementById('phone-her');
+  const hisBtn = document.getElementById('btn-his');
+  const herBtn = document.getElementById('btn-her');
+
+  if (side === 'his') {
+    hisPhone.classList.add('active');
+    herPhone.classList.remove('active');
+    hisBtn.classList.add('active-his');
+    hisBtn.classList.remove('active-her');
+    herBtn.classList.remove('active-his', 'active-her');
+  } else {
+    herPhone.classList.add('active');
+    hisPhone.classList.remove('active');
+    herBtn.classList.add('active-her');
+    herBtn.classList.remove('active-his');
+    hisBtn.classList.remove('active-his', 'active-her');
+  }
+}
+
+function setPhase(phase) {
+  document.querySelectorAll('.phase-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.phase-content').forEach(c => c.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('phase-' + phase).classList.add('active');
+}
+
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  item.classList.toggle('open');
+}
+
+// Mobile: stack all multi-column grids
+if (window.innerWidth < 640) {
+  document.querySelectorAll('[style*="grid-template-columns: 1fr 1fr"], [style*="grid-template-columns: 1fr 1fr"]').forEach(el => {
+    el.style.gridTemplateColumns = '1fr';
+    el.style.gap = '16px';
+  });
+  document.querySelectorAll('[style*="max-width: 1100px"]').forEach(el => {
+    el.style.gridTemplateColumns = '1fr';
+    el.style.gap = '40px';
+  });
+}
+
+function openFeedbackModal() {
+  document.getElementById('feedback-modal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeFeedbackModal() {
+  document.getElementById('feedback-modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+window.addEventListener('pageshow', function(e) {
+  if (e.persisted) closeFeedbackModal();
+});
+</script>
+
+<!-- FEEDBACK FORK MODAL -->
+<div id="feedback-modal" onclick="if(event.target===this)closeFeedbackModal()" style="display:none; position:fixed; inset:0; z-index:999; background:rgba(27,42,74,0.72); backdrop-filter:blur(4px); align-items:center; justify-content:center; padding:20px;">
+  <div style="background:white; border-radius:24px; padding:44px 36px 36px; max-width:380px; width:100%; text-align:center; position:relative; box-shadow:0 24px 80px rgba(27,42,74,0.25);">
+    <button onclick="closeFeedbackModal()" style="position:absolute; top:16px; right:18px; background:none; border:none; cursor:pointer; color:#8A96A8; font-size:22px; line-height:1; padding:4px;">×</button>
+    <svg viewBox="0 0 120 140" fill="none" width="48" height="56" style="margin-bottom:16px;">
+      <g stroke="#C8A24B" stroke-linejoin="round" stroke-linecap="round" fill="none">
+        <path d="M60 6 C 78 12, 98 14, 112 14 L112 60 C112 96, 92 122, 60 134 C28 122, 8 96, 8 60 L8 14 C 22 14, 42 12, 60 6 Z" stroke-width="4"/>
+        <path d="M60 14 C 76 19, 92 21, 104 21 L104 60 C104 92, 87 115, 60 126 C33 115, 16 92, 16 60 L16 21 C 28 21, 44 19, 60 14 Z" stroke-width="1.5"/>
+      </g>
+      <path d="M60 92 C 38 78, 28 62, 32 50 C 36 40, 50 40, 60 54 C 70 40, 84 40, 88 50 C 92 62, 82 78, 60 92 Z" fill="#C8A24B"/>
+    </svg>
+    <div style="font-size:21px; font-weight:800; color:#1B2A4A; margin-bottom:10px;">Who's sharing feedback?</div>
+    <div style="font-size:15px; color:#4A5A78; margin-bottom:32px; line-height:1.55;">Help us build the right thing<br>for both of you.</div>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <a href="/hisvoice" style="background:#1B2A4A; color:white; padding:16px 24px; border-radius:50px; font-weight:700; font-size:16px; text-decoration:none; display:block;">I'm him &nbsp;→</a>
+      <a href="/hervoice" style="background:#C8A24B; color:white; padding:16px 24px; border-radius:50px; font-weight:700; font-size:16px; text-decoration:none; display:block;">I'm her &nbsp;→</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

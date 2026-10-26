@@ -1619,6 +1619,38 @@ footer {
 @media (max-width: 400px) {
   .personalized-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
+
+/* Founding 100 section, shared with /her (2026-10-25) */
+.wrap { max-width: 1120px; margin: 0 auto; }
+.eyebrow {
+  font-size: 13px; font-weight: 700; letter-spacing: 2.6px; text-transform: uppercase;
+  color: var(--gold-dark); margin-bottom: 18px;
+}
+.h2 {
+  font-size: clamp(34px, 5vw, 60px); font-weight: 800; line-height: 1.05;
+  letter-spacing: -1.5px; color: var(--navy); text-wrap: balance;
+}
+.btn-gold {
+  display: inline-block; background: var(--gold); color: #fff; font-size: 16px; font-weight: 700;
+  padding: 17px 32px; border-radius: 50px; text-decoration: none; transition: background 0.15s;
+  border: none; cursor: pointer; font-family: inherit; white-space: nowrap;
+}
+.btn-gold:hover { background: var(--gold-dark); }
+.sec { padding: 112px 40px; }
+.sec.cream { background: var(--cream-light); }
+.founding { text-align: center; }
+.founding .body { font-size: 19px; line-height: 1.6; color: var(--text-mid); max-width: 660px; margin: 22px auto 34px; }
+.join-form { display: flex; gap: 14px; justify-content: center; max-width: 640px; margin: 0 auto; }
+.join-form .waitlist-input { flex: 1; min-width: 0; }
+.join-form .btn-gold { flex-shrink: 0; }
+.checks { display: flex; gap: 26px; justify-content: center; flex-wrap: wrap; margin-top: 30px; font-size: 14px; color: var(--text-light); }
+.checks span { display: inline-flex; align-items: center; gap: 7px; }
+.checks svg { width: 14px; height: 14px; color: var(--gold); }
+.form-success { display: none; font-size: 18px; font-weight: 700; color: var(--navy); margin-top: 8px; }
+.form-success small { display: block; font-size: 15px; font-weight: 400; color: var(--text-mid); margin-top: 6px; }
+.founding .waitlist-input { background:#fff; border:1px solid #E3DDD2; box-shadow:0 6px 20px rgba(27,42,74,0.06); padding:17px 24px; }
+@media (max-width: 768px) { .sec { padding: 72px 24px; } }
+@media (max-width: 600px) { .join-form { flex-direction: column; } }
 </style>
 </head>
 <body>
@@ -1638,7 +1670,7 @@ footer {
   </a>
   <div style="display:flex; align-items:center; gap:12px;">
     <button class="nav-feedback-btn" onclick="openFeedbackModal()" style="font-size:14px; font-weight:700; color:#C8A24B; background:transparent; border:2px solid #C8A24B; border-radius:50px; padding:8px 18px; white-space:nowrap; cursor:pointer; transition:all 0.15s; font-family:inherit;" onmouseover="this.style.background='rgba(200,162,75,0.12)'" onmouseout="this.style.background='transparent'">Share your feedback</button>
-    <a href="#waitlist" class="nav-btn">Get Early Access</a>
+    <a href="#waitlist" class="nav-btn">Get Free Early Access</a>
   </div>
 </nav>
 
@@ -1786,6 +1818,8 @@ footer {
     </div>
   </div>
 
+  <div style="margin-top:22px; font-size:13px; color:rgba(255,255,255,0.5); text-align:center;">Tap the toggle to see how MVP supports both partners.</div>
+
   <button class="hero-feedback-link" onclick="openFeedbackModal()">Share your feedback →</button>
 
 </section>
@@ -1906,47 +1940,35 @@ footer {
   </div>
 </section>
 
-<!-- PRICING -->
-<section class="pricing" id="pricing">
-  <div style="display: flex; align-items: center; gap: 48px; max-width: 860px; margin: 0 auto; flex-wrap: wrap; justify-content: center;">
-    <div class="price-card featured" style="max-width: 420px; width: 100%; flex-shrink: 0;">
-      <div class="price-amount">$7.99<span>/month</span></div>
-      <p class="price-desc" style="color:rgba(255,255,255,0.5); margin-bottom:4px;">First month free.</p>
-      <div class="price-divider"></div>
-      <div class="price-feature">
-        <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        One daily action, tailored for you specifically
+<!-- FOUNDING 100 -->
+<section class="sec cream founding" id="waitlist">
+  <div class="wrap">
+    <div id="founding-open">
+      <div class="eyebrow">Free for a limited time. No credit card required.</div>
+      <h2 class="h2">Try MVP free. Lock in $7.99/month for life.</h2>
+      <p class="body">Our first 100 members get free early access now, and lock in $7.99/month for life once pricing begins. Everyone after that pays the standard rate.</p>
+      <div class="join-form" id="waitlist-form-founding">
+        <input type="email" id="waitlist-email-founding" class="waitlist-input" placeholder="Your email address" autocomplete="email" required onkeydown="if(event.key==='Enter')submitWaitlist('founding')">
+        <button class="btn-gold" onclick="submitWaitlist('founding')">Get Free Early Access</button>
       </div>
-      <div class="price-feature">
-        <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        Important Date Alerts: 30 days before birthdays, anniversaries, and holidays
-      </div>
-      <div class="price-feature">
-        <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        Side Quests: date nights, challenges, seasonal missions
-      </div>
-      <div class="price-feature">
-        <svg class="check" viewBox="0 0 24 24" fill="none" stroke="#C8A24B" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        Personal Playbook: her favorites, important dates, and your notes
+      <div class="form-success" id="waitlist-success-founding">You're on the list.<small>We'll email you as soon as MVP is ready to download.</small></div>
+      <div class="checks">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>No credit card</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>iOS only</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>No ads</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>We don't sell your data</span>
       </div>
     </div>
-    <div style="text-align: left; flex: 1; min-width: 220px;">
-      <h2 style="font-size: clamp(28px, 4vw, 44px); margin-bottom: 24px;">Simple pricing.<br>More connection.</h2>
-      <div style="display:flex; flex-direction:column; gap:10px; max-width:340px;">
-        <input type="email" id="waitlist-email-pricing" class="waitlist-input" placeholder="Your email address" autocomplete="email" required />
-        <button class="waitlist-submit" onclick="submitWaitlist('pricing')">Get Early Access</button>
+    <div id="founding-closed" style="display:none;">
+      <div class="eyebrow">The founding 100 is full</div>
+      <h2 class="h2">Join the waitlist.</h2>
+      <p class="body">All 100 founding spots are taken. Join the general waitlist and we'll email you the moment MVP opens up to new members.</p>
+      <div class="join-form" id="waitlist-form-general">
+        <input type="email" id="waitlist-email-general" class="waitlist-input" placeholder="Your email address" autocomplete="email" required onkeydown="if(event.key==='Enter')submitWaitlist('general')">
+        <button class="btn-gold" onclick="submitWaitlist('general')">Join the Waitlist</button>
       </div>
+      <div class="form-success" id="waitlist-success-general">You're on the list.<small>We'll email you as soon as a spot opens up.</small></div>
     </div>
-  </div>
-
-  <div class="pricing-footnote">
-    <span>iOS only</span>
-    <span>·</span>
-    <span>No tracking</span>
-    <span>·</span>
-    <span>No ads</span>
-    <span>·</span>
-    <span>Cancel anytime</span>
   </div>
 </section>
 
@@ -2020,6 +2042,28 @@ async function submitWaitlist(location) {
     alert(err.message);
   }
 }
+
+// The "Founding 100" offer on the homepage is a real cap, not just a claim in the copy, so
+// check the live count before deciding which state to show. get_founding_waitlist_count() is a
+// count-only RPC (anon has no SELECT on the waitlist table itself, by design, so it can't read
+// emails), see supabase/migrations/20261025000002_founding_waitlist_count.sql in mvp-app.
+async function checkFoundingCap() {
+  try {
+    const res = await fetch(SUPABASE_URL + '/rest/v1/rpc/get_founding_waitlist_count', {
+      method: 'POST',
+      headers: { 'apikey': SUPABASE_ANON, 'Authorization': 'Bearer ' + SUPABASE_ANON, 'Content-Type': 'application/json' }
+    });
+    if (!res.ok) return;
+    const count = await res.json();
+    if (count >= 100) {
+      document.getElementById('founding-open').style.display = 'none';
+      document.getElementById('founding-closed').style.display = 'block';
+    }
+  } catch (err) {
+    // If the check fails, leave the open/founding state showing rather than blocking signups.
+  }
+}
+document.addEventListener('DOMContentLoaded', checkFoundingCap);
 
 function setActive(side) {
   const hisPhone = document.getElementById('phone-his');
